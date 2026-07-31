@@ -1,0 +1,96 @@
+{% extends 'company/company_base.html' %}
+
+{% block title %}Edit Job Posting - PlacementIQ AI{% endblock %}
+{% block page_header %}Edit Job Posting{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="form-card">
+            <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+                <h4 class="fw-bold text-dark mb-0"><i class="fas fa-edit text-primary me-2"></i> Edit Job: {{ job.title }}</h4>
+                <a href="{{ url_for('company.jobs_list') }}" class="btn btn-sm btn-outline-secondary rounded-pill">
+                    <i class="fas fa-arrow-left me-1"></i> Back to Jobs
+                </a>
+            </div>
+
+            <form action="{{ url_for('company.job_edit', job_id=job.id) }}" method="POST">
+                <div class="row g-3">
+                    <div class="col-md-8">
+                        <label class="form-label"><i class="fas fa-briefcase text-primary me-1"></i> Job Title *</label>
+                        <input type="text" class="form-control" name="title" value="{{ job.title }}" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-coins text-primary me-1"></i> Salary Package (LPA) *</label>
+                        <input type="text" class="form-control" name="salary_package" value="{{ job.salary_package }}" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label"><i class="fas fa-code text-primary me-1"></i> Required Technical Skills (Comma-Separated) *</label>
+                        <input type="text" class="form-control" name="required_skills" value="{{ job.required_skills }}" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-graduation-cap text-primary me-1"></i> Minimum CGPA Cutoff</label>
+                        <input type="number" step="0.1" min="0" max="10" class="form-control" name="min_cgpa" value="{{ job.min_cgpa }}">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-layer-group text-primary me-1"></i> Experience Level</label>
+                        <select class="form-select" name="experience_level">
+                            <option value="Freshers" {% if job.experience_level == 'Freshers' %}selected{% endif %}>Freshers (2026 Batch)</option>
+                            <option value="0-1 Years" {% if job.experience_level == '0-1 Years' %}selected{% endif %}>0-1 Years</option>
+                            <option value="1-2 Years" {% if job.experience_level == '1-2 Years' %}selected{% endif %}>1-2 Years</option>
+                            <option value="2+ Years" {% if job.experience_level == '2+ Years' %}selected{% endif %}>2+ Years</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-user-clock text-primary me-1"></i> Internship Requirement</label>
+                        <select class="form-select" name="internship_required">
+                            <option value="No" {% if job.internship_required == 'No' %}selected{% endif %}>No Requirement</option>
+                            <option value="Preferred" {% if job.internship_required == 'Preferred' %}selected{% endif %}>Preferred</option>
+                            <option value="Yes" {% if job.internship_required == 'Yes' %}selected{% endif %}>Mandatory</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-certificate text-primary me-1"></i> Min Certifications Required</label>
+                        <input type="number" min="0" class="form-control" name="required_certifications" value="{{ job.required_certifications }}">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-map-marker-alt text-primary me-1"></i> Job Location *</label>
+                        <input type="text" class="form-control" name="location" value="{{ job.location }}" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-calendar-alt text-primary me-1"></i> Application Deadline *</label>
+                        <input type="date" class="form-control" name="deadline" value="{{ job.deadline }}" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label"><i class="fas fa-align-left text-primary me-1"></i> Detailed Job Description *</label>
+                        <textarea class="form-control" name="description" rows="5" required>{{ job.description }}</textarea>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-toggle-on text-primary me-1"></i> Posting Status</label>
+                        <select class="form-select" name="status">
+                            <option value="Active" {% if job.status == 'Active' %}selected{% endif %}>Active (Open for Applications)</option>
+                            <option value="Closed" {% if job.status == 'Closed' %}selected{% endif %}>Closed / Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-top text-end">
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm">
+                        <i class="fas fa-save me-2"></i> Save Job Updates
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

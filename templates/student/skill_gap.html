@@ -1,0 +1,154 @@
+{% extends "student/student_base.html" %}
+
+{% block title %}Skill Gap Analysis - PlacementIQ{% endblock %}
+{% block page_title %}AI Skill Gap Analysis{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+
+    <!-- Top Action Banner -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2" style="color: #d97706;">
+                    <i class="fas fa-chart-bar me-1"></i> AI Placement Readiness Audit
+                </span>
+                <h3 class="fw-bold text-dark mb-1">Personalized Skill Gap Analysis</h3>
+                <p class="text-muted mb-0">Comparison of your profile metrics against recruitment benchmarks across Tier-1 software and core companies.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a href="{{ url_for('student.predict') }}" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm">
+                    <i class="fas fa-calculator me-1"></i> Re-Calculate Placement Probability
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Identified Gaps Alert Banner -->
+    {% if gaps %}
+        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4 border-start border-5 border-warning">
+            <h5 class="fw-bold text-dark mb-3"><i class="fas fa-exclamation-triangle text-warning me-2"></i> Critical Areas Requiring Attention ({{ gaps|length }})</h5>
+            <div class="d-flex flex-wrap gap-2">
+                {% for gap in gaps %}
+                    <span class="badge bg-warning-subtle text-dark border border-warning px-3 py-2 rounded-pill fs-6 fw-normal">
+                        <i class="fas fa-arrow-up text-warning me-1"></i> {{ gap }}
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4 border-start border-5 border-success">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                <div>
+                    <h5 class="fw-bold text-dark mb-1">Outstanding Profile! No Major Skill Gaps Detected</h5>
+                    <p class="text-muted mb-0 small">Your academic CGPA, coding test scores, and aptitude metrics meet tier-1 recruitment benchmarks.</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Metrics Comparison Grid -->
+    <div class="row g-4 mb-4">
+        <!-- CGPA Audit -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small fw-semibold">ACADEMIC CGPA</span>
+                    <i class="fas fa-graduation-cap text-primary fa-xl"></i>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">{{ student.cgpa }}<span class="fs-6 text-muted"> / 10.0</span></h3>
+                <div class="progress mb-2" style="height: 8px;">
+                    <div class="progress-bar bg-{{ 'success' if student.cgpa >= 8.0 else ('warning' if student.cgpa >= 7.0 else 'danger') }}" style="width: {{ (student.cgpa / 10.0) * 100 }}%;"></div>
+                </div>
+                <small class="text-muted">Target: 8.0+ for top tech tier cutoffs.</small>
+            </div>
+        </div>
+
+        <!-- Coding Score Audit -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small fw-semibold">CODING ASSESSMENT SCORE</span>
+                    <i class="fas fa-code text-success fa-xl"></i>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">{{ student.coding_score }}<span class="fs-6 text-muted"> / 100</span></h3>
+                <div class="progress mb-2" style="height: 8px;">
+                    <div class="progress-bar bg-{{ 'success' if student.coding_score >= 75 else ('warning' if student.coding_score >= 60 else 'danger') }}" style="width: {{ student.coding_score }}%;"></div>
+                </div>
+                <small class="text-muted">Target: 75+ for technical test passing.</small>
+            </div>
+        </div>
+
+        <!-- Aptitude Score Audit -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small fw-semibold">APTITUDE TEST SCORE</span>
+                    <i class="fas fa-brain text-info fa-xl"></i>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">{{ student.aptitude_score }}<span class="fs-6 text-muted"> / 100</span></h3>
+                <div class="progress mb-2" style="height: 8px;">
+                    <div class="progress-bar bg-{{ 'success' if student.aptitude_score >= 75 else ('warning' if student.aptitude_score >= 60 else 'danger') }}" style="width: {{ student.aptitude_score }}%;"></div>
+                </div>
+                <small class="text-muted">Target: 70+ for round 1 aptitude screening.</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Targeted Improvement Suggestions -->
+    <div class="row g-4">
+        <!-- Coding & Technical Drills -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-3"><i class="fas fa-laptop-code text-primary me-2"></i> Technical & Coding Recommendations</h5>
+                {% if suggestions.coding_tips %}
+                    <ul class="list-group list-group-flush border-0">
+                        {% for tip in suggestions.coding_tips %}
+                            <li class="list-group-item border-0 px-0 bg-transparent py-2 text-dark small">
+                                <i class="fas fa-angle-right text-primary me-2 fw-bold"></i> {{ tip }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted small mb-0">Your coding skills are aligned with current recruitment expectations.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Aptitude & Soft Skills -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-3"><i class="fas fa-comments text-info me-2"></i> Soft Skills & Aptitude Recommendations</h5>
+                
+                {% if suggestions.aptitude_tips %}
+                    <div class="mb-3">
+                        <small class="fw-bold text-secondary d-block mb-1">Aptitude Drills:</small>
+                        <ul class="small ps-3 mb-0">
+                            {% for tip in suggestions.aptitude_tips %}
+                                <li class="mb-1 text-dark">{{ tip }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                {% if suggestions.communication_tips %}
+                    <div>
+                        <small class="fw-bold text-secondary d-block mb-1">Communication & HR Round:</small>
+                        <ul class="small ps-3 mb-0">
+                            {% for tip in suggestions.communication_tips %}
+                                <li class="mb-1 text-dark">{{ tip }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                {% if not suggestions.aptitude_tips and not suggestions.communication_tips %}
+                    <p class="text-muted small mb-0">Soft skills and aptitude test metrics are in good standing.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

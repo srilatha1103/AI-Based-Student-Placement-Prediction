@@ -1,0 +1,209 @@
+{% extends "student/student_base.html" if is_student_portal else "base.html" %}
+
+{% block title %}Mock Interview Scorecard - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+
+    <!-- Top Action Banner -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2">
+                <i class="fas fa-check-circle me-1"></i> Evaluation Complete
+            </span>
+            <h2 class="fw-bold text-dark mb-1">AI Mock Interview Evaluation Report</h2>
+            <p class="text-muted mb-0">Category: <strong>{{ interview.category }}</strong> | Domain: <strong>{{ interview.domain }}</strong> | Date: {{ interview.created_at }}</p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            {% if is_student_portal %}
+                <a href="{{ url_for('student.mock_interview_hub') }}" class="btn btn-primary rounded-pill fw-bold shadow-sm px-4 py-2 me-2">
+                    <i class="fas fa-redo me-1"></i> Practice Again
+                </a>
+                <a href="{{ url_for('student.mock_interview_dashboard') }}" class="btn btn-outline-secondary rounded-pill px-3 py-2">
+                    <i class="fas fa-chart-line me-1"></i> Analytics
+                </a>
+            {% else %}
+                <a href="{{ url_for('public.resume_analyzer_route') }}" class="btn btn-primary rounded-pill fw-bold shadow-sm px-4 py-2 me-2">
+                    <i class="fas fa-redo me-1"></i> Try Resume Analyzer
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Metric Summary Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">INTERVIEW SCORE</span>
+                        <h2 class="display-6 fw-bold text-primary mb-0">{{ "%.1f"|format(interview.total_score) }}%</h2>
+                        <small class="text-success fw-semibold">
+                            {% if interview.total_score >= 80 %}
+                                <i class="fas fa-trophy me-1"></i> High Proficiency
+                            {% elif interview.total_score >= 60 %}
+                                <i class="fas fa-check-circle me-1"></i> Good Competency
+                            {% else %}
+                                <i class="fas fa-exclamation-circle me-1"></i> Action Required
+                            {% endif %}
+                        </small>
+                    </div>
+                    <div class="avatar-lg bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <i class="fas fa-award fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">QUESTIONS PASSED</span>
+                        <h2 class="display-6 fw-bold text-success mb-0">{{ interview.correct_answers }}<span class="fs-5 text-muted">/{{ interview.total_questions }}</span></h2>
+                        <small class="text-muted"><i class="fas fa-check text-success me-1"></i> Validated</small>
+                    </div>
+                    <div class="avatar-lg bg-success-subtle text-success rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <i class="fas fa-check-double fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">TIME TAKEN</span>
+                        <h2 class="display-6 fw-bold text-info mb-0">{{ (interview.time_taken_seconds // 60) }}m {{ (interview.time_taken_seconds % 60) }}s</h2>
+                        <small class="text-muted"><i class="fas fa-stopwatch text-info me-1"></i> Duration</small>
+                    </div>
+                    <div class="avatar-lg bg-info-subtle text-info rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">PERFORMANCE RATING</span>
+                        <h3 class="fw-bold text-dark mb-0 mt-1">
+                            {% if interview.total_score >= 80 %}Strong Match
+                            {% elif interview.total_score >= 60 %}Good Fit
+                            {% else %}Needs Practice
+                            {% endif %}
+                        </h3>
+                        <small class="text-muted">Recruitment Readiness</small>
+                    </div>
+                    <div class="avatar-lg bg-warning-subtle text-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <i class="fas fa-star fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Feedback & Strengths / Weaknesses -->
+    <div class="row g-4 mb-4">
+        <!-- AI Feedback Card -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-3"><i class="fas fa-robot text-primary me-2"></i> AI Performance Feedback</h5>
+                <p class="text-dark bg-light p-3 rounded-3 mb-4 fs-6">{{ interview.feedback }}</p>
+
+                <h6 class="fw-bold text-dark mb-2"><i class="fas fa-lightbulb text-warning me-2"></i> Recommended Focus Topics:</h6>
+                {% if interview.recommended_topics %}
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for topic in interview.recommended_topics %}
+                            <span class="badge bg-primary-subtle text-primary border shadow-sm px-3 py-2 rounded-pill">
+                                <i class="fas fa-arrow-right me-1"></i> {{ topic }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Strong & Weak Areas -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <!-- Strong Areas -->
+                <div class="p-3 bg-success-subtle text-success rounded-3 mb-3">
+                    <h6 class="fw-bold mb-2"><i class="fas fa-thumbs-up me-2"></i> Verified Strong Areas</h6>
+                    {% if interview.strengths %}
+                        <ul class="mb-0 ps-3">
+                            {% for str in interview.strengths %}
+                                <li class="small mb-1">{{ str }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <!-- Weak Areas -->
+                <div class="p-3 bg-warning-subtle text-dark rounded-3">
+                    <h6 class="fw-bold text-warning-emphasis mb-2"><i class="fas fa-exclamation-triangle me-2"></i> Targeted Improvement Areas</h6>
+                    {% if interview.weaknesses %}
+                        <ul class="mb-0 ps-3">
+                            {% for w in interview.weaknesses %}
+                                <li class="small mb-1">{{ w }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question-by-Question Breakdown -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="card-header bg-white border-0 pt-4 px-4">
+            <h5 class="fw-bold text-dark mb-0"><i class="fas fa-list text-primary me-2"></i> Detailed Question Answers & Explanations</h5>
+        </div>
+        <div class="card-body p-4">
+            {% if interview.answers %}
+                <div class="accordion" id="answersAccordion">
+                    {% for ans in interview.answers %}
+                        <div class="accordion-item border-0 shadow-sm rounded-3 mb-3 overflow-hidden">
+                            <h2 class="accordion-header" id="heading_{{ loop.index }}">
+                                <button class="accordion-button collapsed bg-light text-dark fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ loop.index }}" aria-expanded="false">
+                                    <span class="me-3">Q{{ loop.index }}. {{ ans.question_text }}</span>
+                                    <span class="ms-auto badge bg-{{ 'success' if ans.is_correct else 'danger' }}-subtle text-{{ 'success' if ans.is_correct else 'danger' }} px-3 py-2 rounded-pill">
+                                        {{ "%.1f"|format(ans.score) }}%
+                                    </span>
+                                </button>
+                            </h2>
+                            <div id="collapse_{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#answersAccordion">
+                                <div class="accordion-body bg-white p-4">
+                                    <div class="mb-3">
+                                        <small class="fw-bold text-secondary d-block mb-1">Your Submitted Answer:</small>
+                                        <div class="p-3 bg-light rounded-3 text-dark font-monospace small">
+                                            {{ ans.user_answer if ans.user_answer else "No response provided." }}
+                                        </div>
+                                    </div>
+
+                                    {% if ans.model_answer %}
+                                        <div class="mb-3">
+                                            <small class="fw-bold text-success d-block mb-1"><i class="fas fa-check-circle me-1"></i> Model Benchmark Explanation:</small>
+                                            <div class="p-3 bg-success-subtle text-dark rounded-3 small">
+                                                {{ ans.model_answer }}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="p-3 bg-info-subtle text-dark rounded-3 small">
+                                        <i class="fas fa-info-circle text-info me-1"></i> <strong>AI Evaluator Feedback:</strong> {{ ans.feedback }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}AI Model Management - PlacementIQ Admin{% endblock %}
+{% block page_title %}AI Model Management{% endblock %}
+
+{% block content %}
+<!-- Train / Retrain Action Header Bar -->
+<div class="dashboard-card mb-4">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h3 class="card-title-text mb-1"><i class="fas fa-robot text-primary me-2"></i> Random Forest Placement Classifier</h3>
+            <p class="text-muted small mb-0">Supervised ensemble machine learning model trained on student academics, coding tests, aptitude scores, and internships.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <form action="{{ url_for('admin.train_model_action') }}" method="POST">
+                <button type="submit" class="btn btn-primary border-0 px-4 py-2.5 fw-semibold shadow" style="background: var(--admin-primary-gradient); border-radius: 10px;">
+                    <i class="fas fa-sync-alt me-2"></i> Retrain Model Now
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Evaluation Metrics Cards (4 Metrics) -->
+<div class="row g-4 mb-4">
+    <!-- Accuracy -->
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper success">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="stat-value">{{ (metrics.get('accuracy', 0.90) * 100)|round(2) }}%</div>
+            <div class="stat-label">Classification Accuracy</div>
+        </div>
+    </div>
+
+    <!-- Precision -->
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper primary">
+                <i class="fas fa-crosshair"></i>
+            </div>
+            <div class="stat-value">{{ (metrics.get('precision', 0.88) * 100)|round(2) }}%</div>
+            <div class="stat-label">Precision Score</div>
+        </div>
+    </div>
+
+    <!-- Recall -->
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper warning">
+                <i class="fas fa-filter"></i>
+            </div>
+            <div class="stat-value">{{ (metrics.get('recall', 0.85) * 100)|round(2) }}%</div>
+            <div class="stat-label">Recall (TPR) Score</div>
+        </div>
+    </div>
+
+    <!-- F1 Score -->
+    <div class="col-xl-3 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper info">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="stat-value">{{ (metrics.get('f1_score', 0.86) * 100)|round(2) }}%</div>
+            <div class="stat-label">F1-Score</div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <!-- Model Technical Details -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-cogs text-info"></i> Model Architecture & Files</h3>
+                <span class="badge badge-placed"><i class="fas fa-check-circle"></i> Active</span>
+            </div>
+
+            <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 mb-3">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Algorithm Used:</span>
+                    <span class="fw-bold small text-white">Random Forest Classifier (scikit-learn)</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Primary Saved Artifact:</span>
+                    <span class="fw-semibold small text-success"><code>models/model.pkl</code></span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Fallback Model Artifact:</span>
+                    <span class="fw-semibold small text-white"><code>models/placement_model.pkl</code></span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Feature Scaler Artifact:</span>
+                    <span class="fw-semibold small text-white"><code>models/scaler.pkl</code></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted small">Training Date & Time:</span>
+                    <span class="fw-bold small text-warning">{{ metrics.get('trained_at', '2026-07-25') }}</span>
+                </div>
+            </div>
+
+            <h6 class="text-white small fw-bold mb-2">Confusion Matrix Breakdown:</h6>
+            {% if metrics.get('confusion_matrix') %}
+                <div class="row text-center g-2">
+                    <div class="col-6">
+                        <div class="p-2 rounded bg-dark border border-secondary border-opacity-25">
+                            <span class="text-muted small d-block">True Negative (Unplaced)</span>
+                            <span class="fw-bold text-white fs-5">{{ metrics['confusion_matrix'][0][0] }}</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-2 rounded bg-dark border border-secondary border-opacity-25">
+                            <span class="text-muted small d-block">False Positive</span>
+                            <span class="fw-bold text-danger fs-5">{{ metrics['confusion_matrix'][0][1] }}</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-2 rounded bg-dark border border-secondary border-opacity-25">
+                            <span class="text-muted small d-block">False Negative</span>
+                            <span class="fw-bold text-warning fs-5">{{ metrics['confusion_matrix'][1][0] }}</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-2 rounded bg-dark border border-secondary border-opacity-25">
+                            <span class="text-muted small d-block">True Positive (Placed)</span>
+                            <span class="fw-bold text-success fs-5">{{ metrics['confusion_matrix'][1][1] }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Feature Importances Breakdown -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-chart-bar text-warning"></i> Feature Importance Weights</h3>
+            </div>
+
+            {% if metrics.get('feature_importances') %}
+                <div class="d-flex flex-column gap-3">
+                    {% for feature, importance in metrics['feature_importances'].items() %}
+                        {% if loop.index <= 7 %}
+                            <div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-white small fw-semibold">{{ feature|replace('_', ' ')|title }}</span>
+                                    <span class="text-primary small fw-bold">{{ (importance * 100)|round(1) }}%</span>
+                                </div>
+                                <div class="progress bg-dark" style="height: 8px;">
+                                    <div class="progress-bar" style="width: {{ importance * 100 }}%; background: var(--admin-primary-gradient);"></div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

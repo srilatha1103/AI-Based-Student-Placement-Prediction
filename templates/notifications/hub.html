@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Center & Email Management - PlacementIQ AI</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #f8fafc; font-family: 'Segoe UI', system-ui, sans-serif; color: #1e293b; }
+        .notif-card { background: #fff; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .notif-item { padding: 1.25rem; border-bottom: 1px solid #f1f5f9; transition: background-color 0.2s ease; position: relative; }
+        .notif-item:hover { background-color: #f8fafc; }
+        .notif-item.unread { background-color: #eff6ff; border-left: 4px solid #2563eb; }
+        .icon-badge { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .badge-info { background-color: #e0f2fe; color: #0284c7; }
+        .badge-success { background-color: #dcfce7; color: #15803d; }
+        .badge-warning { background-color: #fef3c7; color: #b45309; }
+        .badge-danger { background-color: #fee2e2; color: #b91c1c; }
+        .badge-reminder { background-color: #faf5ff; color: #9333ea; }
+        .badge-recommendation { background-color: #f0fdf4; color: #16a34a; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-brain text-primary me-2"></i> Placement<span class="text-primary">IQ</span> Notification Center
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge bg-primary rounded-pill px-3 py-2">
+                    <i class="fas fa-user me-1"></i> {{ user_type|capitalize }}: {{ user_id }}
+                </span>
+                <a href="/" class="btn btn-outline-light btn-sm rounded-pill"><i class="fas fa-home me-1"></i> Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Summary Stats Row -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="notif-card p-3 text-center">
+                    <div class="text-primary fs-3 fw-bold">{{ analytics.total_notifications }}</div>
+                    <small class="text-muted fw-semibold"><i class="fas fa-bell me-1"></i> Total Notifications</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="notif-card p-3 text-center">
+                    <div class="text-warning fs-3 fw-bold">{{ unread_count }}</div>
+                    <small class="text-muted fw-semibold"><i class="fas fa-envelope me-1"></i> Unread Alerts</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="notif-card p-3 text-center">
+                    <div class="text-success fs-3 fw-bold">{{ analytics.sent_emails }}</div>
+                    <small class="text-muted fw-semibold"><i class="fas fa-paper-plane me-1"></i> Emails Dispatched</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="notif-card p-3 text-center">
+                    <div class="text-danger fs-3 fw-bold">{{ analytics.failed_emails }}</div>
+                    <small class="text-muted fw-semibold"><i class="fas fa-exclamation-triangle me-1"></i> Failed Emails</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Main Notifications List -->
+            <div class="col-lg-8">
+                <div class="notif-card">
+                    <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a href="{{ url_for('notifications.hub') }}" class="btn btn-outline-primary {% if not unread_only %}active{% endif %}">All Alerts</a>
+                            <a href="{{ url_for('notifications.hub', unread='true') }}" class="btn btn-outline-warning {% if unread_only %}active{% endif %}">Unread Only ({{ unread_count }})</a>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill" id="markAllReadBtn">
+                            <i class="fas fa-check-double me-1"></i> Mark All as Read
+                        </button>
+                    </div>
+
+                    <div id="notificationsList">
+                        {% if notifications %}
+                            {% for n in notifications %}
+                            <div class="notif-item {% if not n.is_read %}unread{% endif %}" id="notif-{{ n.id }}">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="icon-badge badge-{{ n.type }}">
+                                        {% if n.type == 'success' %}<i class="fas fa-check-circle"></i>
+                                        {% elif n.type == 'danger' %}<i class="fas fa-exclamation-circle"></i>
+                                        {% elif n.type == 'warning' %}<i class="fas fa-exclamation-triangle"></i>
+                                        {% elif n.type == 'reminder' %}<i class="fas fa-clock"></i>
+                                        {% elif n.type == 'recommendation' %}<i class="fas fa-lightbulb"></i>
+                                        {% else %}<i class="fas fa-info-circle"></i>{% endif %}
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h6 class="fw-bold text-dark mb-1">{{ n.title }}</h6>
+                                            <small class="text-muted ms-2">{{ n.created_at }}</small>
+                                        </div>
+                                        <p class="text-secondary small mb-2">{{ n.message }}</p>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge bg-light text-dark border"><i class="fas fa-mail-bulk me-1"></i> Email: {{ n.email_status }}</span>
+                                            {% if not n.is_read %}
+                                                <button class="btn btn-link p-0 text-primary small text-decoration-none mark-read-btn" data-id="{{ n.id }}">
+                                                    <i class="fas fa-check me-1"></i> Mark Read
+                                                </button>
+                                            {% endif %}
+                                            <button class="btn btn-link p-0 text-danger small text-decoration-none delete-notif-btn" data-id="{{ n.id }}">
+                                                <i class="fas fa-trash-alt me-1"></i> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="text-center py-5 text-muted">
+                                <i class="fas fa-bell-slash fa-3x mb-3 text-secondary"></i>
+                                <h6>No notifications found.</h6>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Logs & Delivery Analytics Panel -->
+            <div class="col-lg-4">
+                <div class="notif-card p-3 mb-4">
+                    <h6 class="fw-bold text-dark mb-3"><i class="fas fa-paper-plane text-primary me-2"></i> Recent Email Delivery Logs</h6>
+                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-sm text-center align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Recipient</th>
+                                    <th>Status</th>
+                                    <th>Sent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if analytics.recent_emails %}
+                                    {% for log in analytics.recent_emails[:10] %}
+                                    <tr>
+                                        <td><small class="text-truncate d-inline-block" style="max-width: 110px;">{{ log.recipient }}</small></td>
+                                        <td>
+                                            {% if log.status in ['Sent', 'Demo Mode'] %}
+                                                <span class="badge bg-success small">{{ log.status }}</span>
+                                            {% else %}
+                                                <span class="badge bg-danger small">Failed</span>
+                                            {% endif %}
+                                        </td>
+                                        <td><small class="text-muted">{{ log.sent_at[11:16] }}</small></td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr><td colspan="3" class="text-muted py-3">No email logs available</td></tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark single read
+            document.querySelectorAll('.mark-read-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    fetch(`/notifications/api/${id}/read`, { method: 'POST' })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.success) {
+                                document.getElementById(`notif-${id}`).classList.remove('unread');
+                                this.remove();
+                            }
+                        });
+                });
+            });
+
+            // Mark all read
+            const markAllBtn = document.getElementById('markAllReadBtn');
+            if(markAllBtn) {
+                markAllBtn.addEventListener('click', function() {
+                    fetch('/notifications/api/read-all', { method: 'POST' })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.success) location.reload();
+                        });
+                });
+            }
+
+            // Delete notification
+            document.querySelectorAll('.delete-notif-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    fetch(`/notifications/api/${id}/delete`, { method: 'POST' })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.success) {
+                                document.getElementById(`notif-${id}`).remove();
+                            }
+                        });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

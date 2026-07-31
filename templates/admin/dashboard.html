@@ -1,0 +1,166 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}Dashboard - PlacementIQ Admin{% endblock %}
+{% block page_title %}Dashboard Overview{% endblock %}
+
+{% block content %}
+<!-- KPI Statistics Cards Row (6 Requirements) -->
+<div class="row g-4 mb-4">
+    <!-- 1. Total Students -->
+    <div class="col-xl-4 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper primary">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="stat-value">{{ stats.total_students }}</div>
+            <div class="stat-label">Total Registered Students</div>
+        </div>
+    </div>
+
+    <!-- 2. Total Predictions -->
+    <div class="col-xl-4 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper info">
+                <i class="fas fa-history"></i>
+            </div>
+            <div class="stat-value">{{ stats.total_predictions }}</div>
+            <div class="stat-label">Total ML Predictions Run</div>
+        </div>
+    </div>
+
+    <!-- 3. Students Likely to be Placed -->
+    <div class="col-xl-4 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper success">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="stat-value">{{ stats.likely_placed }}</div>
+            <div class="stat-label">Students Likely to be Placed</div>
+        </div>
+    </div>
+
+    <!-- 4. Students Not Likely to be Placed -->
+    <div class="col-xl-4 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper danger">
+                <i class="fas fa-user-times"></i>
+            </div>
+            <div class="stat-value">{{ stats.unlikely_placed }}</div>
+            <div class="stat-label">Students Not Likely to be Placed</div>
+        </div>
+    </div>
+
+    <!-- 5. Placement Percentage -->
+    <div class="col-xl-4 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper warning">
+                <i class="fas fa-percentage"></i>
+            </div>
+            <div class="stat-value">{{ stats.placement_percentage }}%</div>
+            <div class="stat-label">Overall Placement Rate</div>
+        </div>
+    </div>
+
+    <!-- 6. Average CGPA -->
+    <div class="col-xl-4 col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper primary">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-value">{{ stats.avg_cgpa }}</div>
+            <div class="stat-label">Average Student CGPA</div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <!-- Quick Action Cards & Model Status Snapshot -->
+    <div class="col-lg-4">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-robot text-primary"></i> AI Model Snapshot</h3>
+                <span class="badge badge-active">Random Forest</span>
+            </div>
+            <div class="p-3 rounded-3 bg-dark bg-opacity-50 mb-3 border border-secondary border-opacity-25">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Algorithm:</span>
+                    <span class="fw-semibold small text-white">Random Forest Classifier</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Model Accuracy:</span>
+                    <span class="fw-bold small text-success">{{ (metrics.get('accuracy', 0.90) * 100)|round(2) }}%</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted small">Last Trained:</span>
+                    <span class="fw-semibold small text-white">{{ metrics.get('trained_at', 'Active Model') }}</span>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <a href="{{ url_for('admin.model_management') }}" class="btn btn-outline-primary btn-sm py-2">
+                    <i class="fas fa-sync-alt me-1"></i> Retrain Model
+                </a>
+                <a href="{{ url_for('admin.students') }}" class="btn btn-outline-light btn-sm py-2">
+                    <i class="fas fa-user-plus me-1"></i> Add New Student
+                </a>
+                <a href="{{ url_for('admin.dataset') }}" class="btn btn-outline-light btn-sm py-2">
+                    <i class="fas fa-file-upload me-1"></i> Upload Dataset CSV
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Predictions Feed Table -->
+    <div class="col-lg-8">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-history text-info"></i> Recent Predictions</h3>
+                <a href="{{ url_for('admin.predictions') }}" class="text-primary text-decoration-none small fw-semibold">
+                    View All <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+
+            <div class="table-responsive-custom">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Reg No</th>
+                            <th>Department</th>
+                            <th>Prediction</th>
+                            <th>Probability</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if recent_predictions %}
+                            {% for p in recent_predictions %}
+                                <tr>
+                                    <td class="fw-semibold">{{ p.student_name }}</td>
+                                    <td><code>{{ p.register_number }}</code></td>
+                                    <td class="text-muted small">{{ p.department }}</td>
+                                    <td>
+                                        {% if p.prediction == 1 %}
+                                            <span class="badge-custom badge-placed"><i class="fas fa-check-circle"></i> Placed</span>
+                                        {% else %}
+                                            <span class="badge-custom badge-unplaced"><i class="fas fa-times-circle"></i> Unplaced</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="fw-bold {% if p.probability >= 70 %}text-success{% elif p.probability >= 50 %}text-warning{% else %}text-danger{% endif %}">
+                                        {{ p.probability }}%
+                                    </td>
+                                    <td class="text-muted small">{{ p.created_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-muted">No predictions logged yet. Try testing a profile!</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

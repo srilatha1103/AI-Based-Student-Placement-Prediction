@@ -1,0 +1,166 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}Dataset Management - PlacementIQ Admin{% endblock %}
+{% block page_title %}Dataset Management{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+    <!-- File Upload Section -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-file-csv text-primary"></i> Upload CSV Dataset</h3>
+                <span class="badge badge-active">Format: CSV</span>
+            </div>
+
+            <p class="text-muted small mb-3">Upload a new student placement dataset in standard CSV format to retrain the ML model or update student database records.</p>
+
+            <form action="{{ url_for('admin.upload_dataset') }}" method="POST" enctype="multipart/form-data" class="mb-3">
+                <div class="mb-3">
+                    <label class="form-label text-muted small fw-semibold">Select CSV File</label>
+                    <input type="file" name="dataset_file" class="form-control form-control-dark" accept=".csv" required>
+                </div>
+                <button type="submit" class="btn btn-primary border-0 w-100 py-2.5 fw-semibold" style="background: var(--admin-primary-gradient); border-radius: 10px;">
+                    <i class="fas fa-upload me-2"></i> Upload & Validate CSV
+                </button>
+            </form>
+
+            <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
+                <h6 class="text-white small fw-bold mb-2"><i class="fas fa-info-circle text-info me-1"></i> Format Validation Requirements:</h6>
+                <ul class="text-muted small mb-0 ps-3">
+                    <li>Required headers: <code>student_name</code>, <code>register_number</code>, <code>department</code>, <code>cgpa</code>.</li>
+                    <li>Optional headers: <code>tenth_percentage</code>, <code>twelfth_percentage</code>, <code>aptitude_score</code>, <code>coding_score</code>, <code>communication_skill</code>, <code>internship</code>, <code>certifications</code>, <code>projects_completed</code>, <code>backlogs</code>, <code>placed</code>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Dataset Summary -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-database text-success"></i> Active Dataset Overview</h3>
+                {% if file_exists %}
+                    <span class="badge badge-placed"><i class="fas fa-check-circle"></i> Active</span>
+                {% else %}
+                    <span class="badge badge-unplaced">Missing</span>
+                {% endif %}
+            </div>
+
+            <div class="p-3 rounded-3 bg-dark bg-opacity-50 mb-3 border border-secondary border-opacity-25">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">File Location:</span>
+                    <span class="fw-semibold small text-white"><code>dataset/placement.csv</code></span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Total Dataset Rows:</span>
+                    <span class="fw-bold small text-success">{{ total_rows }} Records</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted small">Total Feature Columns:</span>
+                    <span class="fw-semibold small text-white">{{ headers|length }} Columns</span>
+                </div>
+            </div>
+
+            {% if file_exists %}
+                <div class="d-flex gap-2">
+                    <a href="#previewSection" class="btn btn-outline-info btn-sm flex-grow-1 py-2">
+                        <i class="fas fa-eye me-1"></i> Preview Dataset
+                    </a>
+                    <a href="{{ url_for('admin.model_management') }}" class="btn btn-outline-success btn-sm flex-grow-1 py-2">
+                        <i class="fas fa-robot me-1"></i> Train Model on Dataset
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Dataset Upload History Log Table -->
+<div class="dashboard-card mb-4">
+    <div class="card-header-flex">
+        <h3 class="card-title-text"><i class="fas fa-history text-warning"></i> Upload History Log</h3>
+    </div>
+
+    <div class="table-responsive-custom">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Uploaded Filename</th>
+                    <th>Row Count</th>
+                    <th>Status</th>
+                    <th>Upload Date & Time</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if history %}
+                    {% for h in history %}
+                        <tr>
+                            <td class="text-muted">{{ h.id }}</td>
+                            <td class="fw-semibold text-white"><code>{{ h.original_name }}</code></td>
+                            <td>{{ h.row_count }} Rows</td>
+                            <td>
+                                {% if h.status == 'Active' %}
+                                    <span class="badge-custom badge-placed">Active</span>
+                                {% elif h.status == 'Replaced' %}
+                                    <span class="badge bg-secondary bg-opacity-20 text-muted">Replaced</span>
+                                {% else %}
+                                    <span class="badge-custom badge-unplaced">Deleted</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-muted small">{{ h.uploaded_at }}</td>
+                            <td class="text-end">
+                                {% if h.status != 'Deleted' %}
+                                    <form action="{{ url_for('admin.delete_dataset', history_id=h.id) }}" method="POST" class="d-inline">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" title="Mark as deleted">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                {% else %}
+                                    <span class="text-muted small">-</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center py-4 text-muted">No dataset upload history logged yet.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Dataset CSV Preview Table -->
+{% if file_exists and preview_data %}
+<div class="dashboard-card" id="previewSection">
+    <div class="card-header-flex">
+        <h3 class="card-title-text"><i class="fas fa-table text-info"></i> Dataset Preview (Top 15 Rows)</h3>
+    </div>
+
+    <div class="table-responsive-custom">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    {% for h in headers %}
+                        <th>{{ h }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in preview_data %}
+                    <tr>
+                        {% for h in headers %}
+                            <td>{{ row[h] if row[h] is not none else '-' }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

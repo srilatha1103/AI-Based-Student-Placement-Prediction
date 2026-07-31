@@ -1,0 +1,125 @@
+{% extends "student/student_base.html" if is_student_portal else "base.html" %}
+
+{% block title %}Live Interview Session - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+
+    <!-- Active Session Sticky Header Bar -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4 bg-dark text-white p-3">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <span class="badge bg-primary rounded-pill px-3 py-1 me-2">{{ category }}</span>
+                <span class="badge bg-secondary rounded-pill px-3 py-1 me-2">{{ domain }}</span>
+                <h4 class="fw-bold d-inline align-middle mb-0">Live AI Mock Interview Room</h4>
+            </div>
+            <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                <div class="d-inline-flex align-items-center bg-white bg-opacity-10 px-3 py-2 rounded-pill">
+                    <i class="fas fa-stopwatch text-warning me-2 fa-lg"></i>
+                    <span class="fw-bold font-monospace fs-5 text-warning" id="timerDisplay">10:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="progress mt-3 bg-secondary" style="height: 6px;">
+            <div class="progress-bar bg-warning transition" id="timerBar" style="width: 100%;"></div>
+        </div>
+    </div>
+
+    <!-- Main Question Form -->
+    <form action="{{ url_for('student.mock_interview_submit') }}" method="POST" id="interviewForm">
+        <input type="hidden" name="time_taken_seconds" id="timeTakenInput" value="0">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                {% for q in questions %}
+                    {% set loop_idx = loop.index0 %}
+                    <div class="card border-0 shadow-sm rounded-4 mb-4 p-4 bg-white border-start border-5 border-primary">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2 font-monospace fw-bold">
+                                Question {{ loop.index }} of {{ questions|length }}
+                            </span>
+                            {% if q.category %}
+                                <span class="badge bg-info-subtle text-info rounded-pill px-3 py-1">{{ q.category }}</span>
+                            {% endif %}
+                        </div>
+
+                        <h5 class="fw-bold text-dark mb-3">{{ q.question }}</h5>
+
+                        {% if category == 'Aptitude' and q.options %}
+                            <!-- MCQ Options -->
+                            <div class="row g-3">
+                                {% for opt in q.options %}
+                                    <div class="col-md-6">
+                                        <div class="form-check p-3 border rounded-3 bg-light hover-bg-white transition cursor-pointer">
+                                            <input class="form-check-input ms-1 me-2" type="radio" name="ans_{{ loop_idx }}" id="opt_{{ loop_idx }}_{{ loop.index0 }}" value="{{ loop.index0 }}">
+                                            <label class="form-check-label text-dark fw-semibold w-100 cursor-pointer" for="opt_{{ loop_idx }}_{{ loop.index0 }}">
+                                                {{ opt }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <!-- Text Response Textarea -->
+                            <div class="mb-2">
+                                <label for="ans_{{ loop_idx }}" class="form-label small fw-semibold text-secondary">Your Technical Explanation / Answer:</label>
+                                <textarea name="ans_{{ loop_idx }}" id="ans_{{ loop_idx }}" rows="4" class="form-control rounded-3" placeholder="Explain core concepts clearly with terminology..."></textarea>
+                            </div>
+                            <small class="text-muted"><i class="fas fa-lightbulb text-warning me-1"></i> AI Tip: Articulate key terminology, logic steps, and edge cases to maximize score.</small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                <!-- Submit Button Bar -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white text-center mb-5">
+                    <h5 class="fw-bold text-dark mb-2">Ready to Submit Session?</h5>
+                    <p class="text-muted small mb-4">Ensure all questions are answered before submitting. The AI engine will evaluate your responses immediately.</p>
+                    <div>
+                        <button type="submit" class="btn btn-success btn-lg rounded-pill px-5 fw-bold shadow-sm" id="submitSessionBtn">
+                            <i class="fas fa-paper-plane me-2"></i> Submit & Finish Interview
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script>
+let totalSeconds = {{ timer_seconds }};
+let elapsedSeconds = 0;
+const timerDisplay = document.getElementById('timerDisplay');
+const timerBar = document.getElementById('timerBar');
+const timeTakenInput = document.getElementById('timeTakenInput');
+
+const interval = setInterval(function() {
+    elapsedSeconds++;
+    const remaining = totalSeconds - elapsedSeconds;
+    timeTakenInput.value = elapsedSeconds;
+
+    if (remaining <= 0) {
+        clearInterval(interval);
+        alert('Time is up! Submitting interview session now.');
+        document.getElementById('interviewForm').submit();
+        return;
+    }
+
+    const minutes = Math.floor(remaining / 60);
+    const secs = remaining % 60;
+    timerDisplay.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (secs < 10 ? '0' : '') + secs;
+    
+    const pct = (remaining / totalSeconds) * 100;
+    timerBar.style.width = pct + '%';
+
+    if (remaining < 120) {
+        timerDisplay.classList.remove('text-warning');
+        timerDisplay.classList.add('text-danger', 'fw-bolder');
+        timerBar.classList.remove('bg-warning');
+        timerBar.classList.add('bg-danger');
+    }
+}, 1000);
+</script>
+{% endblock %}

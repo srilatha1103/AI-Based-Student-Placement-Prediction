@@ -1,0 +1,156 @@
+{% extends 'company/company_base.html' %}
+
+{% block title %}AI Candidate Matching - {{ job.title }}{% endblock %}
+{% block page_header %}AI Candidate Matching Hub{% endblock %}
+
+{% block content %}
+<!-- Header Bar -->
+<div class="p-4 bg-white rounded-3 border shadow-sm mb-4">
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <span class="badge bg-info text-white rounded-pill mb-2"><i class="fas fa-brain me-1"></i> AI Match Engine</span>
+            <h3 class="fw-bold text-dark mb-1">{{ job.title }}</h3>
+            <p class="text-muted mb-0">Required Skills: <strong>{{ job.required_skills }}</strong> &bull; Min CGPA: <strong>{{ job.min_cgpa }}</strong></p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <a href="{{ url_for('company.jobs_list') }}" class="btn btn-outline-secondary btn-sm rounded-pill">
+                <i class="fas fa-arrow-left me-1"></i> Back to Jobs
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Candidate Rankings Table -->
+<div class="custom-table-card">
+    <div class="table-header-title">
+        <h5><i class="fas fa-fire text-danger me-2"></i> Ranked Candidate Pool by AI Match Score</h5>
+        <span class="badge bg-primary rounded-pill">{{ candidates|length }} Candidates Analyzed</span>
+    </div>
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Rank & Candidate</th>
+                    <th>Department</th>
+                    <th>CGPA</th>
+                    <th>AI Match Score</th>
+                    <th>Matching Skills</th>
+                    <th>Missing Skills</th>
+                    <th>AI Recommendation</th>
+                    <th>Application Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if candidates %}
+                    {% for item in candidates %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge bg-dark text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 28px; height: 28px;">
+                                    #{{ loop.index }}
+                                </span>
+                                <div>
+                                    <div class="fw-bold text-dark">{{ item.student.student_name }}</div>
+                                    <small class="text-muted">{{ item.student.register_number }}</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><small class="text-muted">{{ item.student.department }}</small></td>
+                        <td><span class="badge bg-light text-dark border">{{ item.student.cgpa }}</span></td>
+                        <td>
+                            {% if item.match_score >= 85 %}
+                                <span class="match-score-badge match-high"><i class="fas fa-fire"></i> {{ item.match_score }}%</span>
+                            {% elif item.match_score >= 70 %}
+                                <span class="match-score-badge match-good"><i class="fas fa-thumbs-up"></i> {{ item.match_score }}%</span>
+                            {% elif item.match_score >= 55 %}
+                                <span class="match-score-badge match-medium"><i class="fas fa-minus"></i> {{ item.match_score }}%</span>
+                            {% else %}
+                                <span class="match-score-badge match-low"><i class="fas fa-exclamation-circle"></i> {{ item.match_score }}%</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div style="max-width: 180px;">
+                                {% for s in item.matching_skills.split(',') %}
+                                    <span class="skill-tag">{{ s.strip() }}</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td>
+                            <div style="max-width: 180px;">
+                                {% if item.missing_skills != 'None' %}
+                                    {% for s in item.missing_skills.split(',') %}
+                                        <span class="skill-tag skill-tag-missing">{{ s.strip() }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <span class="badge bg-success-subtle text-success border border-success"><i class="fas fa-check me-1"></i> None</span>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <small class="fw-semibold text-primary d-block">{{ item.ai_recommendation }}</small>
+                        </td>
+                        <td>
+                            {% if item.applied %}
+                                <span class="badge bg-primary rounded-pill">{{ item.application_status }}</span>
+                            {% else %}
+                                <span class="badge bg-light text-muted border">Not Applied</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if item.applied and item.application_id %}
+                                <div class="btn-group btn-group-sm">
+                                    <button class="btn btn-warning text-dark status-action-btn" data-app-id="{{ item.application_id }}" data-status="Shortlisted" title="Shortlist Candidate">
+                                        <i class="fas fa-check"></i> Shortlist
+                                    </button>
+                                    <button class="btn btn-danger status-action-btn" data-app-id="{{ item.application_id }}" data-status="Rejected" title="Reject Candidate">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            {% else %}
+                                <span class="text-muted small">Awaiting App</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="9" class="text-center py-5 text-muted">
+                            No candidates available for AI matching.
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const actionBtns = document.querySelectorAll('.status-action-btn');
+    actionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const appId = this.getAttribute('data-app-id');
+            const status = this.getAttribute('data-status');
+            
+            fetch(`/company/candidate/${appId}/status`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `status=${encodeURIComponent(status)}`
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    location.reload();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(err => alert('Request failed: ' + err));
+        });
+    });
+});
+</script>
+{% endblock %}

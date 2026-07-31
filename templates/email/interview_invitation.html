@@ -1,0 +1,25 @@
+{% extends 'email/base_email.html' %}
+
+{% block email_content %}
+<h2 style="color: #1e40af; margin-top: 0;">📅 Interview Invitation: {{ job_title }}</h2>
+<p>Dear <strong>{{ name }}</strong>,</p>
+
+<p>Congratulations! <strong>{{ company_name }}</strong> has reviewed your student profile and scheduled an interview for the position of <strong>{{ job_title }}</strong>.</p>
+
+<div style="background-color: #f8fafc; border-left: 4px solid #3b82f6; padding: 18px; border-radius: 6px; margin: 20px 0;">
+    <h4 style="margin: 0 0 10px; color: #1e3a8a;">Interview Schedule Details:</h4>
+    <p style="margin: 4px 0;"><strong>Company:</strong> {{ company_name }}</p>
+    <p style="margin: 4px 0;"><strong>Job Role:</strong> {{ job_title }}</p>
+    <p style="margin: 4px 0;"><strong>Mode:</strong> <span style="background-color: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 4px; font-weight: bold;">{{ mode }}</span></p>
+    <p style="margin: 4px 0;"><strong>Date & Time:</strong> {{ date_str }} at {{ time_str }}</p>
+    {% if link_or_venue %}
+        <p style="margin: 4px 0;"><strong>Link / Venue:</strong> {{ link_or_venue }}</p>
+    {% endif %}
+</div>
+
+<p>{{ message }}</p>
+
+<div style="text-align: center; margin: 25px 0;">
+    <a href="http://127.0.0.1:5000/student/my-applications" class="btn-cta">View Interview Details in Portal</a>
+</div>
+{% endblock %}

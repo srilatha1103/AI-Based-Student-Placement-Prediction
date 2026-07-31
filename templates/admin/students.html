@@ -1,0 +1,327 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}Student Management - PlacementIQ Admin{% endblock %}
+{% block page_title %}Student Management{% endblock %}
+
+{% block content %}
+<!-- Search & Filter Controls Header -->
+<div class="dashboard-card mb-4">
+    <div class="row g-3 align-items-center">
+        <div class="col-lg-5">
+            <form action="{{ url_for('admin.students') }}" method="GET" class="d-flex gap-2">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark border-secondary text-muted"><i class="fas fa-search"></i></span>
+                    <input type="text" name="search" class="form-control form-control-dark" placeholder="Search by name or register no..." value="{{ search }}">
+                </div>
+                {% if selected_dept %}<input type="hidden" name="department" value="{{ selected_dept }}">{% endif %}
+                {% if selected_status != '' %}<input type="hidden" name="placement_status" value="{{ selected_status }}">{% endif %}
+                <button type="submit" class="btn btn-primary px-3 border-0" style="background: var(--admin-primary-gradient);">Search</button>
+            </form>
+        </div>
+
+        <div class="col-lg-5">
+            <form action="{{ url_for('admin.students') }}" method="GET" class="d-flex gap-2">
+                {% if search %}<input type="hidden" name="search" value="{{ search }}">{% endif %}
+                <select name="department" class="form-select form-select-dark" onchange="this.form.submit()">
+                    <option value="">-- Filter Department --</option>
+                    {% for d in departments %}
+                        <option value="{{ d }}" {% if selected_dept == d %}selected{% endif %}>{{ d }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="placement_status" class="form-select form-select-dark" onchange="this.form.submit()">
+                    <option value="">-- All Status --</option>
+                    <option value="1" {% if selected_status == '1' %}selected{% endif %}>Placed</option>
+                    <option value="0" {% if selected_status == '0' %}selected{% endif %}>Unplaced</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="col-lg-2 text-lg-end">
+            <button type="button" class="btn btn-success border-0 w-100 fw-semibold" data-bs-toggle="modal" data-bs-target="#addStudentModal" style="background: var(--admin-success-gradient); border-radius: 10px;">
+                <i class="fas fa-plus me-1"></i> Add Student
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Student Data Table -->
+<div class="dashboard-card">
+    <div class="card-header-flex">
+        <h3 class="card-title-text"><i class="fas fa-user-graduate text-primary"></i> Registered Student Records ({{ students|length }})</h3>
+    </div>
+
+    <div class="table-responsive-custom">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Student Name</th>
+                    <th>Reg Number</th>
+                    <th>Department</th>
+                    <th>CGPA</th>
+                    <th>Aptitude</th>
+                    <th>Coding</th>
+                    <th>Internship</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if students %}
+                    {% for s in students %}
+                        <tr>
+                            <td class="text-muted">{{ s.id }}</td>
+                            <td class="fw-semibold">{{ s.student_name }}</td>
+                            <td><code>{{ s.register_number }}</code></td>
+                            <td class="small text-muted">{{ s.department }}</td>
+                            <td class="fw-bold">{{ s.cgpa }}</td>
+                            <td>{{ s.aptitude_score }}</td>
+                            <td>{{ s.coding_score }}</td>
+                            <td>
+                                {% if s.internship == 'Yes' %}
+                                    <span class="badge bg-success bg-opacity-20 text-success">Yes</span>
+                                {% else %}
+                                    <span class="badge bg-secondary bg-opacity-20 text-muted">No</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if s.placement_status == 1 %}
+                                    <span class="badge-custom badge-placed"><i class="fas fa-check-circle"></i> Placed</span>
+                                {% else %}
+                                    <span class="badge-custom badge-unplaced"><i class="fas fa-times-circle"></i> Unplaced</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm">
+                                    <button class="btn btn-outline-info" onclick='openEditModal({{ s|tojson|safe }})' title="Edit Student">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-outline-danger" onclick="openDeleteModal({{ s.id }}, '{{ s.student_name|replace('\'', '\\\'') }}')" title="Delete Student">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="10" class="text-center py-4 text-muted">
+                            <i class="fas fa-folder-open fa-2x mb-2 d-block"></i> No student records found matching the criteria.
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal 1: Add Student Modal -->
+<div class="modal fade" id="addStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+            <div class="modal-header modal-header-dark">
+                <h5 class="modal-title font-heading fw-bold text-white"><i class="fas fa-user-plus text-success me-2"></i> Add New Student</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ url_for('admin.add_student_route') }}" method="POST">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Student Full Name *</label>
+                            <input type="text" name="student_name" class="form-control form-control-dark" required placeholder="e.g. Rahul Sharma">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Register Number *</label>
+                            <input type="text" name="register_number" class="form-control form-control-dark" required placeholder="e.g. REG20261001">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Department *</label>
+                            <select name="department" class="form-select form-select-dark" required>
+                                {% for d in departments %}
+                                    <option value="{{ d }}">{{ d }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">CGPA (0 - 10) *</label>
+                            <input type="number" step="0.01" min="0" max="10" name="cgpa" class="form-control form-control-dark" value="7.5" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">10th %</label>
+                            <input type="number" step="0.1" name="tenth_percentage" class="form-control form-control-dark" value="75.0">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">12th %</label>
+                            <input type="number" step="0.1" name="twelfth_percentage" class="form-control form-control-dark" value="75.0">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Aptitude Score (0-100)</label>
+                            <input type="number" name="aptitude_score" class="form-control form-control-dark" value="70">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Coding Score (0-100)</label>
+                            <input type="number" name="coding_score" class="form-control form-control-dark" value="70">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Communication</label>
+                            <select name="communication_skill" class="form-select form-select-dark">
+                                <option value="Poor">Poor</option>
+                                <option value="Average" selected>Average</option>
+                                <option value="Good">Good</option>
+                                <option value="Excellent">Excellent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Internship Done?</label>
+                            <select name="internship" class="form-select form-select-dark">
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected>No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Certifications</label>
+                            <input type="number" name="certifications" class="form-control form-control-dark" value="1">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Projects Completed</label>
+                            <input type="number" name="projects_completed" class="form-control form-control-dark" value="2">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Active Backlogs</label>
+                            <input type="number" name="backlogs" class="form-control form-control-dark" value="0">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Initial Placement Status</label>
+                            <select name="placement_status" class="form-select form-select-dark">
+                                <option value="1">Placed (1)</option>
+                                <option value="0" selected>Unplaced (0)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer modal-footer-dark">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success border-0 px-4" style="background: var(--admin-success-gradient);">Save Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2: Edit Student Modal -->
+<div class="modal fade" id="editStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+            <div class="modal-header modal-header-dark">
+                <h5 class="modal-title font-heading fw-bold text-white"><i class="fas fa-edit text-info me-2"></i> Edit Student Profile</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="editStudentForm" method="POST">
+                <input type="hidden" id="edit_student_id" name="student_id">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Student Full Name *</label>
+                            <input type="text" id="edit_student_name" name="student_name" class="form-control form-control-dark" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Register Number *</label>
+                            <input type="text" id="edit_register_number" name="register_number" class="form-control form-control-dark" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Department *</label>
+                            <select id="edit_department" name="department" class="form-select form-select-dark" required>
+                                {% for d in departments %}
+                                    <option value="{{ d }}">{{ d }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">CGPA *</label>
+                            <input type="number" step="0.01" min="0" max="10" id="edit_cgpa" name="cgpa" class="form-control form-control-dark" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">10th %</label>
+                            <input type="number" step="0.1" id="edit_tenth_percentage" name="tenth_percentage" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">12th %</label>
+                            <input type="number" step="0.1" id="edit_twelfth_percentage" name="twelfth_percentage" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Aptitude Score</label>
+                            <input type="number" id="edit_aptitude_score" name="aptitude_score" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Coding Score</label>
+                            <input type="number" id="edit_coding_score" name="coding_score" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Communication</label>
+                            <select id="edit_communication_skill" name="communication_skill" class="form-select form-select-dark">
+                                <option value="Poor">Poor</option>
+                                <option value="Average">Average</option>
+                                <option value="Good">Good</option>
+                                <option value="Excellent">Excellent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Internship Done?</label>
+                            <select id="edit_internship" name="internship" class="form-select form-select-dark">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Certifications</label>
+                            <input type="number" id="edit_certifications" name="certifications" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Projects Completed</label>
+                            <input type="number" id="edit_projects_completed" name="projects_completed" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small">Active Backlogs</label>
+                            <input type="number" id="edit_backlogs" name="backlogs" class="form-control form-control-dark">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Placement Status</label>
+                            <select id="edit_placement_status" name="placement_status" class="form-select form-select-dark">
+                                <option value="1">Placed (1)</option>
+                                <option value="0">Unplaced (0)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer modal-footer-dark">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-info text-white border-0 px-4">Update Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 3: Delete Student Confirmation Modal -->
+<div class="modal fade" id="deleteStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+            <div class="modal-header modal-header-dark">
+                <h5 class="modal-title font-heading fw-bold text-white"><i class="fas fa-exclamation-triangle text-danger me-2"></i> Confirm Deletion</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <p class="text-white mb-2">Are you sure you want to permanently delete student <strong id="delete_student_name_span" class="text-warning"></strong>?</p>
+                <p class="text-muted small mb-0">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer modal-footer-dark">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteStudentForm" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-danger border-0 px-4" style="background: var(--admin-danger-gradient);">Yes, Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

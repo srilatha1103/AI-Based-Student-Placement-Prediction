@@ -1,0 +1,148 @@
+{% extends "student/student_base.html" %}
+
+{% block title %}My Profile - Student Portal{% endblock %}
+{% block page_title %}Academic & Technical Profile{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <!-- Left Column: Profile Card & Completion -->
+    <div class="col-lg-4">
+        <div class="student-card text-center p-4">
+            <div class="profile-avatar-wrapper mx-auto mb-3" style="width: 110px; height: 110px;">
+                {% if student.profile_photo and student.profile_photo != 'default_avatar.png' %}
+                    <img src="{{ url_for('static', filename='uploads/profile_photos/' + student.profile_photo) }}" alt="Profile Photo" class="profile-avatar-img">
+                {% else %}
+                    <div class="w-100 h-100 bg-primary text-white d-flex align-items-center justify-content-center fw-bold fs-2">
+                        {{ student.student_name[0] }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <h4 class="fw-bold font-heading mb-1 text-dark">{{ student.student_name }}</h4>
+            <p class="text-muted small mb-2"><code>{{ student.register_number }}</code></p>
+            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-semibold mb-3">{{ student.department }}</span>
+
+            <div class="p-3 bg-light rounded-3 text-start mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="text-muted small font-heading fw-semibold">Profile Completion:</span>
+                    <span class="fw-bold text-primary small">{{ completion_pct }}%</span>
+                </div>
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar bg-primary" style="width: {{ completion_pct }}%;"></div>
+                </div>
+            </div>
+
+            <div class="text-muted small text-start">
+                <p class="mb-1"><i class="fas fa-envelope text-primary me-2"></i> {{ student.email }}</p>
+                <p class="mb-0"><i class="fas fa-calendar-alt text-info me-2"></i> Member since: {{ student.created_at[:10] }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column: Edit Profile Form -->
+    <div class="col-lg-8">
+        <div class="student-card">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h3 class="font-heading fw-bold fs-5 m-0 text-dark">
+                    <i class="fas fa-user-edit text-primary me-2"></i> Edit Student Profile
+                </h3>
+                <span class="text-muted small">* Required fields</span>
+            </div>
+
+            <form action="{{ url_for('student.profile') }}" method="POST" enctype="multipart/form-data">
+                <h6 class="fw-bold text-primary small text-uppercase letter-spacing mb-3">1. Personal & Photo</h6>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted small fw-semibold">Full Student Name *</label>
+                        <input type="text" name="student_name" class="form-control form-control-student" value="{{ student.student_name }}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted small fw-semibold">Department *</label>
+                        <select name="department" class="form-select form-select-student" required>
+                            {% for d in departments %}
+                                <option value="{{ d }}" {% if student.department == d %}selected{% endif %}>{{ d }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-muted small fw-semibold">Upload Profile Photo (PNG / JPG / WEBP)</label>
+                        <input type="file" name="profile_photo" class="form-control form-control-student" accept="image/*">
+                    </div>
+                </div>
+
+                <h6 class="fw-bold text-primary small text-uppercase letter-spacing mb-3">2. Academic Metrics</h6>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label text-muted small fw-semibold">CGPA (0 - 10) *</label>
+                        <input type="number" step="0.01" min="0" max="10" name="cgpa" class="form-control form-control-student" value="{{ student.cgpa }}" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label text-muted small fw-semibold">10th Percentage</label>
+                        <input type="number" step="0.1" name="tenth_percentage" class="form-control form-control-student" value="{{ student.tenth_percentage }}">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label text-muted small fw-semibold">12th Percentage</label>
+                        <input type="number" step="0.1" name="twelfth_percentage" class="form-control form-control-student" value="{{ student.twelfth_percentage }}">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label text-muted small fw-semibold">Active Backlogs</label>
+                        <input type="number" name="backlogs" class="form-control form-control-student" value="{{ student.backlogs }}">
+                    </div>
+                </div>
+
+                <h6 class="fw-bold text-primary small text-uppercase letter-spacing mb-3">3. Test Scores & Communication</h6>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small fw-semibold">Coding Score (0-100)</label>
+                        <input type="number" name="coding_score" class="form-control form-control-student" value="{{ student.coding_score }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small fw-semibold">Aptitude Score (0-100)</label>
+                        <input type="number" name="aptitude_score" class="form-control form-control-student" value="{{ student.aptitude_score }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted small fw-semibold">Communication Skill</label>
+                        <select name="communication_skill" class="form-select form-select-student">
+                            <option value="Poor" {% if student.communication_skill == 'Poor' %}selected{% endif %}>Poor</option>
+                            <option value="Average" {% if student.communication_skill == 'Average' %}selected{% endif %}>Average</option>
+                            <option value="Good" {% if student.communication_skill == 'Good' %}selected{% endif %}>Good</option>
+                            <option value="Excellent" {% if student.communication_skill == 'Excellent' %}selected{% endif %}>Excellent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h6 class="fw-bold text-primary small text-uppercase letter-spacing mb-3">4. Skills, Certifications & Experience</h6>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted small fw-semibold">Technical Skills (Comma separated)</label>
+                        <input type="text" name="skills_list" class="form-control form-control-student" value="{{ student.skills_list }}" placeholder="Python, Java, React, SQL, DSA">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted small fw-semibold">Internship Status</label>
+                        <select name="internship" class="form-select form-select-student">
+                            <option value="Yes" {% if student.internship == 'Yes' %}selected{% endif %}>Yes</option>
+                            <option value="No" {% if student.internship == 'No' %}selected{% endif %}>No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-muted small fw-semibold">Internship Experience Details</label>
+                        <textarea name="internship_details" class="form-control form-control-student" rows="2" placeholder="e.g. Software Development Intern at ABC Corp (3 months)">{{ student.internship_details }}</textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-muted small fw-semibold">Certifications Earned</label>
+                        <textarea name="certifications_details" class="form-control form-control-student" rows="2" placeholder="e.g. AWS Certified Cloud Practitioner, Meta Web Developer">{{ student.certifications_details }}</textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-muted small fw-semibold">Projects Portfolio Details</label>
+                        <textarea name="project_details" class="form-control form-control-student" rows="2" placeholder="e.g. AI Placement System using Flask & Random Forest (GitHub Link)">{{ student.project_details }}</textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary border-0 px-4 py-2.5 fw-semibold shadow" style="background: var(--student-primary-gradient); border-radius: 10px;">
+                    <i class="fas fa-save me-2"></i> Save Profile Details
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

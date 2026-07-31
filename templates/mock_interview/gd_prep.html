@@ -1,0 +1,94 @@
+{% extends "student/student_base.html" if is_student_portal else "base.html" %}
+
+{% block title %}Group Discussion Preparation Guide - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+
+    <!-- Header Banner -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2" style="color: #d97706;">
+                <i class="fas fa-users me-1"></i> Placement Round 2 Mastery
+            </span>
+            <h2 class="fw-bold text-dark mb-1">Group Discussion (GD) Preparation Guide</h2>
+            <p class="text-muted mb-0">Learn framework strategies, communication techniques, and trending placement GD topics for campus drives.</p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <a href="{{ url_for('student.mock_interview_hub') }}" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                <i class="fas fa-arrow-left me-1"></i> Back to Hub
+            </a>
+        </div>
+    </div>
+
+    <!-- Strategy Framework -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-project-diagram text-primary me-2"></i> 4-Step Strategy Framework for GD Excellence</h4>
+        
+        <div class="row g-3">
+            {% if gd_data.gd_strategy_framework %}
+                {% for item in gd_data.gd_strategy_framework %}
+                    <div class="col-md-6 col-lg-3">
+                        <div class="p-3 bg-light rounded-4 h-100 border-start border-4 border-primary">
+                            <h6 class="fw-bold text-primary mb-2">{{ item.step }}</h6>
+                            <p class="small text-dark mb-0">{{ item.tip }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Trending GD Topics & Do's and Don'ts -->
+    <div class="row g-4">
+        <!-- Trending Topics -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-3"><i class="fas fa-fire text-danger me-2"></i> High-Frequency Campus GD Topics (2026)</h5>
+                
+                <div class="list-group list-group-flush rounded-3">
+                    {% if gd_data.trending_topics %}
+                        {% for t in gd_data.trending_topics %}
+                            <div class="list-group-item bg-light border-0 mb-2 rounded-3 p-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="fw-bold text-dark mb-1">{{ t.topic }}</h6>
+                                    <small class="text-muted"><i class="fas fa-tag me-1"></i> Category: {{ t.category }}</small>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">Hot Topic</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Do's and Don'ts -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-3"><i class="fas fa-balance-scale text-success me-2"></i> Essential GD Do's & Don'ts</h5>
+                
+                <div class="p-3 bg-success-subtle text-success rounded-3 mb-3">
+                    <h6 class="fw-bold mb-2"><i class="fas fa-check-circle me-1"></i> DO's:</h6>
+                    <ul class="small mb-0 ps-3">
+                        <li class="mb-1">Maintain eye contact with the entire group, not just the evaluator.</li>
+                        <li class="mb-1">Use the PREP structure (Point, Reason, Example, Point).</li>
+                        <li class="mb-1">Listen actively and build constructively on others' arguments.</li>
+                        <li class="mb-1">Keep a composed, professional tone of voice.</li>
+                    </ul>
+                </div>
+
+                <div class="p-3 bg-danger-subtle text-danger rounded-3">
+                    <h6 class="fw-bold mb-2"><i class="fas fa-times-circle me-1"></i> DON'Ts:</h6>
+                    <ul class="small mb-0 ps-3">
+                        <li class="mb-1">Do not interrupt others aggressively or raise your voice.</li>
+                        <li class="mb-1">Do not speak without clear data or relevant context.</li>
+                        <li class="mb-1">Do not dominate the discussion continuous speaking time.</li>
+                        <li class="mb-1">Do not engage in personal side arguments.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

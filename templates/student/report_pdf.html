@@ -1,0 +1,106 @@
+{% extends "student/student_base.html" %}
+
+{% block title %}Prediction Report #{{ prediction.id }} - PlacementIQ{% endblock %}
+{% block page_title %}Placement Prediction Report{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+
+    <!-- Top Action Bar -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="{{ url_for('student.history') }}" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+            <i class="fas fa-arrow-left me-1"></i> Back to History
+        </a>
+        <button onclick="window.print()" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm">
+            <i class="fas fa-print me-1"></i> Print / Save Report
+        </button>
+    </div>
+
+    <!-- Report Document Card -->
+    <div class="card border-0 shadow-sm rounded-4 p-5 bg-white mb-4">
+
+        <!-- Report Header -->
+        <div class="d-flex justify-content-between align-items-center pb-4 mb-4 border-bottom">
+            <div>
+                <h2 class="fw-bold text-primary mb-1"><i class="fas fa-graduation-cap me-2"></i> PlacementIQ AI Report</h2>
+                <span class="text-muted font-monospace">Report Reference ID: #PRED-2026-{{ prediction.id }}</span>
+            </div>
+            <div class="text-end">
+                <span class="badge bg-primary px-3 py-2 rounded-pill font-monospace fs-6">Verified ML Evaluation</span>
+                <div class="text-muted small mt-1">Generated: {{ prediction.created_at }}</div>
+            </div>
+        </div>
+
+        <!-- Student Context -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded-3">
+                    <small class="text-muted fw-bold text-uppercase d-block mb-1">Student Details</small>
+                    <h5 class="fw-bold text-dark mb-1">{{ student.student_name }}</h5>
+                    <div class="small text-secondary">Register No: <strong>{{ student.register_number }}</strong></div>
+                    <div class="small text-secondary">Department: <strong>{{ student.department }}</strong></div>
+                    <div class="small text-secondary">Email: <strong>{{ student.email }}</strong></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-primary-subtle rounded-3 text-dark">
+                    <small class="text-primary fw-bold text-uppercase d-block mb-1">AI Prediction Outcome</small>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h2 class="display-6 fw-bold text-primary mb-0">{{ "%.1f"|format(prediction.probability) }}%</h2>
+                            <span class="badge bg-{{ 'success' if prediction.probability >= 75 else ('warning' if prediction.probability >= 50 else 'danger') }} px-3 py-1 rounded-pill mt-1">
+                                {{ prediction.status }}
+                            </span>
+                        </div>
+                        <i class="fas fa-chart-pie fa-3x text-primary opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Feature Parameters -->
+        <h5 class="fw-bold text-dark mb-3"><i class="fas fa-list text-primary me-2"></i> Evaluated Student Metrics</h5>
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 text-center bg-light">
+                    <small class="text-muted d-block mb-1">CGPA Score</small>
+                    <h4 class="fw-bold text-dark mb-0">{{ prediction.cgpa }}</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 text-center bg-light">
+                    <small class="text-muted d-block mb-1">Coding Score</small>
+                    <h4 class="fw-bold text-dark mb-0">{{ student.coding_score }} / 100</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 text-center bg-light">
+                    <small class="text-muted d-block mb-1">Aptitude Score</small>
+                    <h4 class="fw-bold text-dark mb-0">{{ student.aptitude_score }} / 100</h4>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 text-center bg-light">
+                    <small class="text-muted d-block mb-1">Active Backlogs</small>
+                    <h4 class="fw-bold text-{{ 'success' if student.backlogs == 0 else 'danger' }} mb-0">{{ student.backlogs }}</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Benchmark -->
+        {% if metrics %}
+            <div class="p-3 bg-light rounded-3 mb-4">
+                <small class="fw-bold text-secondary text-uppercase d-block mb-1">System ML Model Benchmark</small>
+                <small class="text-dark d-block">Algorithm: <strong>{{ metrics.algorithm }} Classifier</strong> | Model Accuracy: <strong>{{ "%.2f"|format(metrics.accuracy * 100) }}%</strong> | Precision: <strong>{{ "%.2f"|format(metrics.precision * 100) }}%</strong></small>
+            </div>
+        {% endif %}
+
+        <!-- Report Footer -->
+        <div class="text-center pt-4 border-top text-muted small">
+            This placement prediction report is generated by the PlacementIQ AI Engine. Keep improving your skills daily.
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

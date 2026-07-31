@@ -1,0 +1,185 @@
+{% extends "student/student_base.html" if is_student_portal else "base.html" %}
+
+{% block title %}Interview Performance Dashboard - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+
+    <!-- Top Action Banner -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2">
+                <i class="fas fa-chart-line me-1"></i> Student Analytics
+            </span>
+            <h2 class="fw-bold text-dark mb-1">Interview Performance Analytics</h2>
+            <p class="text-muted mb-0">Track your interview preparation trends, score improvements, and category mastery over time.</p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <a href="{{ url_for('student.mock_interview_hub') }}" class="btn btn-primary rounded-pill fw-bold shadow-sm px-4 py-2 me-2">
+                <i class="fas fa-play me-1"></i> Start New Practice Session
+            </a>
+        </div>
+    </div>
+
+    <!-- Summary Metric Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-muted small fw-semibold">TOTAL SESSIONS</span>
+                    <i class="fas fa-headset text-primary fa-xl"></i>
+                </div>
+                <h2 class="fw-bold text-dark mb-0">{{ stats.total_interviews }}</h2>
+                <small class="text-muted">Interviews & Drills Attempted</small>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-muted small fw-semibold">AVERAGE ACCURACY</span>
+                    <i class="fas fa-chart-pie text-success fa-xl"></i>
+                </div>
+                <h2 class="fw-bold text-success mb-0">{{ "%.1f"|format(stats.avg_score) }}%</h2>
+                <small class="text-muted">Cumulative Performance Average</small>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <span class="text-muted small fw-semibold">PERSONAL BEST</span>
+                    <i class="fas fa-trophy text-warning fa-xl"></i>
+                </div>
+                <h2 class="fw-bold text-warning mb-0">{{ "%.1f"|format(stats.best_score) }}%</h2>
+                <small class="text-muted">Peak Score Achieved</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart & Category Performance -->
+    <div class="row g-4 mb-4">
+        <!-- Category Stats Bar -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-4"><i class="fas fa-layer-group text-primary me-2"></i> Category Breakdown</h5>
+                {% if stats.category_stats %}
+                    {% for c in stats.category_stats %}
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold text-dark small">{{ c.category }} ({{ c.count }} sessions)</span>
+                                <span class="fw-bold text-primary small">{{ "%.1f"|format(c.avg_score) }}% Avg</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ c.avg_score }}%;"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted mb-0">No category breakdown data available yet.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <h5 class="fw-bold text-dark mb-3"><i class="fas fa-chart-line text-success me-2"></i> Score Trend Chart</h5>
+                <canvas id="interviewTrendChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Attempt History Table -->
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-header bg-white border-0 pt-4 px-4">
+            <h5 class="fw-bold text-dark mb-0"><i class="fas fa-history text-primary me-2"></i> Complete Mock Interview History</h5>
+        </div>
+        <div class="card-body p-0">
+            {% if interviews %}
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="ps-4">Date</th>
+                                <th>Category</th>
+                                <th>Domain</th>
+                                <th>Questions</th>
+                                <th>Score %</th>
+                                <th class="text-end pe-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in interviews %}
+                                <tr>
+                                    <td class="ps-4 text-muted small">{{ i.created_at }}</td>
+                                    <td><span class="badge bg-primary-subtle text-primary">{{ i.category }}</span></td>
+                                    <td class="fw-semibold text-dark">{{ i.domain }}</td>
+                                    <td><span class="badge bg-light text-dark border">{{ i.correct_answers }}/{{ i.total_questions }}</span></td>
+                                    <td>
+                                        {% if i.total_score >= 80 %}
+                                            <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">{{ "%.1f"|format(i.total_score) }}%</span>
+                                        {% elif i.total_score >= 60 %}
+                                            <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill">{{ "%.1f"|format(i.total_score) }}%</span>
+                                        {% else %}
+                                            <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">{{ "%.1f"|format(i.total_score) }}%</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        <a href="{{ url_for('student.mock_interview_result', interview_id=i.id) }}" class="btn btn-sm btn-outline-primary rounded-pill">
+                                            <i class="fas fa-file-alt me-1"></i> Result
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-folder-open text-muted fa-3x mb-3"></i>
+                    <h6 class="text-muted">No completed sessions logged in database history.</h6>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+<!-- Chart.js Setup Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('interviewTrendChart');
+    if (ctx) {
+        const labels = [{% for i in interviews|reverse %}"{{ i.domain }}"{% if not loop.last %}, {% endif %}{% endfor %}];
+        const scores = [{% for i in interviews|reverse %}{{ "%.1f"|format(i.total_score) }}{% if not loop.last %}, {% endif %}{% endfor %}];
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Interview Score (%)',
+                    data: scores,
+                    borderColor: '#4f46e5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#4f46e5',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

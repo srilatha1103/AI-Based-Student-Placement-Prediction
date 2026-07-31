@@ -1,0 +1,1501 @@
+student_name,register_number,department,cgpa,tenth_percentage,twelfth_percentage,aptitude_score,coding_score,communication_skill,internship,certifications,projects_completed,backlogs,placed
+Student_1,REG20260001,Information Technology,7.73,83.93,80.77,72,44.0,Excellent,Yes,3,3,2,0
+Student_2,REG20260002,Other,7.56,89.26,77.09,40,68.0,Average,Yes,0,1,0,1
+Student_3,REG20260003,Mechanical Engineering,5.61,65.77,67.39,90,82.0,Excellent,No,0,3,2,0
+Student_4,REG20260004,Electrical and Electronics Engineering,6.97,81.87,55.28,44,67.0,Good,Yes,2,1,0,0
+Student_5,REG20260005,Computer Science and Engineering,7.13,79.59,76.34,52,95.0,,No,0,1,0,0
+Student_6,REG20260006,Computer Science and Engineering,7.21,90.81,67.28,58,,Poor,No,0,0,0,0
+Student_7,REG20260007,Computer Science and Engineering,7.99,93.96,86.59,51,88.0,Average,Yes,0,2,1,0
+Student_8,REG20260008,Artificial Intelligence and Data Science,7.79,55.52,56.03,87,99.0,Good,No,1,1,0,0
+Student_9,REG20260009,Electrical and Electronics Engineering,8.11,83.98,80.15,64,35.0,Poor,No,1,2,1,0
+Student_10,REG20260010,Mechanical Engineering,8.79,57.23,95.48,96,39.0,Good,,1,2,1,0
+Student_11,REG20260011,Computer Science and Engineering,9.0,78.6,62.5,90,49.0,Poor,Yes,2,1,0,1
+Student_12,REG20260012,Other,8.59,67.37,75.28,74,62.0,Good,No,1,2,2,0
+Student_13,REG20260013,Artificial Intelligence and Data Science,9.61,68.19,58.93,51,57.0,Average,No,0,3,0,0
+Student_14,REG20260014,Computer Science and Engineering,5.58,70.18,81.9,69,51.0,Good,No,3,1,2,0
+Student_15,REG20260015,Computer Science and Engineering,6.34,81.72,78.67,44,47.0,Good,Yes,0,1,0,0
+Student_16,REG20260016,Computer Science and Engineering,5.53,69.36,72.52,73,48.0,Average,No,0,2,0,0
+Student_17,REG20260017,Information Technology,8.28,86.51,77.42,61,45.0,Average,No,0,2,0,0
+Student_18,REG20260018,Electronics and Communication Engineering,9.36,72.39,93.55,78,62.0,Poor,Yes,1,0,0,1
+Student_19,REG20260019,Electronics and Communication Engineering,6.55,57.94,63.44,52,76.0,Good,No,0,1,0,0
+Student_20,REG20260020,Information Technology,9.49,88.7,55.97,96,95.0,,No,0,1,0,1
+Student_21,REG20260021,Electrical and Electronics Engineering,5.76,67.29,92.05,86,98.0,Good,No,0,1,0,1
+Student_22,REG20260022,Computer Science and Engineering,9.52,73.61,79.82,93,65.0,Good,No,0,0,0,1
+Student_23,REG20260023,Information Technology,7.01,84.47,93.3,42,44.0,Average,No,1,3,0,0
+Student_24,REG20260024,Information Technology,5.94,69.3,80.67,99,42.0,Average,No,2,2,1,0
+Student_25,REG20260025,Electronics and Communication Engineering,7.59,57.43,89.84,92,55.0,Poor,No,2,1,0,0
+Student_26,REG20260026,Civil Engineering,6.6,71.08,73.48,59,93.0,Average,No,0,2,2,0
+Student_27,REG20260027,Computer Science and Engineering,6.72,95.61,87.24,70,84.0,Excellent,No,0,3,0,0
+Student_28,REG20260028,Electronics and Communication Engineering,6.82,82.59,94.26,44,64.0,Excellent,No,4,0,0,0
+Student_29,REG20260029,Electrical and Electronics Engineering,8.95,83.87,79.6,63,51.0,Average,No,0,1,0,0
+Student_30,REG20260030,Computer Science and Engineering,7.82,82.19,62.77,79,54.0,Good,No,2,1,0,0
+Student_31,REG20260031,Electrical and Electronics Engineering,6.84,63.56,66.56,93,82.0,Good,No,0,2,0,0
+Student_32,REG20260032,Computer Science and Engineering,8.12,72.99,63.54,72,36.0,Average,Yes,3,0,0,0
+Student_33,REG20260033,Computer Science and Engineering,8.58,87.29,65.61,47,71.0,Poor,Yes,0,4,1,0
+Student_34,REG20260034,Artificial Intelligence and Data Science,6.67,59.36,68.18,63,35.0,Poor,No,1,1,1,0
+Student_35,REG20260035,Other,7.28,66.95,78.87,89,38.0,Good,Yes,1,1,0,0
+Student_36,REG20260036,Civil Engineering,6.02,66.88,80.28,59,88.0,Excellent,Yes,1,1,1,0
+Student_37,REG20260037,Information Technology,6.28,73.58,73.34,99,59.0,Good,No,0,0,0,0
+Student_38,REG20260038,Computer Science and Engineering,8.43,97.16,81.46,55,37.0,Poor,,1,2,0,0
+Student_39,REG20260039,Mechanical Engineering,6.28,57.9,58.51,89,43.0,Average,Yes,1,4,0,0
+Student_40,REG20260040,Electronics and Communication Engineering,7.76,77.3,58.77,91,68.0,Good,No,0,1,1,0
+Student_41,REG20260041,Computer Science and Engineering,8.55,62.71,62.39,51,77.0,Good,No,0,4,1,0
+Student_42,REG20260042,Electronics and Communication Engineering,5.96,96.74,77.28,52,56.0,Good,No,1,2,1,0
+Student_43,REG20260043,Computer Science and Engineering,7.94,59.87,64.2,84,36.0,Good,No,0,1,0,0
+Student_44,REG20260044,Artificial Intelligence and Data Science,6.6,72.35,67.18,81,100.0,Poor,No,1,2,0,1
+Student_45,REG20260045,Information Technology,9.64,86.73,72.21,78,66.0,Good,No,0,1,1,1
+Student_46,REG20260046,Mechanical Engineering,7.58,85.3,89.91,64,50.0,Good,No,1,2,0,0
+Student_47,REG20260047,Information Technology,8.97,73.18,55.6,85,35.0,Average,Yes,0,0,0,1
+Student_48,REG20260048,Electronics and Communication Engineering,7.87,69.9,82.92,71,82.0,Good,Yes,1,2,0,1
+Student_49,REG20260049,Electronics and Communication Engineering,5.69,72.1,83.76,63,84.0,Average,No,0,0,0,0
+Student_50,REG20260050,Computer Science and Engineering,8.22,66.36,89.34,87,47.0,Poor,No,0,2,0,0
+Student_51,REG20260051,Other,9.59,63.83,95.11,86,49.0,Average,No,0,2,0,0
+Student_52,REG20260052,Civil Engineering,8.09,75.77,55.87,83,87.0,Average,No,3,1,0,0
+Student_53,REG20260053,Artificial Intelligence and Data Science,9.02,66.55,61.61,48,78.0,Average,No,0,1,0,0
+Student_54,REG20260054,Artificial Intelligence and Data Science,9.3,67.36,93.11,79,42.0,Average,No,1,1,0,1
+Student_55,REG20260055,Electrical and Electronics Engineering,6.48,83.24,74.72,89,80.0,Good,No,0,2,0,0
+Student_56,REG20260056,Artificial Intelligence and Data Science,6.41,96.65,79.28,62,53.0,Good,Yes,0,1,0,0
+Student_57,REG20260057,Computer Science and Engineering,8.13,80.96,83.51,89,72.0,Average,No,1,2,0,1
+Student_58,REG20260058,Computer Science and Engineering,7.27,58.31,84.2,52,45.0,Poor,Yes,1,1,0,0
+Student_59,REG20260059,Computer Science and Engineering,9.11,58.25,95.06,99,77.0,Good,No,3,0,0,1
+Student_60,REG20260060,Information Technology,9.37,95.91,97.87,98,54.0,Average,No,3,0,1,0
+Student_61,REG20260061,Information Technology,7.02,67.78,85.97,71,54.0,Average,No,2,0,1,0
+Student_62,REG20260062,Information Technology,6.52,58.96,67.35,89,55.0,Excellent,No,1,2,0,0
+Student_63,REG20260063,Civil Engineering,8.86,80.76,92.83,54,91.0,Good,No,1,4,0,1
+Student_64,REG20260064,Information Technology,6.68,81.82,57.12,75,84.0,Excellent,No,0,1,1,0
+Student_65,REG20260065,Information Technology,9.04,82.89,64.94,88,60.0,Good,No,3,1,0,1
+Student_66,REG20260066,Electronics and Communication Engineering,7.32,66.5,93.59,44,64.0,Average,No,1,0,0,0
+Student_67,REG20260067,Computer Science and Engineering,8.37,55.65,66.02,61,65.0,Good,No,1,2,0,0
+Student_68,REG20260068,Civil Engineering,5.91,96.5,64.49,55,76.0,Average,No,0,0,0,0
+Student_69,REG20260069,Computer Science and Engineering,8.18,65.79,60.94,80,95.0,Average,Yes,0,2,0,1
+Student_70,REG20260070,Other,7.44,84.07,91.94,49,95.0,,No,3,3,3,0
+Student_71,REG20260071,Civil Engineering,8.02,85.39,76.5,63,51.0,Good,No,0,0,2,0
+Student_72,REG20260072,Computer Science and Engineering,6.22,81.23,84.02,57,53.0,Average,No,1,2,0,0
+Student_73,REG20260073,Computer Science and Engineering,8.67,68.46,65.28,88,85.0,Excellent,No,0,0,0,1
+Student_74,REG20260074,Civil Engineering,9.21,66.66,87.6,57,97.0,Excellent,No,2,1,0,1
+Student_75,REG20260075,Mechanical Engineering,6.43,80.7,87.68,46,64.0,Good,No,0,0,0,0
+Student_76,REG20260076,Mechanical Engineering,5.91,92.24,68.44,43,59.0,Good,No,2,1,0,0
+Student_77,REG20260077,Civil Engineering,5.6,95.71,72.66,65,60.0,Good,No,0,0,0,0
+Student_78,REG20260078,Computer Science and Engineering,8.26,59.55,64.02,44,90.0,Good,Yes,2,1,0,1
+Student_79,REG20260079,Information Technology,8.11,61.66,96.99,99,56.0,Average,No,1,1,0,0
+Student_80,REG20260080,Computer Science and Engineering,7.85,95.62,82.76,94,53.0,Good,Yes,0,1,0,1
+Student_81,REG20260081,Artificial Intelligence and Data Science,6.5,86.67,95.19,55,65.0,Good,Yes,1,2,3,0
+Student_82,REG20260082,Electrical and Electronics Engineering,7.18,92.97,68.05,74,60.0,Excellent,No,0,3,0,0
+Student_83,REG20260083,Information Technology,8.06,63.71,88.62,65,76.0,Good,Yes,0,1,3,0
+Student_84,REG20260084,Computer Science and Engineering,7.64,80.27,87.93,57,75.0,Good,No,2,0,0,0
+Student_85,REG20260085,Information Technology,9.75,85.15,84.74,68,57.0,Good,No,1,1,0,1
+Student_86,REG20260086,Information Technology,6.09,84.24,96.52,62,81.0,Good,No,0,3,0,0
+Student_87,REG20260087,Mechanical Engineering,8.49,72.55,71.92,92,47.0,Good,No,0,2,0,0
+Student_88,REG20260088,Electrical and Electronics Engineering,7.24,55.66,60.62,53,100.0,Average,Yes,0,1,0,1
+Student_89,REG20260089,Artificial Intelligence and Data Science,7.34,80.07,83.88,54,100.0,Good,No,2,0,2,0
+Student_90,REG20260090,Electronics and Communication Engineering,8.59,65.88,86.36,88,50.0,Excellent,Yes,0,1,3,0
+Student_91,REG20260091,Computer Science and Engineering,8.48,74.36,79.73,72,62.0,Good,No,3,1,0,0
+Student_92,REG20260092,Mechanical Engineering,9.76,96.18,63.89,64,69.0,Good,No,3,3,0,1
+Student_93,REG20260093,Civil Engineering,6.05,72.16,76.69,60,75.0,Poor,No,0,3,0,0
+Student_94,REG20260094,Electrical and Electronics Engineering,5.95,91.11,68.42,56,65.0,Good,No,0,0,0,0
+Student_95,REG20260095,Civil Engineering,8.61,63.11,73.38,62,66.0,Good,,2,1,0,0
+Student_96,REG20260096,Electronics and Communication Engineering,7.99,83.92,82.74,96,88.0,Good,No,0,1,0,1
+Student_97,REG20260097,Electronics and Communication Engineering,6.68,97.01,87.04,82,93.0,Poor,No,0,1,0,0
+Student_98,REG20260098,Electronics and Communication Engineering,5.84,59.38,64.99,56,75.0,Excellent,Yes,0,3,0,0
+Student_99,REG20260099,Computer Science and Engineering,5.87,55.36,72.43,97,100.0,Good,No,1,1,0,1
+Student_100,REG20260100,Computer Science and Engineering,9.35,73.64,66.57,53,88.0,Average,No,2,1,0,1
+Student_101,REG20260101,Computer Science and Engineering,6.33,58.98,63.54,68,74.0,Average,No,0,1,0,0
+Student_102,REG20260102,Electrical and Electronics Engineering,6.89,87.18,88.69,59,62.0,Average,Yes,0,2,3,0
+Student_103,REG20260103,Information Technology,6.47,94.33,94.1,69,71.0,Good,No,3,2,0,0
+Student_104,REG20260104,Electronics and Communication Engineering,7.03,73.66,70.92,58,99.0,Poor,No,2,1,1,0
+Student_105,REG20260105,Artificial Intelligence and Data Science,5.8,66.12,87.3,92,89.0,Average,Yes,1,1,1,0
+Student_106,REG20260106,Computer Science and Engineering,7.73,73.68,93.57,78,38.0,Good,No,2,1,3,0
+Student_107,REG20260107,Electronics and Communication Engineering,5.79,86.11,91.38,95,44.0,Average,,1,4,1,0
+Student_108,REG20260108,Civil Engineering,8.94,55.39,62.86,52,81.0,Average,No,2,1,0,1
+Student_109,REG20260109,Computer Science and Engineering,6.5,80.35,96.12,57,48.0,Good,No,0,1,1,0
+Student_110,REG20260110,Computer Science and Engineering,7.82,81.37,71.2,62,72.0,Good,No,0,1,0,0
+Student_111,REG20260111,Information Technology,9.28,82.42,69.59,85,46.0,Good,Yes,1,2,0,1
+Student_112,REG20260112,Computer Science and Engineering,8.3,65.41,57.68,72,79.0,Average,No,1,1,3,0
+Student_113,REG20260113,Artificial Intelligence and Data Science,7.79,85.7,75.91,78,51.0,Good,Yes,4,0,1,0
+Student_114,REG20260114,Civil Engineering,6.89,58.93,59.69,79,69.0,Good,No,0,2,3,0
+Student_115,REG20260115,Electrical and Electronics Engineering,6.93,63.57,65.69,57,100.0,Average,Yes,3,2,1,0
+Student_116,REG20260116,Artificial Intelligence and Data Science,8.38,92.73,68.63,48,75.0,Average,Yes,3,2,1,0
+Student_117,REG20260117,Civil Engineering,9.77,86.77,89.78,72,63.0,Average,No,0,3,1,0
+Student_118,REG20260118,Computer Science and Engineering,8.35,55.59,92.65,71,52.0,Average,Yes,2,1,1,0
+Student_119,REG20260119,Artificial Intelligence and Data Science,7.9,65.68,68.01,100,54.0,Good,Yes,1,0,0,1
+Student_120,REG20260120,Electronics and Communication Engineering,8.64,64.22,91.92,93,48.0,Good,No,3,4,2,0
+Student_121,REG20260121,Civil Engineering,7.5,66.64,91.86,56,68.0,Average,Yes,1,1,1,0
+Student_122,REG20260122,Artificial Intelligence and Data Science,5.76,65.65,87.88,58,83.0,Average,Yes,1,2,1,0
+Student_123,REG20260123,Information Technology,7.92,57.69,61.31,66,88.0,Average,No,1,2,0,1
+Student_124,REG20260124,Computer Science and Engineering,9.62,74.73,84.68,45,65.0,Good,No,0,1,0,1
+Student_125,REG20260125,Computer Science and Engineering,6.25,86.51,95.64,74,92.0,Average,No,0,1,0,0
+Student_126,REG20260126,Electronics and Communication Engineering,8.47,81.09,84.35,95,76.0,Good,No,1,2,2,0
+Student_127,REG20260127,Civil Engineering,6.36,83.93,69.26,76,92.0,Average,No,2,2,0,0
+Student_128,REG20260128,Artificial Intelligence and Data Science,7.8,58.49,76.52,73,64.0,Good,No,1,2,0,0
+Student_129,REG20260129,Computer Science and Engineering,5.92,95.91,82.77,59,59.0,Excellent,No,1,1,0,0
+Student_130,REG20260130,Electronics and Communication Engineering,7.44,91.06,76.95,64,97.0,Average,Yes,0,0,1,1
+Student_131,REG20260131,Electronics and Communication Engineering,8.75,89.62,60.16,43,53.0,Good,No,1,0,1,0
+Student_132,REG20260132,Computer Science and Engineering,,90.39,68.42,49,42.0,Excellent,No,0,1,1,0
+Student_133,REG20260133,Computer Science and Engineering,8.36,95.11,89.5,49,37.0,Average,No,2,1,0,0
+Student_134,REG20260134,Information Technology,8.92,78.4,92.04,63,51.0,Good,Yes,4,4,0,1
+Student_135,REG20260135,Artificial Intelligence and Data Science,9.49,63.61,60.9,60,48.0,Poor,Yes,1,2,0,1
+Student_136,REG20260136,Information Technology,6.51,81.52,95.95,50,43.0,,No,0,2,0,0
+Student_137,REG20260137,Electronics and Communication Engineering,7.22,86.94,69.14,66,96.0,Poor,Yes,0,1,1,0
+Student_138,REG20260138,Mechanical Engineering,,86.73,83.48,55,55.0,Excellent,No,1,0,0,0
+Student_139,REG20260139,Information Technology,9.77,77.42,87.33,65,71.0,Good,No,1,4,0,1
+Student_140,REG20260140,Other,9.49,57.94,89.91,100,45.0,Good,No,2,1,0,1
+Student_141,REG20260141,Other,7.82,70.96,95.67,100,54.0,Good,Yes,0,0,0,1
+Student_142,REG20260142,Information Technology,9.12,94.59,68.46,69,69.0,Good,No,2,1,2,0
+Student_143,REG20260143,Electronics and Communication Engineering,7.74,80.13,91.92,88,87.0,Average,No,1,3,0,1
+Student_144,REG20260144,Information Technology,8.18,78.15,60.66,55,81.0,Excellent,No,0,3,1,0
+Student_145,REG20260145,Information Technology,5.88,66.56,85.32,46,86.0,Excellent,Yes,1,0,0,0
+Student_146,REG20260146,Computer Science and Engineering,8.75,70.84,86.91,55,42.0,Good,Yes,0,3,0,0
+Student_147,REG20260147,Electrical and Electronics Engineering,6.05,93.5,84.14,74,38.0,Excellent,No,1,1,0,0
+Student_148,REG20260148,Electronics and Communication Engineering,9.05,83.66,65.85,97,61.0,Good,Yes,2,0,0,1
+Student_149,REG20260149,Computer Science and Engineering,8.86,88.86,92.54,55,78.0,Good,No,1,3,1,0
+Student_150,REG20260150,Information Technology,8.55,74.54,62.26,79,74.0,Good,No,2,3,0,1
+Student_151,REG20260151,Artificial Intelligence and Data Science,5.66,82.1,57.31,51,81.0,Average,No,1,2,0,0
+Student_152,REG20260152,Computer Science and Engineering,6.8,65.68,85.85,74,78.0,Poor,No,0,2,0,0
+Student_153,REG20260153,Computer Science and Engineering,6.63,85.33,75.45,88,82.0,Average,Yes,1,2,0,1
+Student_154,REG20260154,Electronics and Communication Engineering,7.05,73.39,91.51,60,86.0,Good,Yes,1,2,1,0
+Student_155,REG20260155,Other,5.88,74.03,71.49,89,45.0,Average,Yes,0,3,0,0
+Student_156,REG20260156,Computer Science and Engineering,9.53,82.92,62.24,82,38.0,Average,No,0,2,0,1
+Student_157,REG20260157,Mechanical Engineering,7.88,95.26,90.97,75,82.0,,No,1,4,1,1
+Student_158,REG20260158,Civil Engineering,6.81,57.75,78.6,87,60.0,Average,Yes,0,5,0,0
+Student_159,REG20260159,Computer Science and Engineering,7.21,90.46,63.14,56,73.0,Good,No,0,0,0,0
+Student_160,REG20260160,Mechanical Engineering,7.42,67.57,85.98,71,92.0,Average,No,1,3,0,0
+Student_161,REG20260161,Information Technology,8.08,74.09,76.98,80,53.0,Poor,No,0,1,0,0
+Student_162,REG20260162,Electrical and Electronics Engineering,7.72,55.94,80.99,45,92.0,Good,Yes,3,1,1,1
+Student_163,REG20260163,Electrical and Electronics Engineering,9.45,67.94,74.82,63,62.0,Good,Yes,0,2,0,1
+Student_164,REG20260164,Electronics and Communication Engineering,7.64,76.61,90.63,66,100.0,Good,Yes,2,0,3,0
+Student_165,REG20260165,Computer Science and Engineering,9.77,57.42,90.67,59,44.0,Average,No,1,1,0,1
+Student_166,REG20260166,Artificial Intelligence and Data Science,9.16,76.12,85.5,64,92.0,Good,Yes,1,3,3,0
+Student_167,REG20260167,Information Technology,6.4,94.87,59.53,41,48.0,Average,No,0,1,0,0
+Student_168,REG20260168,Computer Science and Engineering,9.5,59.53,91.07,48,49.0,Average,No,3,1,0,0
+Student_169,REG20260169,Computer Science and Engineering,6.0,87.87,83.85,67,67.0,Poor,No,1,3,0,0
+Student_170,REG20260170,Electrical and Electronics Engineering,9.02,72.62,84.97,92,51.0,Average,No,2,1,0,1
+Student_171,REG20260171,Mechanical Engineering,7.14,83.17,70.61,100,58.0,Average,,0,1,1,1
+Student_172,REG20260172,Computer Science and Engineering,9.28,66.19,92.81,77,64.0,Average,No,0,1,1,0
+Student_173,REG20260173,Electronics and Communication Engineering,9.23,61.86,86.19,42,96.0,Excellent,No,1,1,0,1
+Student_174,REG20260174,Computer Science and Engineering,8.97,61.9,59.84,59,47.0,Average,No,0,2,0,0
+Student_175,REG20260175,Electrical and Electronics Engineering,8.9,58.03,72.53,45,96.0,Average,No,1,2,0,1
+Student_176,REG20260176,Computer Science and Engineering,6.81,62.98,93.11,78,81.0,Average,No,0,1,4,0
+Student_177,REG20260177,Mechanical Engineering,5.85,83.56,57.03,72,50.0,Good,Yes,1,2,2,0
+Student_178,REG20260178,Information Technology,7.23,92.91,96.34,94,100.0,Poor,Yes,4,1,0,1
+Student_179,REG20260179,Artificial Intelligence and Data Science,6.25,90.01,84.2,40,77.0,Excellent,Yes,1,1,1,0
+Student_180,REG20260180,Computer Science and Engineering,8.49,84.46,82.15,76,42.0,Excellent,No,2,2,2,0
+Student_181,REG20260181,Information Technology,6.99,59.75,66.63,45,37.0,Average,Yes,1,2,0,0
+Student_182,REG20260182,Computer Science and Engineering,9.7,67.44,65.7,84,46.0,Good,No,1,2,1,0
+Student_183,REG20260183,Artificial Intelligence and Data Science,8.26,68.32,95.51,73,50.0,Poor,No,3,0,0,1
+Student_184,REG20260184,Artificial Intelligence and Data Science,9.04,65.75,67.83,86,93.0,Good,No,2,0,0,1
+Student_185,REG20260185,Information Technology,6.07,77.15,88.35,54,83.0,Average,No,2,1,0,0
+Student_186,REG20260186,Mechanical Engineering,9.21,78.03,71.9,84,97.0,Average,No,0,1,0,1
+Student_187,REG20260187,Civil Engineering,9.47,70.35,60.99,65,96.0,Average,Yes,1,2,0,1
+Student_188,REG20260188,Electrical and Electronics Engineering,7.59,70.21,55.46,96,83.0,Good,Yes,0,0,0,1
+Student_189,REG20260189,Electronics and Communication Engineering,8.11,90.63,78.4,53,85.0,Average,No,1,2,1,0
+Student_190,REG20260190,Computer Science and Engineering,8.79,88.94,96.96,97,67.0,Average,Yes,1,1,0,1
+Student_191,REG20260191,Computer Science and Engineering,6.25,68.24,70.87,93,64.0,Good,Yes,2,1,0,1
+Student_192,REG20260192,Artificial Intelligence and Data Science,7.66,94.29,70.36,46,93.0,Good,No,2,1,2,0
+Student_193,REG20260193,Artificial Intelligence and Data Science,7.21,95.97,69.8,85,49.0,Excellent,Yes,1,1,0,1
+Student_194,REG20260194,Electrical and Electronics Engineering,6.13,69.05,77.38,97,57.0,Average,No,0,3,0,0
+Student_195,REG20260195,Information Technology,7.08,70.24,73.95,70,79.0,Good,No,2,0,3,0
+Student_196,REG20260196,Information Technology,5.79,76.74,92.84,63,96.0,Good,No,0,1,2,0
+Student_197,REG20260197,Mechanical Engineering,5.61,95.47,76.74,98,49.0,Average,No,1,3,0,0
+Student_198,REG20260198,Artificial Intelligence and Data Science,6.08,92.68,76.83,70,80.0,Good,No,0,2,0,0
+Student_199,REG20260199,Artificial Intelligence and Data Science,9.64,59.41,60.95,68,98.0,Average,Yes,0,1,3,0
+Student_200,REG20260200,Civil Engineering,7.86,71.89,97.26,81,80.0,Excellent,Yes,4,1,0,1
+Student_201,REG20260201,Electrical and Electronics Engineering,9.65,78.79,65.75,71,90.0,Average,No,0,2,0,1
+Student_202,REG20260202,Computer Science and Engineering,7.36,76.63,58.15,56,78.0,Good,No,1,4,0,0
+Student_203,REG20260203,Computer Science and Engineering,6.84,63.34,83.52,53,63.0,Average,No,0,3,0,0
+Student_204,REG20260204,Artificial Intelligence and Data Science,7.68,91.93,80.6,79,96.0,Excellent,No,3,1,1,1
+Student_205,REG20260205,Electrical and Electronics Engineering,7.39,84.11,72.85,75,86.0,Average,Yes,2,5,1,0
+Student_206,REG20260206,Computer Science and Engineering,5.95,91.03,73.15,97,88.0,Excellent,No,0,0,3,0
+Student_207,REG20260207,Computer Science and Engineering,8.26,91.93,88.76,87,91.0,Excellent,No,0,0,1,1
+Student_208,REG20260208,Mechanical Engineering,6.43,87.18,63.42,63,100.0,Average,No,1,2,0,0
+Student_209,REG20260209,Computer Science and Engineering,8.16,73.89,90.27,84,56.0,Good,No,0,0,0,1
+Student_210,REG20260210,Computer Science and Engineering,8.3,81.25,82.9,93,,Excellent,No,1,0,3,0
+Student_211,REG20260211,Electronics and Communication Engineering,6.15,61.9,73.02,66,67.0,Average,No,0,1,0,0
+Student_212,REG20260212,Mechanical Engineering,5.76,83.97,74.7,64,59.0,Average,No,0,1,0,0
+Student_213,REG20260213,Mechanical Engineering,8.86,62.71,66.04,98,80.0,Good,Yes,1,2,2,0
+Student_214,REG20260214,Computer Science and Engineering,7.48,84.84,87.34,71,91.0,Average,No,0,2,0,1
+Student_215,REG20260215,Mechanical Engineering,5.75,64.87,77.05,91,39.0,Poor,Yes,2,1,0,0
+Student_216,REG20260216,Computer Science and Engineering,9.78,60.05,68.8,57,89.0,Average,Yes,0,1,2,0
+Student_217,REG20260217,Information Technology,5.75,62.11,80.63,85,95.0,Average,No,0,3,4,0
+Student_218,REG20260218,Mechanical Engineering,8.49,55.09,97.82,57,42.0,Average,No,5,2,0,0
+Student_219,REG20260219,Electrical and Electronics Engineering,9.73,85.91,73.72,76,50.0,Average,Yes,1,1,1,0
+Student_220,REG20260220,Artificial Intelligence and Data Science,6.53,86.49,94.59,65,82.0,Excellent,No,1,4,0,1
+Student_221,REG20260221,Mechanical Engineering,6.11,77.14,69.84,48,95.0,Good,Yes,0,2,0,1
+Student_222,REG20260222,Electrical and Electronics Engineering,6.02,61.94,57.35,99,49.0,Poor,No,1,0,2,0
+Student_223,REG20260223,Computer Science and Engineering,6.8,58.59,63.78,74,99.0,Good,No,1,0,3,0
+Student_224,REG20260224,Information Technology,5.93,55.82,73.0,47,56.0,Good,No,0,0,0,0
+Student_225,REG20260225,Information Technology,8.48,62.13,64.44,59,37.0,,No,2,2,0,0
+Student_226,REG20260226,Computer Science and Engineering,5.77,93.31,55.01,93,88.0,Poor,,1,0,0,0
+Student_227,REG20260227,Other,7.69,65.39,94.35,81,48.0,Average,No,0,1,0,0
+Student_228,REG20260228,Information Technology,9.79,70.23,91.29,61,70.0,Excellent,No,1,0,0,1
+Student_229,REG20260229,Artificial Intelligence and Data Science,9.0,59.53,86.92,58,44.0,Excellent,No,1,3,0,0
+Student_230,REG20260230,Electrical and Electronics Engineering,8.15,64.56,62.22,69,83.0,Good,No,0,1,0,0
+Student_231,REG20260231,Civil Engineering,6.82,77.33,60.18,92,99.0,Good,No,1,3,0,1
+Student_232,REG20260232,Electronics and Communication Engineering,8.18,81.13,57.91,67,91.0,Poor,No,0,3,0,1
+Student_233,REG20260233,Electrical and Electronics Engineering,7.77,65.55,86.13,74,61.0,Good,Yes,1,0,1,1
+Student_234,REG20260234,Electronics and Communication Engineering,7.33,57.48,94.94,82,39.0,Average,Yes,2,1,0,0
+Student_235,REG20260235,Computer Science and Engineering,6.06,71.81,73.51,50,91.0,Average,No,1,0,0,0
+Student_236,REG20260236,Mechanical Engineering,9.31,65.07,60.12,70,49.0,Good,No,3,3,1,0
+Student_237,REG20260237,Information Technology,7.43,64.44,77.03,88,,Average,No,0,1,1,0
+Student_238,REG20260238,Computer Science and Engineering,6.34,96.27,70.0,87,54.0,Good,No,1,0,0,0
+Student_239,REG20260239,Electrical and Electronics Engineering,7.08,81.5,71.12,78,71.0,Excellent,No,2,0,0,0
+Student_240,REG20260240,Computer Science and Engineering,7.28,78.95,81.72,75,37.0,Average,Yes,1,1,1,0
+Student_241,REG20260241,Artificial Intelligence and Data Science,9.06,72.88,85.9,69,75.0,Excellent,No,1,3,0,1
+Student_242,REG20260242,Other,8.65,73.44,59.76,62,73.0,Excellent,No,0,2,1,0
+Student_243,REG20260243,Artificial Intelligence and Data Science,8.81,78.26,56.53,58,60.0,Good,No,0,3,0,0
+Student_244,REG20260244,Information Technology,5.55,84.95,97.76,51,36.0,Average,No,0,1,0,0
+Student_245,REG20260245,Computer Science and Engineering,7.29,85.19,65.01,54,57.0,Average,Yes,5,0,0,0
+Student_246,REG20260246,Artificial Intelligence and Data Science,7.57,62.38,57.31,70,57.0,Average,No,0,4,1,0
+Student_247,REG20260247,Electronics and Communication Engineering,5.58,76.5,63.16,82,50.0,Average,No,2,0,2,0
+Student_248,REG20260248,Other,6.62,72.71,56.68,76,43.0,Average,Yes,1,3,0,0
+Student_249,REG20260249,Other,8.77,92.43,71.85,76,47.0,Excellent,No,0,1,0,0
+Student_250,REG20260250,Artificial Intelligence and Data Science,6.09,82.15,89.5,54,62.0,Average,No,1,0,0,0
+Student_251,REG20260251,Information Technology,7.8,77.9,69.67,68,61.0,Good,No,2,2,0,0
+Student_252,REG20260252,Information Technology,6.43,59.96,74.1,89,85.0,Poor,Yes,2,4,2,0
+Student_253,REG20260253,Artificial Intelligence and Data Science,5.55,81.04,84.05,82,98.0,Good,No,0,4,0,0
+Student_254,REG20260254,Information Technology,6.54,60.04,76.88,65,86.0,Excellent,No,0,0,2,0
+Student_255,REG20260255,Computer Science and Engineering,9.7,69.5,92.04,83,72.0,Average,No,0,0,0,1
+Student_256,REG20260256,Electrical and Electronics Engineering,8.95,61.14,92.24,41,99.0,Average,No,0,2,2,0
+Student_257,REG20260257,Artificial Intelligence and Data Science,9.63,84.76,55.43,59,52.0,Good,No,1,2,1,0
+Student_258,REG20260258,Mechanical Engineering,7.6,63.87,88.46,54,97.0,Good,No,2,2,0,1
+Student_259,REG20260259,Electrical and Electronics Engineering,5.97,71.85,74.81,91,85.0,Good,No,0,0,0,0
+Student_260,REG20260260,Computer Science and Engineering,7.86,93.51,97.52,43,43.0,Average,No,1,4,0,0
+Student_261,REG20260261,Electrical and Electronics Engineering,7.45,63.79,75.78,61,47.0,Average,Yes,1,2,0,1
+Student_262,REG20260262,Other,9.13,76.84,97.44,89,74.0,Excellent,Yes,0,3,0,1
+Student_263,REG20260263,Computer Science and Engineering,5.92,73.03,87.45,77,89.0,Excellent,Yes,0,1,0,1
+Student_264,REG20260264,Electronics and Communication Engineering,7.6,55.78,65.69,62,77.0,Good,Yes,1,1,3,0
+Student_265,REG20260265,Artificial Intelligence and Data Science,6.15,89.09,78.15,98,78.0,Good,,2,4,0,1
+Student_266,REG20260266,Mechanical Engineering,6.9,57.97,97.66,65,67.0,Good,Yes,1,2,1,0
+Student_267,REG20260267,Mechanical Engineering,8.67,75.39,91.87,90,58.0,Average,Yes,0,3,2,0
+Student_268,REG20260268,Mechanical Engineering,7.55,79.11,59.19,50,70.0,Average,No,0,4,1,0
+Student_269,REG20260269,Information Technology,7.12,82.02,85.37,67,44.0,Average,Yes,0,2,0,0
+Student_270,REG20260270,Information Technology,7.2,84.61,69.86,95,54.0,Good,No,1,1,0,0
+Student_271,REG20260271,Civil Engineering,7.48,65.89,55.3,41,46.0,Poor,Yes,2,0,0,0
+Student_272,REG20260272,Civil Engineering,8.88,55.43,72.35,98,96.0,Average,No,0,0,0,1
+Student_273,REG20260273,Artificial Intelligence and Data Science,9.34,86.11,65.09,47,,Good,No,2,1,0,0
+Student_274,REG20260274,Artificial Intelligence and Data Science,9.61,78.03,90.21,68,97.0,Good,No,1,0,1,0
+Student_275,REG20260275,Electronics and Communication Engineering,8.88,90.95,69.51,50,59.0,Good,No,1,1,0,0
+Student_276,REG20260276,Electronics and Communication Engineering,6.86,90.32,90.58,76,46.0,Excellent,Yes,4,1,0,0
+Student_277,REG20260277,Civil Engineering,8.46,91.26,55.03,57,55.0,Poor,No,0,1,3,0
+Student_278,REG20260278,Electrical and Electronics Engineering,7.38,75.86,68.24,94,59.0,Good,No,3,1,0,0
+Student_279,REG20260279,Mechanical Engineering,6.6,69.35,65.37,89,45.0,Good,No,0,0,0,0
+Student_280,REG20260280,Civil Engineering,9.12,89.04,65.04,53,98.0,Good,No,0,0,1,0
+Student_281,REG20260281,Artificial Intelligence and Data Science,5.67,74.41,57.93,93,84.0,Average,No,2,2,0,0
+Student_282,REG20260282,Information Technology,9.38,62.89,63.05,49,96.0,Average,No,3,1,0,1
+Student_283,REG20260283,Information Technology,,91.76,78.89,74,83.0,Excellent,Yes,1,1,0,1
+Student_284,REG20260284,Computer Science and Engineering,8.24,92.95,67.53,48,48.0,Good,No,1,2,1,0
+Student_285,REG20260285,Electrical and Electronics Engineering,8.34,75.05,72.95,74,35.0,Excellent,Yes,1,2,0,1
+Student_286,REG20260286,Computer Science and Engineering,9.35,58.26,71.21,50,59.0,Good,No,2,1,0,0
+Student_287,REG20260287,Electronics and Communication Engineering,8.24,71.68,92.66,83,93.0,Good,Yes,0,2,0,1
+Student_288,REG20260288,Electronics and Communication Engineering,8.14,89.55,93.93,51,39.0,Good,Yes,2,4,0,1
+Student_289,REG20260289,Information Technology,5.79,93.78,76.2,42,53.0,Good,No,1,3,0,0
+Student_290,REG20260290,Electrical and Electronics Engineering,7.73,63.75,69.2,92,57.0,Average,No,1,1,0,0
+Student_291,REG20260291,Computer Science and Engineering,6.15,57.88,59.59,78,43.0,Good,No,1,2,0,0
+Student_292,REG20260292,Computer Science and Engineering,8.67,92.73,96.0,53,84.0,Good,Yes,1,0,0,1
+Student_293,REG20260293,Civil Engineering,7.7,71.74,57.59,95,50.0,Average,Yes,3,2,0,0
+Student_294,REG20260294,Information Technology,8.42,78.3,67.8,67,67.0,Average,No,1,4,0,0
+Student_295,REG20260295,Computer Science and Engineering,5.68,96.63,67.82,50,36.0,Poor,No,3,1,0,0
+Student_296,REG20260296,Electronics and Communication Engineering,5.86,57.86,68.78,78,48.0,Excellent,No,0,3,0,0
+Student_297,REG20260297,Civil Engineering,8.58,82.88,62.06,64,35.0,Poor,No,1,1,0,0
+Student_298,REG20260298,Computer Science and Engineering,5.81,58.19,88.68,60,92.0,,No,2,5,1,0
+Student_299,REG20260299,Electrical and Electronics Engineering,5.81,71.15,60.27,49,50.0,Average,No,1,2,1,0
+Student_300,REG20260300,Computer Science and Engineering,5.55,89.56,82.3,82,81.0,Average,No,1,0,0,0
+Student_301,REG20260301,Computer Science and Engineering,9.61,73.64,60.33,54,78.0,Good,No,1,2,0,1
+Student_302,REG20260302,Electronics and Communication Engineering,8.67,97.88,58.03,58,48.0,Poor,No,2,1,0,0
+Student_303,REG20260303,Electronics and Communication Engineering,7.02,79.04,94.11,87,58.0,Good,No,2,0,0,0
+Student_304,REG20260304,Electrical and Electronics Engineering,6.78,68.81,63.18,61,89.0,Good,No,0,2,0,0
+Student_305,REG20260305,Mechanical Engineering,7.0,64.46,90.31,60,49.0,Good,No,2,1,0,0
+Student_306,REG20260306,Other,8.83,70.07,78.42,99,68.0,Average,Yes,1,2,1,1
+Student_307,REG20260307,Electronics and Communication Engineering,8.34,71.02,58.35,91,36.0,Excellent,Yes,0,1,0,1
+Student_308,REG20260308,Information Technology,6.3,57.95,96.08,83,61.0,Good,No,2,0,0,0
+Student_309,REG20260309,Civil Engineering,6.25,70.89,65.62,71,57.0,Excellent,Yes,1,4,1,0
+Student_310,REG20260310,Information Technology,5.92,74.96,91.96,89,48.0,Good,Yes,2,1,0,0
+Student_311,REG20260311,Electronics and Communication Engineering,8.34,86.08,62.26,62,97.0,Good,No,0,2,0,0
+Student_312,REG20260312,Computer Science and Engineering,8.79,83.24,91.72,52,99.0,Excellent,No,0,2,3,0
+Student_313,REG20260313,Computer Science and Engineering,6.64,85.48,55.57,44,97.0,Excellent,No,1,2,2,0
+Student_314,REG20260314,Other,5.59,55.36,77.01,43,98.0,Average,No,0,3,1,0
+Student_315,REG20260315,Artificial Intelligence and Data Science,5.85,64.36,88.09,67,66.0,Average,No,2,2,0,0
+Student_316,REG20260316,Mechanical Engineering,9.66,83.45,95.2,53,47.0,Average,No,0,1,0,0
+Student_317,REG20260317,Electronics and Communication Engineering,6.77,75.81,94.1,47,100.0,Average,No,1,3,2,0
+Student_318,REG20260318,Computer Science and Engineering,8.81,55.23,90.24,48,53.0,Average,No,0,0,0,0
+Student_319,REG20260319,Computer Science and Engineering,8.19,89.59,93.19,96,58.0,Average,No,0,1,1,0
+Student_320,REG20260320,Information Technology,7.14,88.23,63.57,90,,Excellent,No,2,4,0,0
+Student_321,REG20260321,Electronics and Communication Engineering,6.38,78.58,67.22,74,93.0,Poor,Yes,0,2,0,1
+Student_322,REG20260322,Mechanical Engineering,6.02,57.86,67.43,76,49.0,Good,Yes,1,2,3,0
+Student_323,REG20260323,Mechanical Engineering,8.14,87.96,71.21,60,44.0,Average,No,3,2,0,0
+Student_324,REG20260324,Information Technology,8.83,80.1,71.91,97,75.0,Average,Yes,1,3,0,1
+Student_325,REG20260325,Other,8.27,88.62,78.42,57,61.0,Poor,No,2,3,0,0
+Student_326,REG20260326,Mechanical Engineering,7.78,87.33,61.87,72,94.0,Average,No,0,1,0,1
+Student_327,REG20260327,Electrical and Electronics Engineering,5.68,89.53,84.72,47,86.0,Good,No,0,0,0,0
+Student_328,REG20260328,Electrical and Electronics Engineering,9.66,77.27,62.21,90,62.0,Excellent,No,2,1,0,1
+Student_329,REG20260329,Electronics and Communication Engineering,8.93,61.03,68.34,88,99.0,Average,No,1,2,0,1
+Student_330,REG20260330,Computer Science and Engineering,6.76,83.86,76.64,56,51.0,Good,Yes,1,1,1,0
+Student_331,REG20260331,Information Technology,9.71,81.68,89.25,82,78.0,Good,No,1,0,0,1
+Student_332,REG20260332,Civil Engineering,8.09,86.92,86.8,70,44.0,Excellent,No,1,1,3,0
+Student_333,REG20260333,Computer Science and Engineering,8.0,62.3,82.76,73,97.0,Good,No,0,4,0,1
+Student_334,REG20260334,Computer Science and Engineering,8.72,63.38,61.7,45,81.0,Good,No,2,2,0,0
+Student_335,REG20260335,Computer Science and Engineering,8.99,93.29,78.52,61,72.0,Good,Yes,1,1,0,1
+Student_336,REG20260336,Computer Science and Engineering,8.32,87.25,58.76,53,87.0,Good,Yes,1,0,1,0
+Student_337,REG20260337,Artificial Intelligence and Data Science,6.05,94.05,71.23,42,78.0,Poor,Yes,2,1,4,0
+Student_338,REG20260338,Mechanical Engineering,6.95,87.62,72.78,51,88.0,Average,No,0,0,1,0
+Student_339,REG20260339,Electronics and Communication Engineering,9.49,80.68,56.71,75,54.0,Excellent,No,0,0,0,0
+Student_340,REG20260340,Computer Science and Engineering,6.47,83.13,66.78,51,65.0,Good,No,2,3,0,0
+Student_341,REG20260341,Electronics and Communication Engineering,7.1,93.23,96.09,84,41.0,Good,No,2,5,1,0
+Student_342,REG20260342,Electronics and Communication Engineering,7.36,79.89,96.01,41,92.0,Good,No,1,0,2,0
+Student_343,REG20260343,Computer Science and Engineering,7.39,82.19,70.15,41,44.0,Average,No,0,0,3,0
+Student_344,REG20260344,Electronics and Communication Engineering,8.14,61.73,56.85,54,44.0,Good,Yes,0,1,0,1
+Student_345,REG20260345,Information Technology,9.56,75.38,62.7,62,73.0,Good,Yes,1,1,4,0
+Student_346,REG20260346,Electrical and Electronics Engineering,,85.81,71.87,68,62.0,Average,No,0,1,0,0
+Student_347,REG20260347,Electrical and Electronics Engineering,6.02,66.65,95.75,56,64.0,Good,No,2,1,0,0
+Student_348,REG20260348,Computer Science and Engineering,6.35,63.7,61.07,71,71.0,Excellent,No,3,1,0,0
+Student_349,REG20260349,Information Technology,9.31,68.49,87.83,46,77.0,Average,No,2,2,0,1
+Student_350,REG20260350,Electrical and Electronics Engineering,8.28,65.38,59.67,69,86.0,Good,No,0,2,1,0
+Student_351,REG20260351,Electronics and Communication Engineering,6.73,64.24,97.19,67,90.0,Average,Yes,2,2,1,0
+Student_352,REG20260352,Artificial Intelligence and Data Science,9.01,73.27,71.41,53,43.0,Good,,0,1,1,0
+Student_353,REG20260353,Mechanical Engineering,9.2,94.04,88.34,83,57.0,Average,No,0,3,0,1
+Student_354,REG20260354,Computer Science and Engineering,9.14,76.8,69.73,69,97.0,Good,No,0,4,0,1
+Student_355,REG20260355,Computer Science and Engineering,9.45,63.08,81.99,56,95.0,Excellent,Yes,0,0,1,1
+Student_356,REG20260356,Electrical and Electronics Engineering,6.58,58.31,63.26,71,74.0,Average,Yes,3,1,0,0
+Student_357,REG20260357,Computer Science and Engineering,8.75,84.93,61.28,85,78.0,Excellent,Yes,0,1,1,1
+Student_358,REG20260358,Electrical and Electronics Engineering,7.48,71.46,95.34,45,58.0,Excellent,No,0,0,0,0
+Student_359,REG20260359,Artificial Intelligence and Data Science,9.12,90.34,94.46,90,85.0,Average,No,4,1,0,1
+Student_360,REG20260360,Electrical and Electronics Engineering,8.63,83.36,93.16,63,92.0,Average,Yes,0,2,0,1
+Student_361,REG20260361,Information Technology,8.84,89.24,81.89,45,67.0,Excellent,Yes,2,1,2,0
+Student_362,REG20260362,Electrical and Electronics Engineering,8.32,66.69,89.76,66,50.0,Excellent,Yes,0,1,0,1
+Student_363,REG20260363,Electronics and Communication Engineering,6.26,84.77,57.97,57,56.0,Poor,No,0,1,0,0
+Student_364,REG20260364,Electronics and Communication Engineering,7.84,66.35,69.4,63,91.0,Poor,Yes,3,4,1,0
+Student_365,REG20260365,Artificial Intelligence and Data Science,9.73,95.38,68.49,76,96.0,Average,No,0,1,0,1
+Student_366,REG20260366,Information Technology,9.53,82.36,82.33,95,64.0,Excellent,Yes,1,2,2,0
+Student_367,REG20260367,Other,5.69,68.95,70.31,63,57.0,Average,Yes,0,0,0,0
+Student_368,REG20260368,Artificial Intelligence and Data Science,6.21,66.59,61.39,77,66.0,Good,No,0,0,0,0
+Student_369,REG20260369,Computer Science and Engineering,6.07,63.21,80.65,73,91.0,Good,No,0,2,2,0
+Student_370,REG20260370,Computer Science and Engineering,,84.87,90.02,79,43.0,Poor,Yes,0,0,0,1
+Student_371,REG20260371,Computer Science and Engineering,9.02,64.4,71.43,86,65.0,Good,No,0,0,0,1
+Student_372,REG20260372,Computer Science and Engineering,6.42,80.6,60.69,54,43.0,Average,No,2,0,0,0
+Student_373,REG20260373,Computer Science and Engineering,7.68,66.38,63.46,50,47.0,Excellent,No,1,2,0,0
+Student_374,REG20260374,Mechanical Engineering,9.12,83.46,65.21,61,92.0,Average,No,0,2,0,1
+Student_375,REG20260375,Computer Science and Engineering,8.65,90.04,67.9,93,37.0,Good,No,1,1,0,0
+Student_376,REG20260376,Information Technology,7.83,88.46,82.64,63,69.0,Good,No,3,2,1,0
+Student_377,REG20260377,Artificial Intelligence and Data Science,8.04,87.72,80.84,40,55.0,Average,Yes,3,0,1,0
+Student_378,REG20260378,Computer Science and Engineering,7.69,63.07,84.93,57,98.0,Poor,No,1,2,0,1
+Student_379,REG20260379,Civil Engineering,6.78,58.8,70.59,83,86.0,Average,No,2,1,0,0
+Student_380,REG20260380,Information Technology,7.93,85.05,90.43,51,68.0,,Yes,0,2,0,1
+Student_381,REG20260381,Computer Science and Engineering,8.46,70.84,63.78,96,69.0,Good,Yes,0,5,0,1
+Student_382,REG20260382,Mechanical Engineering,9.26,73.59,75.17,82,49.0,Good,Yes,1,3,0,1
+Student_383,REG20260383,Electrical and Electronics Engineering,8.24,56.34,89.44,67,40.0,Good,No,1,0,0,0
+Student_384,REG20260384,Artificial Intelligence and Data Science,8.77,66.16,62.75,79,66.0,Good,No,1,3,0,0
+Student_385,REG20260385,Mechanical Engineering,6.19,56.45,59.72,99,86.0,Good,No,1,0,0,1
+Student_386,REG20260386,Civil Engineering,7.48,92.8,93.0,46,62.0,Good,Yes,4,4,0,1
+Student_387,REG20260387,Information Technology,5.54,65.47,69.75,62,98.0,Average,No,2,1,1,0
+Student_388,REG20260388,Computer Science and Engineering,6.56,78.97,84.41,60,53.0,Average,No,1,1,1,0
+Student_389,REG20260389,Civil Engineering,8.62,56.68,56.09,73,49.0,Average,No,1,0,0,0
+Student_390,REG20260390,Civil Engineering,9.76,83.67,84.67,50,40.0,Good,No,0,0,1,0
+Student_391,REG20260391,Other,5.93,68.89,68.59,61,72.0,Average,No,0,2,0,0
+Student_392,REG20260392,Electronics and Communication Engineering,7.23,93.61,57.4,81,60.0,Average,No,0,3,2,0
+Student_393,REG20260393,Information Technology,8.94,93.19,81.22,74,85.0,Poor,No,1,2,0,1
+Student_394,REG20260394,Civil Engineering,6.38,68.99,65.35,91,87.0,Good,No,0,2,1,0
+Student_395,REG20260395,Information Technology,7.89,93.74,71.63,68,90.0,Average,No,2,2,0,1
+Student_396,REG20260396,Artificial Intelligence and Data Science,8.65,97.83,58.46,81,93.0,Average,No,0,1,0,1
+Student_397,REG20260397,Artificial Intelligence and Data Science,8.15,90.49,61.33,67,92.0,Average,Yes,1,0,0,1
+Student_398,REG20260398,Electronics and Communication Engineering,6.31,91.33,67.81,98,47.0,Average,Yes,0,0,0,0
+Student_399,REG20260399,Civil Engineering,7.03,65.71,58.86,57,77.0,Good,Yes,0,1,0,0
+Student_400,REG20260400,Civil Engineering,8.87,79.8,94.17,53,85.0,Average,No,2,1,0,1
+Student_401,REG20260401,Computer Science and Engineering,7.88,57.89,55.26,57,53.0,Average,No,1,0,1,0
+Student_402,REG20260402,Artificial Intelligence and Data Science,5.52,59.08,75.81,67,55.0,Good,Yes,3,0,0,0
+Student_403,REG20260403,Electronics and Communication Engineering,8.77,97.95,60.3,63,58.0,Average,Yes,5,0,0,1
+Student_404,REG20260404,Civil Engineering,5.65,69.05,68.23,47,60.0,Average,No,0,3,0,0
+Student_405,REG20260405,Information Technology,8.71,87.17,94.82,81,79.0,Excellent,No,0,0,3,0
+Student_406,REG20260406,Artificial Intelligence and Data Science,6.37,89.69,61.95,93,62.0,Average,No,2,1,1,0
+Student_407,REG20260407,Information Technology,9.62,91.9,96.53,84,63.0,Average,No,5,2,1,0
+Student_408,REG20260408,Computer Science and Engineering,7.08,97.9,63.85,92,51.0,Poor,No,1,1,0,0
+Student_409,REG20260409,Artificial Intelligence and Data Science,6.91,65.38,86.89,47,78.0,Good,No,2,0,0,0
+Student_410,REG20260410,Computer Science and Engineering,6.14,56.74,78.51,43,95.0,Good,No,2,1,0,0
+Student_411,REG20260411,Information Technology,6.81,72.68,93.03,66,59.0,Good,Yes,0,0,0,0
+Student_412,REG20260412,Other,9.27,60.59,78.82,75,36.0,Good,No,1,1,0,0
+Student_413,REG20260413,Other,9.78,55.96,77.99,44,,Average,No,2,0,0,1
+Student_414,REG20260414,Electrical and Electronics Engineering,7.08,70.5,63.4,72,60.0,Average,No,1,2,0,0
+Student_415,REG20260415,Electrical and Electronics Engineering,7.43,88.7,62.15,88,61.0,Good,No,0,2,0,0
+Student_416,REG20260416,Electronics and Communication Engineering,8.6,79.35,94.41,73,52.0,Excellent,No,0,1,0,0
+Student_417,REG20260417,Information Technology,9.31,68.45,69.1,69,88.0,Average,Yes,0,1,1,1
+Student_418,REG20260418,Information Technology,8.05,83.14,71.0,47,35.0,Good,No,0,1,0,0
+Student_419,REG20260419,Mechanical Engineering,7.18,64.98,87.67,78,95.0,Average,Yes,3,3,1,0
+Student_420,REG20260420,Civil Engineering,,55.62,69.57,86,37.0,Poor,Yes,0,1,0,0
+Student_421,REG20260421,Civil Engineering,8.49,87.87,95.94,65,75.0,Average,Yes,0,2,0,1
+Student_422,REG20260422,Civil Engineering,5.51,81.82,86.73,96,71.0,Average,No,0,2,0,0
+Student_423,REG20260423,Computer Science and Engineering,8.16,87.78,80.69,76,85.0,Good,No,1,1,1,0
+Student_424,REG20260424,Electronics and Communication Engineering,7.03,56.67,92.88,73,49.0,Good,No,1,1,0,0
+Student_425,REG20260425,Computer Science and Engineering,8.92,91.0,57.13,46,42.0,Average,No,0,1,1,0
+Student_426,REG20260426,Electronics and Communication Engineering,5.9,81.64,66.05,79,72.0,Poor,No,0,0,0,0
+Student_427,REG20260427,Electronics and Communication Engineering,8.03,79.23,75.0,67,90.0,Good,No,0,0,0,1
+Student_428,REG20260428,Artificial Intelligence and Data Science,7.57,81.86,64.76,78,81.0,Average,No,1,0,1,0
+Student_429,REG20260429,Information Technology,8.26,92.17,86.99,78,,Good,No,0,0,0,0
+Student_430,REG20260430,Computer Science and Engineering,5.78,80.24,94.53,67,83.0,Average,No,3,1,1,0
+Student_431,REG20260431,Computer Science and Engineering,7.99,79.98,73.22,53,75.0,Good,No,1,3,0,0
+Student_432,REG20260432,Civil Engineering,7.91,97.6,69.71,92,64.0,Average,No,0,1,0,0
+Student_433,REG20260433,Electrical and Electronics Engineering,7.91,87.54,96.35,89,39.0,Poor,No,1,3,1,0
+Student_434,REG20260434,Computer Science and Engineering,8.09,74.02,74.13,77,65.0,Average,Yes,0,4,3,0
+Student_435,REG20260435,Computer Science and Engineering,8.41,85.42,76.03,43,86.0,Average,Yes,1,4,0,1
+Student_436,REG20260436,Mechanical Engineering,8.96,71.74,70.12,81,57.0,Average,No,0,3,1,0
+Student_437,REG20260437,Computer Science and Engineering,6.66,64.84,94.11,57,82.0,Good,No,1,1,0,0
+Student_438,REG20260438,Civil Engineering,9.05,80.66,79.47,83,74.0,Average,Yes,2,0,1,1
+Student_439,REG20260439,Mechanical Engineering,,94.91,87.77,87,,Poor,No,3,2,0,0
+Student_440,REG20260440,Computer Science and Engineering,5.83,94.95,89.91,64,72.0,Good,Yes,0,2,0,1
+Student_441,REG20260441,Computer Science and Engineering,5.75,69.7,69.7,46,75.0,Good,No,0,3,0,0
+Student_442,REG20260442,Other,6.94,77.69,73.65,77,61.0,Excellent,No,1,5,0,0
+Student_443,REG20260443,Information Technology,8.88,64.1,91.48,67,91.0,Good,No,3,1,0,1
+Student_444,REG20260444,Information Technology,8.54,97.81,70.62,44,51.0,Good,Yes,3,1,0,1
+Student_445,REG20260445,Civil Engineering,8.89,97.19,89.14,42,81.0,Good,Yes,0,0,0,1
+Student_446,REG20260446,Artificial Intelligence and Data Science,7.72,82.93,95.46,83,47.0,Excellent,No,0,0,4,0
+Student_447,REG20260447,Other,7.39,89.59,81.8,70,45.0,Good,Yes,1,1,0,1
+Student_448,REG20260448,Civil Engineering,6.13,85.75,86.89,86,58.0,Average,No,0,2,0,0
+Student_449,REG20260449,Information Technology,6.91,80.51,89.62,81,38.0,Average,No,0,2,0,0
+Student_450,REG20260450,Computer Science and Engineering,7.37,57.29,91.34,97,80.0,Average,Yes,0,1,2,0
+Student_451,REG20260451,Civil Engineering,5.88,74.55,71.99,59,52.0,,Yes,1,3,0,0
+Student_452,REG20260452,Electrical and Electronics Engineering,6.45,84.02,57.2,58,77.0,Good,No,3,2,0,0
+Student_453,REG20260453,Electronics and Communication Engineering,8.07,84.13,72.28,87,67.0,Good,Yes,5,3,0,1
+Student_454,REG20260454,Artificial Intelligence and Data Science,8.66,71.04,83.97,99,44.0,Poor,Yes,0,0,0,0
+Student_455,REG20260455,Computer Science and Engineering,9.79,95.49,74.37,50,93.0,Good,No,1,3,0,1
+Student_456,REG20260456,Electronics and Communication Engineering,9.51,62.2,87.21,79,65.0,Good,No,2,2,0,1
+Student_457,REG20260457,Computer Science and Engineering,8.26,76.52,70.35,42,62.0,Average,No,0,0,0,0
+Student_458,REG20260458,Electronics and Communication Engineering,7.31,84.71,82.29,62,94.0,Good,Yes,1,0,0,1
+Student_459,REG20260459,Computer Science and Engineering,8.24,84.98,63.02,46,37.0,Average,No,1,3,0,0
+Student_460,REG20260460,Computer Science and Engineering,8.88,82.89,87.22,62,89.0,Excellent,No,0,0,0,1
+Student_461,REG20260461,Computer Science and Engineering,6.01,66.84,78.46,100,48.0,Good,No,1,1,0,0
+Student_462,REG20260462,Electrical and Electronics Engineering,7.26,61.72,63.77,46,92.0,Good,No,0,1,2,0
+Student_463,REG20260463,Mechanical Engineering,9.11,82.35,67.55,85,49.0,Good,No,1,2,2,0
+Student_464,REG20260464,Electrical and Electronics Engineering,7.15,80.77,87.19,73,36.0,Excellent,No,0,3,0,0
+Student_465,REG20260465,Other,7.96,62.71,75.75,81,58.0,Good,Yes,0,1,0,0
+Student_466,REG20260466,Information Technology,8.03,85.32,64.29,58,98.0,Average,No,0,1,0,1
+Student_467,REG20260467,Information Technology,6.29,74.57,96.59,97,58.0,Good,No,2,4,0,0
+Student_468,REG20260468,Artificial Intelligence and Data Science,7.06,83.71,85.75,48,61.0,Average,No,1,2,0,0
+Student_469,REG20260469,Computer Science and Engineering,6.94,91.01,96.16,87,71.0,Average,Yes,1,3,0,1
+Student_470,REG20260470,Other,5.61,62.3,73.37,90,73.0,Excellent,Yes,1,1,2,0
+Student_471,REG20260471,Computer Science and Engineering,5.6,55.82,75.43,57,97.0,Good,No,1,1,1,0
+Student_472,REG20260472,Other,9.08,88.5,93.61,80,60.0,Average,No,0,1,0,1
+Student_473,REG20260473,Computer Science and Engineering,6.67,81.22,77.58,87,99.0,Average,No,1,2,0,1
+Student_474,REG20260474,Artificial Intelligence and Data Science,7.73,85.08,85.41,84,38.0,Average,Yes,0,0,2,0
+Student_475,REG20260475,Electronics and Communication Engineering,,91.04,65.84,81,63.0,Average,Yes,0,1,2,0
+Student_476,REG20260476,Other,9.54,89.52,74.21,64,35.0,Average,No,1,0,3,0
+Student_477,REG20260477,Computer Science and Engineering,6.61,96.32,60.31,91,84.0,Good,No,0,1,0,0
+Student_478,REG20260478,Electrical and Electronics Engineering,7.35,78.05,63.86,53,45.0,Average,No,0,2,0,0
+Student_479,REG20260479,Other,9.25,76.01,55.04,83,93.0,Good,No,1,0,0,1
+Student_480,REG20260480,Electronics and Communication Engineering,9.12,72.28,56.69,64,96.0,Average,No,1,2,0,1
+Student_481,REG20260481,Electrical and Electronics Engineering,6.3,61.61,97.02,58,70.0,Excellent,No,1,3,0,0
+Student_482,REG20260482,Mechanical Engineering,8.95,79.62,65.42,78,90.0,Average,No,1,1,0,1
+Student_483,REG20260483,Electronics and Communication Engineering,7.47,66.91,83.52,94,55.0,Poor,No,1,2,2,0
+Student_484,REG20260484,Electrical and Electronics Engineering,7.58,94.62,91.08,54,47.0,Poor,No,1,4,1,0
+Student_485,REG20260485,Electrical and Electronics Engineering,6.07,80.08,78.68,55,43.0,Good,Yes,0,4,0,1
+Student_486,REG20260486,Artificial Intelligence and Data Science,5.85,80.49,61.59,66,45.0,Good,No,0,1,2,0
+Student_487,REG20260487,Computer Science and Engineering,8.63,70.26,86.31,79,35.0,Average,Yes,1,0,0,1
+Student_488,REG20260488,Information Technology,7.63,57.24,80.81,49,90.0,Average,No,0,0,1,0
+Student_489,REG20260489,Other,7.38,56.36,86.44,43,65.0,Poor,No,4,2,0,0
+Student_490,REG20260490,Artificial Intelligence and Data Science,8.64,73.2,88.1,90,71.0,Good,Yes,2,2,0,1
+Student_491,REG20260491,Electronics and Communication Engineering,8.79,58.64,96.94,58,81.0,Good,No,0,2,0,0
+Student_492,REG20260492,Electrical and Electronics Engineering,6.18,81.09,79.66,67,81.0,Average,Yes,0,1,0,1
+Student_493,REG20260493,Information Technology,8.12,92.88,69.69,60,92.0,Average,No,0,0,0,1
+Student_494,REG20260494,Computer Science and Engineering,6.08,92.97,82.88,98,70.0,Average,No,0,2,0,0
+Student_495,REG20260495,Electronics and Communication Engineering,8.73,83.34,57.94,86,66.0,Average,Yes,0,1,4,0
+Student_496,REG20260496,Information Technology,8.32,64.08,93.59,53,98.0,Good,No,1,2,0,0
+Student_497,REG20260497,Electrical and Electronics Engineering,9.61,92.11,60.13,72,76.0,Average,Yes,2,1,0,1
+Student_498,REG20260498,Computer Science and Engineering,5.8,93.1,69.1,87,82.0,Average,Yes,1,1,0,0
+Student_499,REG20260499,Other,5.75,63.46,90.08,49,64.0,Average,No,0,1,0,0
+Student_500,REG20260500,Other,6.71,86.71,80.68,58,55.0,Excellent,No,0,1,0,0
+Student_501,REG20260501,Mechanical Engineering,6.63,67.32,71.93,69,94.0,Excellent,Yes,1,1,1,0
+Student_502,REG20260502,Electronics and Communication Engineering,6.56,89.51,75.36,61,47.0,Average,No,2,0,0,0
+Student_503,REG20260503,Information Technology,9.4,97.88,91.75,42,35.0,Average,No,2,1,0,0
+Student_504,REG20260504,Civil Engineering,6.57,56.29,69.62,76,99.0,Average,No,3,0,1,0
+Student_505,REG20260505,Mechanical Engineering,6.67,93.59,92.39,80,67.0,Good,Yes,1,0,0,1
+Student_506,REG20260506,Computer Science and Engineering,8.77,81.77,58.79,57,72.0,,No,1,2,0,0
+Student_507,REG20260507,Artificial Intelligence and Data Science,7.43,96.86,88.4,50,59.0,Good,No,0,1,2,0
+Student_508,REG20260508,Civil Engineering,8.84,75.0,91.44,87,60.0,Good,No,1,2,0,0
+Student_509,REG20260509,Artificial Intelligence and Data Science,5.78,91.44,62.82,41,93.0,Excellent,No,0,2,0,0
+Student_510,REG20260510,Mechanical Engineering,7.6,57.68,73.5,51,67.0,Average,No,1,2,2,0
+Student_511,REG20260511,Electrical and Electronics Engineering,5.64,69.42,62.12,93,75.0,Good,Yes,1,4,0,1
+Student_512,REG20260512,Electronics and Communication Engineering,,57.88,85.38,45,64.0,Good,No,0,0,0,0
+Student_513,REG20260513,Artificial Intelligence and Data Science,9.4,96.94,78.02,82,91.0,Average,No,0,2,3,0
+Student_514,REG20260514,Artificial Intelligence and Data Science,6.1,90.13,82.32,98,83.0,Average,No,0,4,0,1
+Student_515,REG20260515,Computer Science and Engineering,7.79,91.66,63.45,79,82.0,Average,No,0,3,0,1
+Student_516,REG20260516,Computer Science and Engineering,7.27,95.33,64.11,83,83.0,Average,No,0,0,1,0
+Student_517,REG20260517,Information Technology,6.99,58.66,56.78,68,81.0,Average,No,0,1,1,0
+Student_518,REG20260518,Civil Engineering,9.37,71.58,68.85,98,90.0,Good,No,0,0,0,1
+Student_519,REG20260519,Other,5.59,58.05,79.07,69,99.0,Average,Yes,0,2,0,1
+Student_520,REG20260520,Computer Science and Engineering,8.35,64.06,91.89,41,46.0,Excellent,No,4,2,1,0
+Student_521,REG20260521,Electrical and Electronics Engineering,9.64,64.86,83.68,48,40.0,Average,No,0,1,1,0
+Student_522,REG20260522,Information Technology,7.91,75.17,73.72,86,99.0,Excellent,No,0,1,0,1
+Student_523,REG20260523,Other,9.53,66.55,95.98,41,59.0,Average,No,1,2,0,0
+Student_524,REG20260524,Artificial Intelligence and Data Science,5.72,59.34,85.93,68,35.0,Good,No,2,1,0,0
+Student_525,REG20260525,Artificial Intelligence and Data Science,7.3,62.2,95.0,72,66.0,Average,No,1,3,1,0
+Student_526,REG20260526,Electronics and Communication Engineering,6.62,61.33,77.69,49,37.0,Average,No,0,2,2,0
+Student_527,REG20260527,Electronics and Communication Engineering,8.64,96.84,66.13,73,83.0,Excellent,No,1,0,3,0
+Student_528,REG20260528,Information Technology,9.72,87.65,57.27,83,53.0,Average,No,1,2,1,1
+Student_529,REG20260529,Computer Science and Engineering,6.6,96.61,86.22,94,94.0,Good,No,1,1,0,0
+Student_530,REG20260530,Artificial Intelligence and Data Science,8.31,73.91,60.22,47,63.0,Good,Yes,1,2,0,1
+Student_531,REG20260531,Civil Engineering,6.35,66.97,68.02,76,84.0,Good,Yes,2,4,1,0
+Student_532,REG20260532,Other,7.93,89.33,77.9,93,36.0,Good,No,2,3,1,0
+Student_533,REG20260533,Other,7.49,69.03,79.27,99,90.0,Good,Yes,1,1,0,1
+Student_534,REG20260534,Electrical and Electronics Engineering,9.68,67.87,80.83,72,51.0,Poor,No,1,1,0,0
+Student_535,REG20260535,Civil Engineering,8.12,65.0,62.15,86,94.0,Good,Yes,1,1,2,0
+Student_536,REG20260536,Artificial Intelligence and Data Science,7.0,60.58,71.33,45,70.0,Excellent,No,2,1,0,0
+Student_537,REG20260537,Artificial Intelligence and Data Science,5.99,66.03,81.54,83,95.0,Poor,Yes,0,0,0,1
+Student_538,REG20260538,Computer Science and Engineering,6.15,70.28,96.7,79,51.0,Average,,5,1,0,0
+Student_539,REG20260539,Electronics and Communication Engineering,6.47,83.98,86.29,84,83.0,Good,No,0,0,0,0
+Student_540,REG20260540,Computer Science and Engineering,6.58,57.69,94.67,58,94.0,Average,No,1,1,0,0
+Student_541,REG20260541,Other,9.16,64.05,87.78,71,54.0,Average,No,2,1,1,0
+Student_542,REG20260542,Electrical and Electronics Engineering,7.91,89.79,80.44,66,84.0,Average,No,0,4,0,1
+Student_543,REG20260543,Computer Science and Engineering,7.75,61.32,63.26,40,37.0,Good,No,1,2,0,0
+Student_544,REG20260544,Mechanical Engineering,5.99,69.73,83.67,82,77.0,Average,Yes,0,1,0,0
+Student_545,REG20260545,Electrical and Electronics Engineering,9.2,92.18,81.81,91,91.0,Good,No,0,0,1,1
+Student_546,REG20260546,Information Technology,8.61,61.66,80.91,72,84.0,Good,No,0,1,3,0
+Student_547,REG20260547,Computer Science and Engineering,5.79,58.56,76.06,79,84.0,Average,No,0,1,1,0
+Student_548,REG20260548,Mechanical Engineering,8.54,75.84,77.73,71,71.0,Good,Yes,0,1,2,0
+Student_549,REG20260549,Electronics and Communication Engineering,7.84,68.0,69.38,44,80.0,Excellent,No,5,3,0,0
+Student_550,REG20260550,Civil Engineering,5.85,79.23,77.33,56,76.0,Good,Yes,5,2,0,0
+Student_551,REG20260551,Electronics and Communication Engineering,7.47,89.56,63.49,47,49.0,Good,No,0,2,0,0
+Student_552,REG20260552,Artificial Intelligence and Data Science,7.58,60.9,89.62,96,67.0,Average,No,1,1,0,1
+Student_553,REG20260553,Electrical and Electronics Engineering,6.21,79.97,62.99,81,45.0,Good,Yes,0,3,1,0
+Student_554,REG20260554,Electrical and Electronics Engineering,9.57,76.74,58.65,73,54.0,Poor,No,0,3,0,1
+Student_555,REG20260555,Artificial Intelligence and Data Science,9.15,61.2,73.76,48,58.0,Average,No,0,1,3,0
+Student_556,REG20260556,Electronics and Communication Engineering,8.38,81.83,83.31,95,98.0,Average,No,4,1,0,1
+Student_557,REG20260557,Computer Science and Engineering,7.49,66.77,73.82,62,99.0,Average,Yes,3,1,0,1
+Student_558,REG20260558,Computer Science and Engineering,7.27,75.98,66.9,74,51.0,Good,No,0,0,0,0
+Student_559,REG20260559,Civil Engineering,8.3,58.54,79.0,89,95.0,Average,Yes,0,2,0,1
+Student_560,REG20260560,Electrical and Electronics Engineering,7.85,74.76,69.92,46,49.0,Good,No,0,1,0,0
+Student_561,REG20260561,Mechanical Engineering,5.77,68.18,95.11,54,85.0,Good,No,1,0,0,0
+Student_562,REG20260562,Computer Science and Engineering,7.7,90.36,94.67,92,61.0,Good,No,1,0,0,1
+Student_563,REG20260563,Computer Science and Engineering,8.97,57.45,76.6,93,95.0,Average,Yes,0,1,0,1
+Student_564,REG20260564,Computer Science and Engineering,7.47,73.0,69.1,59,92.0,Good,No,2,3,0,0
+Student_565,REG20260565,Information Technology,5.72,74.71,86.7,89,65.0,Average,Yes,0,2,0,0
+Student_566,REG20260566,Electrical and Electronics Engineering,8.88,86.18,56.58,64,46.0,Poor,No,3,2,0,0
+Student_567,REG20260567,Information Technology,6.37,79.69,75.42,42,80.0,Excellent,Yes,1,1,0,0
+Student_568,REG20260568,Electronics and Communication Engineering,6.61,83.69,69.46,99,65.0,Average,No,1,2,0,0
+Student_569,REG20260569,Artificial Intelligence and Data Science,6.21,88.41,94.58,94,66.0,Poor,Yes,2,1,0,0
+Student_570,REG20260570,Information Technology,6.92,92.07,55.52,85,66.0,Excellent,Yes,2,2,0,0
+Student_571,REG20260571,Electronics and Communication Engineering,8.75,68.5,78.77,63,87.0,Average,Yes,0,0,0,1
+Student_572,REG20260572,Civil Engineering,7.73,78.13,86.85,73,95.0,Good,No,0,1,0,1
+Student_573,REG20260573,Information Technology,6.38,91.12,75.86,85,80.0,Average,Yes,3,1,0,1
+Student_574,REG20260574,Electrical and Electronics Engineering,9.27,97.55,58.67,61,41.0,Average,No,0,1,0,0
+Student_575,REG20260575,Artificial Intelligence and Data Science,9.28,93.25,96.82,50,38.0,Average,No,0,4,1,0
+Student_576,REG20260576,Artificial Intelligence and Data Science,9.24,70.97,77.27,87,86.0,Average,No,1,0,0,1
+Student_577,REG20260577,Computer Science and Engineering,6.53,63.39,81.41,47,65.0,Average,No,2,1,0,0
+Student_578,REG20260578,Artificial Intelligence and Data Science,7.44,76.04,65.17,78,70.0,Good,Yes,2,1,1,0
+Student_579,REG20260579,Electronics and Communication Engineering,9.74,86.89,75.79,82,88.0,Good,No,3,3,0,1
+Student_580,REG20260580,Information Technology,8.82,76.18,73.45,74,88.0,Excellent,Yes,1,1,1,1
+Student_581,REG20260581,Electronics and Communication Engineering,5.62,75.78,58.22,88,51.0,Poor,No,0,2,0,0
+Student_582,REG20260582,Other,5.78,91.04,59.56,85,64.0,Good,Yes,1,3,0,0
+Student_583,REG20260583,Electronics and Communication Engineering,7.49,70.54,91.01,77,56.0,Good,No,2,1,1,0
+Student_584,REG20260584,Information Technology,9.41,91.97,65.31,47,77.0,Excellent,No,0,1,0,1
+Student_585,REG20260585,Electrical and Electronics Engineering,7.82,72.49,63.38,93,61.0,Poor,No,0,1,0,0
+Student_586,REG20260586,Computer Science and Engineering,7.64,69.11,76.71,76,71.0,Good,Yes,0,3,0,1
+Student_587,REG20260587,Computer Science and Engineering,5.95,74.52,88.06,66,80.0,Excellent,No,1,0,0,0
+Student_588,REG20260588,Computer Science and Engineering,8.32,87.79,57.66,67,69.0,Average,Yes,2,1,0,1
+Student_589,REG20260589,Computer Science and Engineering,9.04,60.42,79.8,79,38.0,Excellent,,1,2,0,1
+Student_590,REG20260590,Computer Science and Engineering,7.14,63.45,60.13,73,60.0,Poor,No,4,2,1,0
+Student_591,REG20260591,Computer Science and Engineering,8.84,95.91,56.57,71,53.0,Good,No,0,1,1,0
+Student_592,REG20260592,Electrical and Electronics Engineering,9.65,62.55,57.27,54,79.0,Excellent,No,3,1,0,1
+Student_593,REG20260593,Computer Science and Engineering,6.38,79.41,90.87,83,60.0,Good,No,2,0,3,0
+Student_594,REG20260594,Information Technology,7.75,79.91,60.07,56,56.0,Average,No,0,1,0,0
+Student_595,REG20260595,Artificial Intelligence and Data Science,6.73,76.05,56.94,72,92.0,Poor,No,4,1,0,1
+Student_596,REG20260596,Electronics and Communication Engineering,8.91,82.72,73.83,86,97.0,Excellent,,0,3,1,1
+Student_597,REG20260597,Mechanical Engineering,7.98,64.88,91.29,85,62.0,Good,No,2,1,1,0
+Student_598,REG20260598,Computer Science and Engineering,8.23,78.76,66.28,91,99.0,Poor,Yes,2,3,1,1
+Student_599,REG20260599,Computer Science and Engineering,8.93,71.0,73.13,93,78.0,Good,No,2,2,0,1
+Student_600,REG20260600,Computer Science and Engineering,7.2,83.45,56.72,55,77.0,Good,No,1,0,0,0
+Student_601,REG20260601,Computer Science and Engineering,,61.07,74.31,68,71.0,Average,Yes,0,2,1,1
+Student_602,REG20260602,Information Technology,7.79,79.55,79.84,48,100.0,Average,No,1,0,0,1
+Student_603,REG20260603,Computer Science and Engineering,6.18,62.97,79.55,72,51.0,Poor,No,0,5,0,0
+Student_604,REG20260604,Computer Science and Engineering,8.49,66.98,69.29,99,74.0,Good,Yes,2,3,0,1
+Student_605,REG20260605,Computer Science and Engineering,8.91,64.4,68.57,88,72.0,Good,No,2,1,1,0
+Student_606,REG20260606,Electronics and Communication Engineering,6.86,62.86,59.58,68,95.0,Good,No,3,1,0,1
+Student_607,REG20260607,Computer Science and Engineering,9.19,90.51,70.77,52,43.0,Good,No,0,1,0,0
+Student_608,REG20260608,Information Technology,9.4,67.29,59.28,60,95.0,Excellent,No,2,1,0,1
+Student_609,REG20260609,Electronics and Communication Engineering,6.69,94.87,87.96,97,50.0,Good,No,3,1,0,0
+Student_610,REG20260610,Mechanical Engineering,9.73,96.71,96.55,60,36.0,Poor,Yes,2,1,1,0
+Student_611,REG20260611,Computer Science and Engineering,6.11,79.56,96.71,44,77.0,Good,No,0,2,0,0
+Student_612,REG20260612,Civil Engineering,6.37,61.15,92.2,49,76.0,Average,No,0,0,0,0
+Student_613,REG20260613,Electrical and Electronics Engineering,6.29,71.11,80.83,45,91.0,Good,No,0,3,0,0
+Student_614,REG20260614,Computer Science and Engineering,9.34,89.3,85.14,95,64.0,Good,No,1,2,0,1
+Student_615,REG20260615,Artificial Intelligence and Data Science,8.31,70.8,67.26,90,47.0,Average,No,1,1,0,1
+Student_616,REG20260616,Artificial Intelligence and Data Science,6.15,58.74,82.12,96,53.0,Excellent,No,4,3,0,0
+Student_617,REG20260617,Computer Science and Engineering,7.39,78.94,74.59,52,41.0,Average,No,0,1,0,0
+Student_618,REG20260618,Information Technology,8.15,91.34,75.73,40,43.0,Good,No,0,0,0,0
+Student_619,REG20260619,Civil Engineering,5.86,89.22,87.58,59,88.0,Poor,No,1,2,1,0
+Student_620,REG20260620,Mechanical Engineering,9.29,62.53,67.12,96,95.0,Excellent,No,2,1,1,1
+Student_621,REG20260621,Computer Science and Engineering,8.96,83.93,68.68,86,36.0,,No,3,2,0,0
+Student_622,REG20260622,Computer Science and Engineering,7.67,64.48,94.76,85,84.0,Poor,Yes,2,3,0,1
+Student_623,REG20260623,Information Technology,9.66,64.38,57.42,47,65.0,Average,No,1,4,2,0
+Student_624,REG20260624,Electronics and Communication Engineering,7.3,92.59,75.88,49,67.0,Average,No,1,2,0,0
+Student_625,REG20260625,Electrical and Electronics Engineering,9.73,65.74,94.25,48,45.0,Average,No,2,2,0,0
+Student_626,REG20260626,Information Technology,8.37,66.32,81.25,88,67.0,Good,No,1,0,1,0
+Student_627,REG20260627,Electronics and Communication Engineering,8.23,55.03,78.5,80,41.0,Average,No,0,0,0,0
+Student_628,REG20260628,Mechanical Engineering,6.21,92.44,65.74,42,65.0,Poor,Yes,0,2,0,0
+Student_629,REG20260629,Computer Science and Engineering,9.29,89.08,69.76,50,82.0,Average,No,0,1,0,1
+Student_630,REG20260630,Information Technology,7.34,81.98,91.64,51,81.0,Good,No,1,1,0,0
+Student_631,REG20260631,Mechanical Engineering,6.2,87.26,79.05,49,87.0,Good,Yes,0,1,2,0
+Student_632,REG20260632,Artificial Intelligence and Data Science,5.55,61.54,77.13,64,53.0,Good,Yes,0,2,0,0
+Student_633,REG20260633,Electronics and Communication Engineering,7.91,74.71,59.28,88,40.0,Good,No,0,0,0,0
+Student_634,REG20260634,Electronics and Communication Engineering,7.77,70.1,55.69,88,83.0,Average,No,1,2,2,0
+Student_635,REG20260635,Computer Science and Engineering,8.59,59.03,96.44,64,84.0,Poor,No,0,0,2,0
+Student_636,REG20260636,Electronics and Communication Engineering,9.33,75.9,71.21,50,46.0,Average,No,1,0,0,0
+Student_637,REG20260637,Electronics and Communication Engineering,5.84,94.59,80.94,93,57.0,Good,,0,1,0,0
+Student_638,REG20260638,Computer Science and Engineering,8.65,56.72,58.43,75,88.0,Excellent,No,0,1,0,0
+Student_639,REG20260639,Information Technology,6.31,67.53,84.37,78,93.0,Good,No,1,3,1,0
+Student_640,REG20260640,Information Technology,9.19,63.92,95.1,92,70.0,Poor,Yes,0,0,0,1
+Student_641,REG20260641,Computer Science and Engineering,9.02,65.24,79.75,65,37.0,Average,No,0,0,0,0
+Student_642,REG20260642,Information Technology,7.83,94.06,60.42,53,92.0,Average,No,0,1,0,0
+Student_643,REG20260643,Computer Science and Engineering,8.55,75.13,80.01,78,89.0,Good,No,2,1,0,1
+Student_644,REG20260644,Information Technology,6.85,75.05,87.95,95,91.0,Poor,No,1,0,0,1
+Student_645,REG20260645,Computer Science and Engineering,7.53,87.7,72.48,79,,Excellent,No,0,0,0,0
+Student_646,REG20260646,Artificial Intelligence and Data Science,9.03,61.64,92.83,40,73.0,Average,Yes,0,4,0,1
+Student_647,REG20260647,Electrical and Electronics Engineering,7.47,75.95,82.89,95,89.0,Excellent,Yes,4,2,0,1
+Student_648,REG20260648,Mechanical Engineering,7.04,73.49,93.67,93,79.0,Good,Yes,1,1,0,1
+Student_649,REG20260649,Civil Engineering,7.63,80.67,81.81,43,35.0,Good,Yes,1,1,0,0
+Student_650,REG20260650,Electronics and Communication Engineering,9.06,97.98,60.65,100,55.0,Good,No,1,1,1,0
+Student_651,REG20260651,Computer Science and Engineering,6.94,88.09,68.32,69,55.0,Good,Yes,2,1,1,0
+Student_652,REG20260652,Electronics and Communication Engineering,6.25,72.11,63.68,51,86.0,Good,Yes,2,2,0,1
+Student_653,REG20260653,Electrical and Electronics Engineering,8.56,90.58,94.08,95,77.0,Good,No,1,3,0,1
+Student_654,REG20260654,Mechanical Engineering,9.05,62.34,87.7,74,86.0,Good,No,1,0,0,1
+Student_655,REG20260655,Electronics and Communication Engineering,5.93,56.31,84.09,52,78.0,Excellent,Yes,0,3,0,1
+Student_656,REG20260656,Computer Science and Engineering,6.53,63.79,67.94,91,66.0,,No,3,0,0,0
+Student_657,REG20260657,Information Technology,6.11,69.64,62.91,70,44.0,Good,No,1,1,0,0
+Student_658,REG20260658,Information Technology,7.0,76.95,87.53,77,98.0,Excellent,Yes,0,0,1,1
+Student_659,REG20260659,Electrical and Electronics Engineering,7.44,81.45,75.39,82,62.0,Average,Yes,3,0,0,1
+Student_660,REG20260660,Electrical and Electronics Engineering,8.72,94.16,64.71,62,87.0,Poor,No,3,3,0,1
+Student_661,REG20260661,Information Technology,8.3,76.92,81.51,43,85.0,Good,No,4,1,0,1
+Student_662,REG20260662,Other,8.17,76.55,56.73,91,87.0,Good,No,2,0,1,0
+Student_663,REG20260663,Electrical and Electronics Engineering,7.02,57.16,69.03,55,38.0,Good,Yes,5,4,0,0
+Student_664,REG20260664,Computer Science and Engineering,9.12,56.5,75.15,46,51.0,Average,No,0,3,1,0
+Student_665,REG20260665,Computer Science and Engineering,7.53,78.7,61.36,61,81.0,Good,No,2,2,0,0
+Student_666,REG20260666,Computer Science and Engineering,9.71,73.84,97.34,68,90.0,Good,Yes,2,3,1,1
+Student_667,REG20260667,Computer Science and Engineering,8.23,91.08,63.99,50,,Poor,No,0,1,2,0
+Student_668,REG20260668,Computer Science and Engineering,6.04,61.91,60.61,95,52.0,Good,No,0,3,2,0
+Student_669,REG20260669,Computer Science and Engineering,8.41,56.07,63.75,72,35.0,Good,No,4,2,0,0
+Student_670,REG20260670,Information Technology,6.9,74.31,88.07,97,69.0,Average,No,0,3,0,0
+Student_671,REG20260671,Computer Science and Engineering,8.45,65.21,73.3,68,98.0,Good,No,2,2,0,1
+Student_672,REG20260672,Artificial Intelligence and Data Science,5.8,57.13,79.31,98,92.0,Good,No,0,1,2,0
+Student_673,REG20260673,Computer Science and Engineering,6.25,86.16,55.9,78,93.0,Average,No,0,2,0,0
+Student_674,REG20260674,Electronics and Communication Engineering,9.18,59.8,56.48,51,35.0,Average,Yes,1,1,0,0
+Student_675,REG20260675,Electronics and Communication Engineering,6.48,81.16,74.17,46,37.0,Excellent,No,0,1,0,0
+Student_676,REG20260676,Other,9.1,67.09,90.12,98,71.0,Average,Yes,1,0,0,1
+Student_677,REG20260677,Computer Science and Engineering,6.7,62.46,93.07,94,63.0,Average,Yes,1,3,0,1
+Student_678,REG20260678,Information Technology,8.26,71.33,58.73,78,,Average,No,0,1,0,1
+Student_679,REG20260679,Other,8.48,89.46,78.15,81,95.0,,No,0,1,0,1
+Student_680,REG20260680,Artificial Intelligence and Data Science,7.7,71.86,94.27,87,38.0,Good,No,0,1,0,1
+Student_681,REG20260681,Civil Engineering,6.81,87.28,71.68,65,48.0,Good,No,0,4,2,0
+Student_682,REG20260682,Information Technology,6.41,60.4,90.67,79,67.0,Poor,Yes,2,1,1,0
+Student_683,REG20260683,Computer Science and Engineering,5.64,88.23,60.75,48,56.0,Excellent,No,1,2,1,0
+Student_684,REG20260684,Mechanical Engineering,6.81,65.19,95.22,80,82.0,Average,No,0,3,0,0
+Student_685,REG20260685,Artificial Intelligence and Data Science,8.31,84.13,87.31,73,37.0,Average,No,1,1,1,0
+Student_686,REG20260686,Electrical and Electronics Engineering,9.53,79.33,95.48,84,57.0,Good,No,0,1,0,1
+Student_687,REG20260687,Electrical and Electronics Engineering,9.25,94.95,84.09,52,55.0,Average,No,0,2,0,0
+Student_688,REG20260688,Information Technology,8.79,71.65,70.63,94,77.0,Excellent,No,0,3,0,1
+Student_689,REG20260689,Civil Engineering,8.89,57.85,95.34,94,60.0,Excellent,,2,2,0,1
+Student_690,REG20260690,Computer Science and Engineering,8.36,55.82,66.85,75,75.0,Average,Yes,3,1,0,1
+Student_691,REG20260691,Information Technology,6.62,90.55,69.28,64,72.0,Excellent,No,2,3,4,0
+Student_692,REG20260692,Electronics and Communication Engineering,9.4,77.56,85.13,63,45.0,Good,No,0,1,0,0
+Student_693,REG20260693,Electronics and Communication Engineering,8.38,88.34,87.91,83,63.0,Excellent,No,0,2,0,1
+Student_694,REG20260694,Computer Science and Engineering,7.91,65.08,94.96,56,94.0,Average,No,1,3,0,1
+Student_695,REG20260695,Computer Science and Engineering,5.98,69.84,63.81,41,99.0,Good,No,1,0,0,0
+Student_696,REG20260696,Electrical and Electronics Engineering,7.42,56.29,89.31,52,95.0,Average,No,5,2,0,0
+Student_697,REG20260697,Information Technology,7.48,96.34,86.76,70,53.0,Good,No,0,2,0,0
+Student_698,REG20260698,Electrical and Electronics Engineering,9.22,83.72,57.74,68,80.0,Poor,No,0,3,1,0
+Student_699,REG20260699,Computer Science and Engineering,7.85,95.13,71.65,89,83.0,Good,No,1,0,0,1
+Student_700,REG20260700,Electronics and Communication Engineering,7.14,66.42,67.16,67,56.0,Average,No,2,1,0,0
+Student_701,REG20260701,Electronics and Communication Engineering,9.7,81.29,68.09,99,91.0,Average,No,2,3,1,1
+Student_702,REG20260702,Computer Science and Engineering,5.98,84.18,97.27,66,48.0,Good,Yes,1,0,2,0
+Student_703,REG20260703,Information Technology,7.32,68.65,82.64,54,78.0,Excellent,No,3,0,1,0
+Student_704,REG20260704,Computer Science and Engineering,5.68,91.47,85.86,70,50.0,Good,Yes,1,5,0,0
+Student_705,REG20260705,Computer Science and Engineering,8.68,95.73,96.99,79,46.0,Excellent,No,3,1,0,0
+Student_706,REG20260706,Other,9.45,93.05,71.22,54,89.0,Average,No,4,4,0,1
+Student_707,REG20260707,Information Technology,6.7,86.78,89.48,72,85.0,,No,2,0,1,0
+Student_708,REG20260708,Civil Engineering,9.19,66.93,73.68,59,73.0,Good,No,0,1,1,0
+Student_709,REG20260709,Information Technology,6.76,67.11,92.39,81,67.0,Poor,No,0,2,0,0
+Student_710,REG20260710,Mechanical Engineering,9.42,96.42,62.77,51,67.0,Good,Yes,1,2,0,1
+Student_711,REG20260711,Civil Engineering,8.74,55.44,95.75,76,63.0,Good,No,1,2,1,0
+Student_712,REG20260712,Electrical and Electronics Engineering,8.96,85.79,64.41,48,65.0,Good,No,2,1,0,0
+Student_713,REG20260713,Electronics and Communication Engineering,5.58,85.37,69.03,62,65.0,Good,No,0,3,0,0
+Student_714,REG20260714,Electronics and Communication Engineering,9.64,81.78,87.52,47,80.0,Good,No,0,1,0,1
+Student_715,REG20260715,Information Technology,8.62,97.57,71.93,71,86.0,Poor,No,2,1,0,1
+Student_716,REG20260716,Artificial Intelligence and Data Science,6.81,68.41,81.15,87,44.0,Average,No,0,0,4,0
+Student_717,REG20260717,Artificial Intelligence and Data Science,9.07,69.62,74.12,53,75.0,Good,No,0,2,0,1
+Student_718,REG20260718,Other,6.71,58.39,86.92,66,37.0,Average,No,0,1,0,0
+Student_719,REG20260719,Computer Science and Engineering,9.25,74.04,64.82,64,93.0,Poor,,1,1,0,1
+Student_720,REG20260720,Mechanical Engineering,5.98,66.23,57.51,52,86.0,Average,No,0,1,0,0
+Student_721,REG20260721,Artificial Intelligence and Data Science,8.53,69.77,67.9,94,68.0,Good,No,2,0,0,1
+Student_722,REG20260722,Computer Science and Engineering,7.83,90.89,75.4,60,83.0,Average,Yes,1,0,0,1
+Student_723,REG20260723,Computer Science and Engineering,5.92,95.23,62.22,84,62.0,Good,Yes,3,2,0,0
+Student_724,REG20260724,Mechanical Engineering,6.54,62.99,70.26,70,47.0,Good,,1,1,0,0
+Student_725,REG20260725,Electrical and Electronics Engineering,5.55,71.02,72.2,76,95.0,Average,No,0,3,1,0
+Student_726,REG20260726,Artificial Intelligence and Data Science,7.52,94.93,57.47,87,94.0,Good,Yes,0,2,0,1
+Student_727,REG20260727,Computer Science and Engineering,6.8,57.66,80.08,97,58.0,Good,No,0,0,0,0
+Student_728,REG20260728,Civil Engineering,8.07,58.97,93.03,82,97.0,Good,No,1,2,4,0
+Student_729,REG20260729,Computer Science and Engineering,6.78,62.0,61.52,93,95.0,Good,Yes,0,0,0,1
+Student_730,REG20260730,Computer Science and Engineering,6.79,80.59,80.71,44,57.0,Poor,Yes,0,2,1,0
+Student_731,REG20260731,Computer Science and Engineering,,61.47,83.58,52,64.0,Good,No,1,5,0,1
+Student_732,REG20260732,Civil Engineering,5.71,96.63,73.03,67,94.0,Average,Yes,0,1,1,0
+Student_733,REG20260733,Mechanical Engineering,9.38,74.21,85.15,82,52.0,,No,0,2,1,0
+Student_734,REG20260734,Electronics and Communication Engineering,9.16,76.57,72.66,64,90.0,Good,No,2,1,0,1
+Student_735,REG20260735,Information Technology,8.37,65.61,76.7,90,87.0,Good,No,3,1,1,1
+Student_736,REG20260736,Artificial Intelligence and Data Science,8.05,75.25,55.32,74,41.0,Average,Yes,0,3,2,0
+Student_737,REG20260737,Information Technology,9.34,83.46,84.74,86,86.0,Average,Yes,0,0,0,1
+Student_738,REG20260738,Civil Engineering,6.3,87.3,83.44,78,38.0,Average,Yes,4,1,0,0
+Student_739,REG20260739,Electronics and Communication Engineering,5.84,87.42,56.65,46,68.0,Good,Yes,0,1,0,0
+Student_740,REG20260740,Information Technology,6.53,79.85,70.83,77,67.0,Average,No,4,2,1,0
+Student_741,REG20260741,Electronics and Communication Engineering,8.92,93.89,97.1,71,72.0,Good,Yes,0,1,0,1
+Student_742,REG20260742,Information Technology,5.65,90.15,73.09,42,60.0,Average,No,2,3,0,0
+Student_743,REG20260743,Mechanical Engineering,8.01,87.55,76.58,84,35.0,Excellent,No,0,0,0,1
+Student_744,REG20260744,Electronics and Communication Engineering,9.78,57.39,94.13,78,38.0,Average,Yes,3,1,0,1
+Student_745,REG20260745,Computer Science and Engineering,9.18,55.3,85.84,76,73.0,Excellent,Yes,0,2,0,1
+Student_746,REG20260746,Artificial Intelligence and Data Science,7.74,64.14,80.03,94,88.0,Excellent,Yes,1,1,0,1
+Student_747,REG20260747,Information Technology,5.77,83.53,89.31,89,67.0,Good,Yes,0,2,1,0
+Student_748,REG20260748,Electronics and Communication Engineering,9.07,72.68,92.17,61,67.0,Good,No,0,0,0,1
+Student_749,REG20260749,Artificial Intelligence and Data Science,8.08,72.3,74.65,47,54.0,Average,No,2,0,0,0
+Student_750,REG20260750,Electrical and Electronics Engineering,5.99,93.04,75.43,56,50.0,Good,No,1,0,0,0
+Student_751,REG20260751,Computer Science and Engineering,5.9,93.51,71.6,91,55.0,Average,No,3,3,0,0
+Student_752,REG20260752,Artificial Intelligence and Data Science,9.41,94.09,96.57,66,79.0,Average,No,1,2,0,1
+Student_753,REG20260753,Electrical and Electronics Engineering,8.38,68.5,84.98,72,,Good,No,2,2,0,1
+Student_754,REG20260754,Information Technology,9.07,84.72,58.58,85,65.0,Good,No,1,1,0,0
+Student_755,REG20260755,Computer Science and Engineering,9.28,66.68,92.11,56,76.0,Good,Yes,4,2,0,1
+Student_756,REG20260756,Civil Engineering,7.96,63.2,75.66,81,46.0,Average,Yes,3,1,0,1
+Student_757,REG20260757,Electrical and Electronics Engineering,7.73,62.94,57.96,51,99.0,Average,No,0,3,0,1
+Student_758,REG20260758,Electronics and Communication Engineering,7.35,69.71,78.64,87,37.0,Poor,No,2,2,3,0
+Student_759,REG20260759,Artificial Intelligence and Data Science,6.86,73.49,72.94,85,43.0,Poor,No,2,2,0,0
+Student_760,REG20260760,Civil Engineering,7.37,90.73,92.74,66,85.0,Average,No,0,0,1,0
+Student_761,REG20260761,Computer Science and Engineering,8.83,60.16,63.77,87,50.0,Poor,No,1,1,1,0
+Student_762,REG20260762,Information Technology,8.09,86.6,90.54,47,37.0,Average,No,0,1,0,0
+Student_763,REG20260763,Computer Science and Engineering,9.34,77.85,78.98,62,58.0,Good,No,2,3,1,0
+Student_764,REG20260764,Mechanical Engineering,7.41,67.38,57.35,99,47.0,Poor,No,0,1,0,0
+Student_765,REG20260765,Computer Science and Engineering,8.11,76.19,96.79,81,36.0,Good,No,0,1,0,0
+Student_766,REG20260766,Electrical and Electronics Engineering,8.21,67.9,77.04,100,55.0,Average,No,1,1,0,1
+Student_767,REG20260767,Civil Engineering,8.04,80.63,67.51,88,53.0,Excellent,No,1,1,1,0
+Student_768,REG20260768,Artificial Intelligence and Data Science,8.52,73.66,75.18,98,81.0,Good,No,2,0,0,1
+Student_769,REG20260769,Information Technology,6.52,62.07,91.89,68,56.0,Average,,4,3,1,0
+Student_770,REG20260770,Civil Engineering,7.7,60.01,68.11,89,67.0,Good,No,1,2,0,0
+Student_771,REG20260771,Computer Science and Engineering,5.95,78.51,63.29,59,66.0,Average,No,0,3,2,0
+Student_772,REG20260772,Artificial Intelligence and Data Science,7.15,93.8,60.55,55,98.0,Good,,1,3,0,1
+Student_773,REG20260773,Computer Science and Engineering,7.6,69.79,67.81,56,73.0,Average,Yes,1,1,0,1
+Student_774,REG20260774,Information Technology,8.3,86.52,88.54,55,76.0,Excellent,No,1,1,0,1
+Student_775,REG20260775,Civil Engineering,9.59,83.32,75.28,58,43.0,Average,Yes,0,0,0,1
+Student_776,REG20260776,Computer Science and Engineering,8.08,95.06,64.78,95,59.0,Average,No,1,3,0,0
+Student_777,REG20260777,Computer Science and Engineering,8.7,90.3,62.15,95,36.0,Good,No,0,1,2,0
+Student_778,REG20260778,Mechanical Engineering,7.68,79.36,69.31,47,53.0,Average,No,2,1,0,0
+Student_779,REG20260779,Mechanical Engineering,8.23,83.25,95.42,77,54.0,Good,Yes,1,1,2,0
+Student_780,REG20260780,Electrical and Electronics Engineering,5.81,93.63,69.75,77,51.0,Good,No,2,1,0,0
+Student_781,REG20260781,Mechanical Engineering,6.59,72.18,97.49,92,37.0,Good,No,1,1,1,0
+Student_782,REG20260782,Electronics and Communication Engineering,7.06,69.05,75.86,68,85.0,Average,No,0,1,0,1
+Student_783,REG20260783,Information Technology,7.53,55.46,62.7,80,60.0,Good,Yes,2,2,0,1
+Student_784,REG20260784,Information Technology,5.7,90.54,93.32,75,90.0,Good,No,1,3,1,0
+Student_785,REG20260785,Computer Science and Engineering,6.1,89.44,74.8,65,98.0,Average,No,0,1,0,0
+Student_786,REG20260786,Artificial Intelligence and Data Science,6.69,59.49,85.52,70,42.0,Average,Yes,1,1,0,0
+Student_787,REG20260787,Electrical and Electronics Engineering,9.68,79.8,97.3,83,71.0,Average,No,0,3,0,1
+Student_788,REG20260788,Electronics and Communication Engineering,6.92,74.95,57.16,99,61.0,Excellent,No,2,0,0,0
+Student_789,REG20260789,Electronics and Communication Engineering,7.57,60.1,59.16,51,79.0,Average,No,1,3,0,0
+Student_790,REG20260790,Artificial Intelligence and Data Science,6.34,97.16,85.98,94,38.0,Good,No,1,1,1,0
+Student_791,REG20260791,Computer Science and Engineering,8.13,64.23,67.12,56,71.0,Poor,No,0,2,0,0
+Student_792,REG20260792,Electrical and Electronics Engineering,6.71,57.89,62.92,54,,Average,No,0,2,0,0
+Student_793,REG20260793,Electronics and Communication Engineering,6.39,80.58,56.69,48,,Good,No,4,2,0,0
+Student_794,REG20260794,Electrical and Electronics Engineering,7.72,86.77,55.94,78,89.0,Excellent,Yes,2,3,0,1
+Student_795,REG20260795,Computer Science and Engineering,5.52,56.4,88.3,81,46.0,,Yes,0,0,0,0
+Student_796,REG20260796,Artificial Intelligence and Data Science,5.53,83.32,60.78,87,45.0,Good,No,0,1,1,0
+Student_797,REG20260797,Artificial Intelligence and Data Science,6.44,77.89,75.11,51,66.0,Good,No,0,1,1,0
+Student_798,REG20260798,Electrical and Electronics Engineering,5.66,59.44,81.05,71,91.0,Poor,No,1,2,0,0
+Student_799,REG20260799,Mechanical Engineering,5.96,62.42,73.42,64,72.0,Average,No,2,1,2,0
+Student_800,REG20260800,Artificial Intelligence and Data Science,6.96,79.42,56.17,78,94.0,Good,No,1,2,0,0
+Student_801,REG20260801,Mechanical Engineering,8.95,67.74,88.69,57,53.0,Excellent,No,1,1,1,0
+Student_802,REG20260802,Computer Science and Engineering,7.96,95.35,55.45,54,90.0,Excellent,Yes,2,0,0,1
+Student_803,REG20260803,Electrical and Electronics Engineering,7.7,90.21,87.76,71,48.0,Average,No,1,2,0,0
+Student_804,REG20260804,Electrical and Electronics Engineering,6.76,97.29,93.41,45,67.0,Average,No,0,0,0,0
+Student_805,REG20260805,Electronics and Communication Engineering,9.51,66.17,73.61,97,44.0,Average,No,1,1,0,0
+Student_806,REG20260806,Mechanical Engineering,7.21,96.7,78.03,83,98.0,Excellent,Yes,3,0,0,1
+Student_807,REG20260807,Artificial Intelligence and Data Science,5.87,73.54,75.51,82,98.0,Excellent,No,2,1,0,0
+Student_808,REG20260808,Artificial Intelligence and Data Science,8.15,69.94,71.74,91,96.0,Good,Yes,1,2,0,1
+Student_809,REG20260809,Electronics and Communication Engineering,5.99,57.17,93.16,74,77.0,Average,Yes,1,2,0,0
+Student_810,REG20260810,Computer Science and Engineering,6.98,57.27,93.44,73,93.0,Good,Yes,3,1,0,1
+Student_811,REG20260811,Other,7.68,84.76,69.44,77,86.0,Good,No,1,1,0,1
+Student_812,REG20260812,Artificial Intelligence and Data Science,9.26,74.69,81.45,95,53.0,Average,No,0,1,0,1
+Student_813,REG20260813,Computer Science and Engineering,7.62,64.74,94.86,93,55.0,Good,No,4,1,0,1
+Student_814,REG20260814,Artificial Intelligence and Data Science,8.52,81.4,96.37,96,56.0,Poor,No,2,4,0,1
+Student_815,REG20260815,Artificial Intelligence and Data Science,9.77,65.87,76.89,44,43.0,Average,No,0,3,2,0
+Student_816,REG20260816,Electronics and Communication Engineering,6.07,79.84,74.47,57,43.0,Excellent,No,1,0,2,0
+Student_817,REG20260817,Electrical and Electronics Engineering,6.68,70.45,66.98,55,61.0,Good,No,1,0,0,0
+Student_818,REG20260818,Information Technology,7.2,90.41,96.23,47,51.0,Average,Yes,0,3,0,1
+Student_819,REG20260819,Computer Science and Engineering,7.31,90.29,61.14,64,78.0,Good,No,3,1,0,1
+Student_820,REG20260820,Information Technology,7.27,75.53,79.93,71,79.0,Average,No,1,1,2,0
+Student_821,REG20260821,Civil Engineering,9.4,70.09,67.15,65,42.0,Good,No,2,2,0,0
+Student_822,REG20260822,Computer Science and Engineering,8.57,70.59,67.0,91,52.0,,No,0,1,0,0
+Student_823,REG20260823,Information Technology,8.11,89.65,72.41,61,67.0,Good,No,1,1,0,0
+Student_824,REG20260824,Information Technology,6.83,69.11,97.95,70,35.0,Good,Yes,0,4,0,0
+Student_825,REG20260825,Electronics and Communication Engineering,9.04,63.99,57.36,82,40.0,Average,No,2,2,0,0
+Student_826,REG20260826,Artificial Intelligence and Data Science,9.61,58.64,79.88,49,75.0,Average,No,1,0,0,0
+Student_827,REG20260827,Information Technology,9.03,75.07,58.55,95,89.0,Good,No,1,0,0,1
+Student_828,REG20260828,Information Technology,5.51,75.73,61.64,96,39.0,Average,No,0,1,0,0
+Student_829,REG20260829,Mechanical Engineering,8.24,91.16,73.9,51,93.0,Good,,0,2,0,1
+Student_830,REG20260830,Electronics and Communication Engineering,5.72,64.51,76.95,92,52.0,Average,No,0,1,0,0
+Student_831,REG20260831,Computer Science and Engineering,6.61,71.38,66.13,67,83.0,Average,No,0,0,0,0
+Student_832,REG20260832,Electronics and Communication Engineering,5.76,89.76,68.61,45,99.0,Average,Yes,1,3,1,0
+Student_833,REG20260833,Computer Science and Engineering,8.1,90.42,58.74,98,88.0,Excellent,No,1,0,0,1
+Student_834,REG20260834,Computer Science and Engineering,8.45,71.54,68.04,59,95.0,Average,No,1,0,0,1
+Student_835,REG20260835,Electronics and Communication Engineering,5.99,74.74,96.56,44,42.0,Good,Yes,1,1,0,0
+Student_836,REG20260836,Electronics and Communication Engineering,7.15,68.04,95.62,62,37.0,Average,No,0,1,0,0
+Student_837,REG20260837,Artificial Intelligence and Data Science,7.46,95.1,69.4,48,59.0,,No,0,1,0,0
+Student_838,REG20260838,Information Technology,7.09,60.1,79.55,97,89.0,Good,No,0,3,0,0
+Student_839,REG20260839,Electrical and Electronics Engineering,6.02,95.15,94.11,98,74.0,Good,Yes,2,3,0,1
+Student_840,REG20260840,Electrical and Electronics Engineering,7.3,84.41,55.27,68,84.0,Good,No,1,1,0,0
+Student_841,REG20260841,Computer Science and Engineering,8.73,77.86,89.86,55,67.0,Excellent,No,0,1,0,1
+Student_842,REG20260842,Mechanical Engineering,5.81,56.4,95.78,93,52.0,Average,No,0,2,0,0
+Student_843,REG20260843,Computer Science and Engineering,,75.45,58.93,85,91.0,Poor,No,2,1,0,0
+Student_844,REG20260844,Other,7.03,72.53,61.94,61,50.0,Excellent,Yes,1,0,0,0
+Student_845,REG20260845,Computer Science and Engineering,9.55,61.93,96.31,47,72.0,Average,No,1,3,0,1
+Student_846,REG20260846,Electronics and Communication Engineering,8.37,83.23,78.11,98,75.0,Good,Yes,1,0,0,1
+Student_847,REG20260847,Computer Science and Engineering,8.42,96.76,55.61,59,41.0,Good,Yes,0,0,0,0
+Student_848,REG20260848,Other,7.06,79.17,66.08,90,87.0,Average,No,4,1,0,0
+Student_849,REG20260849,Electronics and Communication Engineering,8.05,85.73,74.35,53,97.0,Good,No,2,1,0,1
+Student_850,REG20260850,Electrical and Electronics Engineering,5.54,57.94,84.8,78,66.0,Average,No,0,0,1,0
+Student_851,REG20260851,Computer Science and Engineering,8.24,72.96,86.53,76,72.0,Average,Yes,2,0,2,0
+Student_852,REG20260852,Mechanical Engineering,9.43,60.0,97.8,89,56.0,Average,No,2,1,0,1
+Student_853,REG20260853,Computer Science and Engineering,8.13,81.35,67.36,73,50.0,Good,No,0,2,0,0
+Student_854,REG20260854,Artificial Intelligence and Data Science,9.26,95.35,78.14,50,86.0,Average,No,1,1,0,1
+Student_855,REG20260855,Computer Science and Engineering,8.61,83.46,77.93,93,63.0,Good,No,0,1,0,1
+Student_856,REG20260856,Computer Science and Engineering,6.02,58.3,72.44,79,50.0,Excellent,No,0,2,1,0
+Student_857,REG20260857,Computer Science and Engineering,9.38,70.25,62.27,72,,Good,No,1,3,1,0
+Student_858,REG20260858,Electronics and Communication Engineering,5.79,78.68,97.03,70,98.0,Good,Yes,0,1,2,0
+Student_859,REG20260859,Electrical and Electronics Engineering,7.8,72.34,91.69,98,,Good,No,2,0,0,1
+Student_860,REG20260860,Computer Science and Engineering,6.11,90.85,76.43,93,90.0,Average,No,5,1,0,1
+Student_861,REG20260861,Civil Engineering,5.55,90.03,80.94,83,39.0,Good,No,0,2,1,0
+Student_862,REG20260862,Electronics and Communication Engineering,7.31,81.31,64.77,73,46.0,Good,No,1,0,0,0
+Student_863,REG20260863,Electronics and Communication Engineering,6.77,71.06,78.38,89,75.0,Excellent,No,2,1,2,0
+Student_864,REG20260864,Electronics and Communication Engineering,7.59,65.98,84.88,46,37.0,Excellent,Yes,2,0,0,0
+Student_865,REG20260865,Electronics and Communication Engineering,7.98,59.55,77.15,97,67.0,Excellent,Yes,2,0,0,1
+Student_866,REG20260866,Electrical and Electronics Engineering,5.69,70.26,97.58,88,84.0,Excellent,No,0,1,0,0
+Student_867,REG20260867,Computer Science and Engineering,6.03,72.77,81.29,93,90.0,Good,Yes,1,1,0,0
+Student_868,REG20260868,Computer Science and Engineering,7.9,84.06,70.95,62,43.0,Good,No,1,3,0,0
+Student_869,REG20260869,Artificial Intelligence and Data Science,6.98,83.3,88.2,85,84.0,Excellent,No,4,2,0,1
+Student_870,REG20260870,Artificial Intelligence and Data Science,8.64,58.01,62.33,95,63.0,Average,No,0,1,0,1
+Student_871,REG20260871,Information Technology,8.3,72.0,71.53,46,73.0,Excellent,No,3,1,0,0
+Student_872,REG20260872,Information Technology,9.14,62.82,69.92,93,79.0,Average,No,0,1,0,1
+Student_873,REG20260873,Electrical and Electronics Engineering,8.48,61.74,73.57,64,51.0,Good,No,4,0,0,0
+Student_874,REG20260874,Electronics and Communication Engineering,7.35,90.57,88.62,100,90.0,Good,Yes,1,3,1,1
+Student_875,REG20260875,Computer Science and Engineering,8.39,56.8,75.82,42,80.0,Excellent,No,1,5,0,1
+Student_876,REG20260876,Computer Science and Engineering,6.68,73.02,89.14,98,48.0,Average,No,1,0,0,0
+Student_877,REG20260877,Mechanical Engineering,6.82,62.23,79.79,77,57.0,Good,No,0,0,3,0
+Student_878,REG20260878,Mechanical Engineering,8.89,92.81,69.71,59,95.0,Good,Yes,0,0,2,0
+Student_879,REG20260879,Computer Science and Engineering,7.42,78.95,89.83,73,57.0,Average,No,0,2,0,0
+Student_880,REG20260880,Computer Science and Engineering,8.93,64.95,65.25,88,61.0,Good,No,0,2,1,0
+Student_881,REG20260881,Computer Science and Engineering,9.04,76.6,64.65,83,88.0,Good,No,0,3,0,1
+Student_882,REG20260882,Mechanical Engineering,9.19,86.45,76.69,83,44.0,Good,No,2,2,0,0
+Student_883,REG20260883,Computer Science and Engineering,9.44,96.2,66.22,69,50.0,Average,No,1,1,0,1
+Student_884,REG20260884,Computer Science and Engineering,7.35,64.48,55.39,56,75.0,Good,No,0,2,0,0
+Student_885,REG20260885,Civil Engineering,6.87,93.11,82.88,98,89.0,Good,Yes,2,2,1,1
+Student_886,REG20260886,Computer Science and Engineering,8.0,95.18,76.98,49,95.0,Average,No,1,1,1,1
+Student_887,REG20260887,Mechanical Engineering,7.1,94.41,74.16,74,83.0,Average,No,4,1,3,0
+Student_888,REG20260888,Computer Science and Engineering,8.08,82.32,96.58,59,86.0,Excellent,No,1,2,1,0
+Student_889,REG20260889,Computer Science and Engineering,8.53,82.08,79.56,57,36.0,Good,No,0,2,0,0
+Student_890,REG20260890,Computer Science and Engineering,8.46,72.34,92.13,84,84.0,Good,Yes,1,2,0,1
+Student_891,REG20260891,Mechanical Engineering,7.11,87.35,61.0,83,77.0,Average,Yes,1,2,4,0
+Student_892,REG20260892,Artificial Intelligence and Data Science,6.22,77.85,79.48,66,42.0,Average,No,0,2,1,0
+Student_893,REG20260893,Artificial Intelligence and Data Science,7.35,84.13,92.32,98,93.0,Average,No,0,2,1,0
+Student_894,REG20260894,Information Technology,6.11,73.42,80.07,98,99.0,Average,No,0,1,2,0
+Student_895,REG20260895,Mechanical Engineering,9.33,86.45,85.87,88,46.0,Good,No,0,2,0,1
+Student_896,REG20260896,Computer Science and Engineering,6.99,90.45,71.0,75,38.0,Good,No,1,1,1,0
+Student_897,REG20260897,Information Technology,6.16,61.3,58.98,62,75.0,Good,No,1,1,1,0
+Student_898,REG20260898,Artificial Intelligence and Data Science,5.61,90.82,74.69,71,41.0,Average,No,0,0,3,0
+Student_899,REG20260899,Computer Science and Engineering,8.28,78.23,71.96,49,64.0,Good,No,1,2,0,0
+Student_900,REG20260900,Computer Science and Engineering,8.24,91.32,92.28,50,40.0,Average,No,1,2,0,0
+Student_901,REG20260901,Computer Science and Engineering,6.96,73.55,65.49,77,53.0,Average,No,0,4,0,0
+Student_902,REG20260902,Computer Science and Engineering,5.81,71.3,96.57,45,100.0,Excellent,No,0,1,0,0
+Student_903,REG20260903,Computer Science and Engineering,7.26,94.35,96.2,98,44.0,Good,No,0,1,0,0
+Student_904,REG20260904,Electrical and Electronics Engineering,6.84,65.8,65.65,80,50.0,Good,No,0,1,0,0
+Student_905,REG20260905,Electronics and Communication Engineering,8.41,91.3,69.97,86,71.0,Average,No,0,0,0,1
+Student_906,REG20260906,Artificial Intelligence and Data Science,8.1,75.81,93.51,73,66.0,,No,0,2,0,0
+Student_907,REG20260907,Civil Engineering,7.07,77.11,96.56,75,81.0,Good,Yes,1,1,0,1
+Student_908,REG20260908,Information Technology,6.44,68.26,74.07,76,77.0,Good,No,1,2,0,0
+Student_909,REG20260909,Information Technology,9.75,79.64,68.8,56,70.0,Average,No,0,2,0,1
+Student_910,REG20260910,Information Technology,7.45,68.98,77.62,79,60.0,Excellent,No,0,1,0,0
+Student_911,REG20260911,Electrical and Electronics Engineering,8.46,56.69,84.57,79,44.0,Good,Yes,1,3,0,0
+Student_912,REG20260912,Information Technology,6.1,66.7,66.76,93,65.0,Excellent,Yes,2,1,0,0
+Student_913,REG20260913,Electrical and Electronics Engineering,7.59,55.27,86.67,51,63.0,Average,Yes,2,1,0,0
+Student_914,REG20260914,Electronics and Communication Engineering,5.62,97.07,57.22,60,39.0,Average,No,1,3,0,0
+Student_915,REG20260915,Electrical and Electronics Engineering,7.67,96.53,57.12,79,35.0,Average,Yes,0,3,1,0
+Student_916,REG20260916,Electronics and Communication Engineering,9.65,71.99,71.61,58,37.0,Average,No,0,0,0,0
+Student_917,REG20260917,Information Technology,7.15,86.32,70.2,42,69.0,Excellent,Yes,2,0,0,0
+Student_918,REG20260918,Artificial Intelligence and Data Science,5.67,69.87,68.57,57,49.0,Poor,Yes,0,0,1,0
+Student_919,REG20260919,Civil Engineering,5.63,83.86,76.11,92,64.0,Poor,Yes,4,1,0,0
+Student_920,REG20260920,Computer Science and Engineering,7.17,89.63,68.79,90,77.0,Average,Yes,1,4,3,0
+Student_921,REG20260921,Artificial Intelligence and Data Science,6.19,95.71,63.27,58,94.0,Average,No,1,2,1,0
+Student_922,REG20260922,Electronics and Communication Engineering,5.6,72.21,68.31,86,74.0,Average,No,0,1,0,0
+Student_923,REG20260923,Artificial Intelligence and Data Science,8.75,88.68,96.92,45,99.0,Good,No,1,3,0,1
+Student_924,REG20260924,Civil Engineering,7.47,66.43,72.68,55,63.0,Good,Yes,1,1,0,1
+Student_925,REG20260925,Electronics and Communication Engineering,6.74,97.58,74.12,47,53.0,Poor,Yes,0,1,0,0
+Student_926,REG20260926,Computer Science and Engineering,9.37,56.11,79.79,87,37.0,Average,No,0,3,0,0
+Student_927,REG20260927,Information Technology,6.0,80.95,97.28,57,70.0,Average,No,2,3,0,0
+Student_928,REG20260928,Electronics and Communication Engineering,9.61,83.36,65.39,91,77.0,Average,Yes,1,3,1,1
+Student_929,REG20260929,Electrical and Electronics Engineering,6.85,84.59,84.3,87,49.0,Good,No,1,1,0,0
+Student_930,REG20260930,Information Technology,9.32,60.18,85.79,82,75.0,Good,No,0,2,0,1
+Student_931,REG20260931,Computer Science and Engineering,8.09,95.36,81.11,78,70.0,Good,Yes,1,0,0,1
+Student_932,REG20260932,Artificial Intelligence and Data Science,9.05,62.79,58.81,88,67.0,Good,No,1,2,0,1
+Student_933,REG20260933,Other,9.73,81.78,84.11,88,39.0,Poor,Yes,1,4,0,1
+Student_934,REG20260934,Electronics and Communication Engineering,6.74,64.58,57.76,51,48.0,Excellent,No,1,1,0,0
+Student_935,REG20260935,Computer Science and Engineering,9.63,68.21,80.63,84,81.0,Good,Yes,1,2,0,1
+Student_936,REG20260936,Information Technology,7.17,78.5,86.8,49,88.0,Excellent,No,1,1,3,0
+Student_937,REG20260937,Computer Science and Engineering,7.16,72.94,64.07,46,,Poor,Yes,0,0,0,0
+Student_938,REG20260938,Artificial Intelligence and Data Science,6.96,61.89,91.19,85,43.0,Excellent,No,3,2,0,0
+Student_939,REG20260939,Computer Science and Engineering,7.83,62.35,56.31,94,87.0,Good,Yes,1,0,0,1
+Student_940,REG20260940,Electrical and Electronics Engineering,6.16,72.98,91.28,40,94.0,Good,No,0,2,0,0
+Student_941,REG20260941,Information Technology,7.88,87.56,74.79,88,80.0,Poor,No,1,0,0,0
+Student_942,REG20260942,Electrical and Electronics Engineering,7.83,93.61,64.36,75,88.0,Good,No,2,3,1,0
+Student_943,REG20260943,Mechanical Engineering,8.78,58.62,60.75,60,71.0,Excellent,No,0,1,2,0
+Student_944,REG20260944,Civil Engineering,9.08,71.9,95.99,76,57.0,Good,No,0,1,0,1
+Student_945,REG20260945,Computer Science and Engineering,7.39,59.31,58.12,91,61.0,Good,No,1,0,0,0
+Student_946,REG20260946,Computer Science and Engineering,6.8,55.71,63.56,63,100.0,Excellent,Yes,0,3,0,1
+Student_947,REG20260947,Computer Science and Engineering,6.62,83.45,69.96,94,95.0,Average,No,2,2,0,1
+Student_948,REG20260948,Artificial Intelligence and Data Science,6.34,80.91,81.67,64,85.0,Good,Yes,0,2,0,1
+Student_949,REG20260949,Artificial Intelligence and Data Science,5.75,62.01,78.43,46,84.0,Good,No,2,1,0,0
+Student_950,REG20260950,Electrical and Electronics Engineering,6.97,65.05,60.4,81,53.0,Excellent,Yes,0,1,0,0
+Student_951,REG20260951,Electrical and Electronics Engineering,6.66,56.02,67.46,56,35.0,Poor,,0,0,0,0
+Student_952,REG20260952,Mechanical Engineering,9.66,90.9,65.27,68,74.0,Good,No,2,2,1,1
+Student_953,REG20260953,Computer Science and Engineering,7.9,96.91,64.18,69,66.0,Good,No,1,1,1,0
+Student_954,REG20260954,Artificial Intelligence and Data Science,6.99,60.82,72.68,46,56.0,,No,0,4,0,0
+Student_955,REG20260955,Electronics and Communication Engineering,8.0,64.95,85.27,72,100.0,Good,Yes,0,2,0,1
+Student_956,REG20260956,Information Technology,6.1,92.34,64.35,46,74.0,Excellent,No,1,1,2,0
+Student_957,REG20260957,Electronics and Communication Engineering,7.41,94.84,70.77,97,72.0,Excellent,Yes,1,0,0,1
+Student_958,REG20260958,Computer Science and Engineering,8.19,73.04,71.81,63,82.0,Poor,No,5,2,1,0
+Student_959,REG20260959,Computer Science and Engineering,7.6,57.18,96.99,50,89.0,Average,No,4,0,0,0
+Student_960,REG20260960,Mechanical Engineering,7.23,56.69,96.05,48,89.0,Poor,No,1,0,0,0
+Student_961,REG20260961,Computer Science and Engineering,9.77,79.68,89.41,51,85.0,Average,Yes,1,1,0,1
+Student_962,REG20260962,Electrical and Electronics Engineering,9.29,71.89,65.39,74,94.0,Good,Yes,1,2,1,1
+Student_963,REG20260963,Computer Science and Engineering,8.18,56.23,57.93,43,42.0,Excellent,Yes,1,2,0,0
+Student_964,REG20260964,Information Technology,7.95,80.08,68.63,75,43.0,Good,Yes,0,1,0,0
+Student_965,REG20260965,Information Technology,8.17,55.49,66.47,67,36.0,Average,Yes,0,0,0,0
+Student_966,REG20260966,Information Technology,6.37,88.86,76.75,96,93.0,Poor,No,0,1,1,0
+Student_967,REG20260967,Mechanical Engineering,7.2,68.18,88.44,52,53.0,Good,Yes,0,2,2,0
+Student_968,REG20260968,Information Technology,5.67,56.73,91.91,62,62.0,Good,No,0,1,4,0
+Student_969,REG20260969,Electrical and Electronics Engineering,7.54,80.3,91.33,58,48.0,Average,No,1,1,3,0
+Student_970,REG20260970,Electronics and Communication Engineering,7.84,72.1,70.47,81,58.0,Excellent,No,2,3,0,0
+Student_971,REG20260971,Mechanical Engineering,6.48,96.87,84.55,76,78.0,Excellent,No,1,4,0,0
+Student_972,REG20260972,Artificial Intelligence and Data Science,9.65,78.4,68.45,78,90.0,Average,No,0,5,0,1
+Student_973,REG20260973,Mechanical Engineering,,66.84,57.62,63,85.0,Excellent,No,0,2,0,1
+Student_974,REG20260974,Computer Science and Engineering,8.61,85.51,85.17,55,66.0,Average,Yes,1,0,1,0
+Student_975,REG20260975,Computer Science and Engineering,7.79,66.67,55.42,72,84.0,Good,No,0,1,2,0
+Student_976,REG20260976,Information Technology,9.24,93.88,72.59,51,75.0,Good,No,1,1,0,1
+Student_977,REG20260977,Electrical and Electronics Engineering,6.06,71.11,69.16,73,100.0,Average,No,4,1,0,0
+Student_978,REG20260978,Computer Science and Engineering,,78.64,84.82,46,59.0,Excellent,No,0,4,2,0
+Student_979,REG20260979,Electronics and Communication Engineering,,57.17,87.95,50,95.0,Good,No,0,2,0,0
+Student_980,REG20260980,Electrical and Electronics Engineering,8.92,73.32,68.08,70,100.0,Good,No,1,2,0,1
+Student_981,REG20260981,Information Technology,6.69,90.79,89.9,68,76.0,Average,Yes,4,0,0,1
+Student_982,REG20260982,Civil Engineering,9.27,89.64,67.64,52,99.0,Poor,No,2,3,0,1
+Student_983,REG20260983,Computer Science and Engineering,9.56,64.65,74.19,70,70.0,Average,No,2,2,0,1
+Student_984,REG20260984,Computer Science and Engineering,6.14,64.72,86.26,41,43.0,Good,Yes,0,0,0,0
+Student_985,REG20260985,Mechanical Engineering,7.49,90.14,84.8,78,70.0,Good,Yes,5,3,0,1
+Student_986,REG20260986,Electronics and Communication Engineering,9.72,95.01,97.46,54,72.0,Average,Yes,0,1,4,0
+Student_987,REG20260987,Mechanical Engineering,7.58,59.1,64.68,96,67.0,Good,No,0,0,0,0
+Student_988,REG20260988,Electronics and Communication Engineering,9.21,74.35,83.48,50,76.0,Good,,2,2,0,1
+Student_989,REG20260989,Computer Science and Engineering,8.03,69.51,81.22,73,95.0,Good,No,3,2,3,0
+Student_990,REG20260990,Civil Engineering,7.11,92.44,94.35,78,80.0,Good,No,0,0,0,1
+Student_991,REG20260991,Civil Engineering,6.73,58.59,61.72,43,95.0,Excellent,No,0,1,0,0
+Student_992,REG20260992,Mechanical Engineering,6.37,64.08,87.33,50,52.0,Good,No,0,5,1,0
+Student_993,REG20260993,Information Technology,8.78,87.36,79.44,68,49.0,Good,No,0,2,0,0
+Student_994,REG20260994,Electrical and Electronics Engineering,7.16,57.21,66.81,41,82.0,Average,No,0,2,1,0
+Student_995,REG20260995,Information Technology,7.7,76.18,75.4,100,47.0,Average,Yes,4,1,0,1
+Student_996,REG20260996,Computer Science and Engineering,7.62,74.01,69.35,55,77.0,Poor,No,1,0,0,0
+Student_997,REG20260997,Artificial Intelligence and Data Science,7.98,69.38,79.91,78,94.0,Good,No,2,1,0,1
+Student_998,REG20260998,Computer Science and Engineering,9.22,71.97,93.23,52,91.0,Average,No,2,1,0,0
+Student_999,REG20260999,Other,9.72,77.79,79.48,76,51.0,Average,No,1,1,1,0
+Student_1000,REG20261000,Electronics and Communication Engineering,7.25,61.94,82.16,56,84.0,Good,Yes,2,0,0,1
+Student_1001,REG20261001,Computer Science and Engineering,9.06,79.6,77.31,60,66.0,Average,,1,2,2,0
+Student_1002,REG20261002,Electronics and Communication Engineering,8.79,89.63,57.2,83,56.0,Average,Yes,0,1,1,1
+Student_1003,REG20261003,Artificial Intelligence and Data Science,7.97,87.69,65.01,99,89.0,Average,No,1,2,0,1
+Student_1004,REG20261004,Mechanical Engineering,9.61,61.62,76.16,58,91.0,Good,No,1,0,1,0
+Student_1005,REG20261005,Civil Engineering,6.36,61.42,68.34,46,47.0,Average,No,2,1,0,0
+Student_1006,REG20261006,Mechanical Engineering,5.97,66.53,62.82,77,81.0,Good,Yes,4,0,0,0
+Student_1007,REG20261007,Mechanical Engineering,9.17,70.53,76.68,47,96.0,,No,1,1,1,0
+Student_1008,REG20261008,Artificial Intelligence and Data Science,7.39,72.56,68.88,52,88.0,Good,No,2,0,0,1
+Student_1009,REG20261009,Computer Science and Engineering,9.14,84.23,66.1,76,63.0,Good,Yes,0,4,0,1
+Student_1010,REG20261010,Electronics and Communication Engineering,9.34,57.44,74.95,41,56.0,Good,No,2,2,0,1
+Student_1011,REG20261011,Computer Science and Engineering,5.77,56.49,60.73,80,99.0,Poor,No,0,1,0,0
+Student_1012,REG20261012,Other,9.3,71.85,94.89,50,63.0,Average,No,0,0,0,0
+Student_1013,REG20261013,Artificial Intelligence and Data Science,7.43,84.98,92.31,63,82.0,Average,No,0,2,0,0
+Student_1014,REG20261014,Computer Science and Engineering,7.69,63.32,85.43,45,39.0,Average,No,1,2,0,0
+Student_1015,REG20261015,Mechanical Engineering,8.19,82.58,59.57,100,69.0,Average,No,0,0,0,1
+Student_1016,REG20261016,Artificial Intelligence and Data Science,9.48,66.17,88.36,65,80.0,Average,No,3,2,0,1
+Student_1017,REG20261017,Computer Science and Engineering,5.58,93.1,89.74,46,69.0,Good,No,0,2,0,0
+Student_1018,REG20261018,Electrical and Electronics Engineering,7.55,93.51,88.01,96,79.0,Good,No,3,2,0,1
+Student_1019,REG20261019,Artificial Intelligence and Data Science,8.46,67.78,59.9,78,47.0,Average,Yes,1,2,1,0
+Student_1020,REG20261020,Computer Science and Engineering,8.61,64.89,82.69,58,44.0,Good,Yes,0,3,0,0
+Student_1021,REG20261021,Mechanical Engineering,8.48,72.69,90.88,45,100.0,Average,Yes,0,3,0,1
+Student_1022,REG20261022,Information Technology,,65.34,79.83,82,59.0,Average,No,1,1,0,0
+Student_1023,REG20261023,Artificial Intelligence and Data Science,6.79,83.91,82.8,68,78.0,Good,No,1,2,0,0
+Student_1024,REG20261024,Other,7.04,90.52,74.71,82,94.0,Poor,No,1,2,0,0
+Student_1025,REG20261025,Artificial Intelligence and Data Science,8.96,83.94,77.73,78,81.0,Poor,Yes,0,2,3,0
+Student_1026,REG20261026,Electronics and Communication Engineering,6.7,90.45,56.48,41,74.0,Average,No,1,5,2,0
+Student_1027,REG20261027,Artificial Intelligence and Data Science,6.41,72.07,82.48,58,41.0,Excellent,No,4,0,1,0
+Student_1028,REG20261028,Artificial Intelligence and Data Science,9.62,61.72,58.5,43,80.0,Good,No,0,1,2,0
+Student_1029,REG20261029,Information Technology,5.54,86.73,73.71,97,57.0,Poor,No,1,1,0,0
+Student_1030,REG20261030,Civil Engineering,9.79,70.5,67.58,45,80.0,Good,No,0,1,0,1
+Student_1031,REG20261031,Computer Science and Engineering,8.41,83.86,78.45,88,47.0,Good,Yes,2,1,1,0
+Student_1032,REG20261032,Electrical and Electronics Engineering,9.06,66.64,60.74,96,55.0,Good,Yes,2,2,0,1
+Student_1033,REG20261033,Computer Science and Engineering,6.77,58.49,84.74,76,35.0,Good,Yes,0,0,2,0
+Student_1034,REG20261034,Computer Science and Engineering,5.56,97.68,89.19,100,53.0,Average,No,0,2,1,0
+Student_1035,REG20261035,Computer Science and Engineering,8.67,61.72,62.02,67,94.0,Average,No,0,2,4,0
+Student_1036,REG20261036,Mechanical Engineering,9.09,97.5,59.49,69,67.0,Good,No,1,1,0,0
+Student_1037,REG20261037,Information Technology,8.68,97.02,61.26,46,38.0,Good,No,1,1,1,0
+Student_1038,REG20261038,Mechanical Engineering,6.11,89.13,92.72,48,37.0,Good,No,4,2,0,0
+Student_1039,REG20261039,Computer Science and Engineering,8.74,83.36,77.71,64,86.0,Good,Yes,1,2,0,1
+Student_1040,REG20261040,Information Technology,8.81,79.85,75.09,72,62.0,Excellent,Yes,0,3,0,1
+Student_1041,REG20261041,Electronics and Communication Engineering,8.33,92.24,59.59,40,89.0,Excellent,No,2,3,1,0
+Student_1042,REG20261042,Civil Engineering,8.79,67.45,82.93,90,91.0,Excellent,No,1,4,2,0
+Student_1043,REG20261043,Information Technology,9.14,75.11,92.32,45,50.0,Good,No,1,2,0,0
+Student_1044,REG20261044,Electrical and Electronics Engineering,8.14,81.63,90.61,57,58.0,Excellent,No,0,3,0,0
+Student_1045,REG20261045,Artificial Intelligence and Data Science,5.88,72.68,81.92,49,75.0,Poor,Yes,0,2,0,0
+Student_1046,REG20261046,Electrical and Electronics Engineering,7.6,73.38,58.24,67,81.0,Average,No,3,3,3,0
+Student_1047,REG20261047,Computer Science and Engineering,,69.2,59.83,50,65.0,Good,No,1,0,0,0
+Student_1048,REG20261048,Computer Science and Engineering,7.25,79.26,57.12,72,64.0,Good,Yes,0,4,0,1
+Student_1049,REG20261049,Artificial Intelligence and Data Science,7.25,91.57,66.07,40,52.0,Good,No,1,1,0,0
+Student_1050,REG20261050,Computer Science and Engineering,5.78,63.67,60.83,52,78.0,Good,No,3,2,0,0
+Student_1051,REG20261051,Artificial Intelligence and Data Science,7.0,95.18,66.18,76,61.0,Average,Yes,0,0,0,0
+Student_1052,REG20261052,Electronics and Communication Engineering,5.98,84.63,71.56,59,60.0,Average,Yes,1,1,0,0
+Student_1053,REG20261053,Artificial Intelligence and Data Science,8.98,90.4,95.55,40,94.0,Good,No,3,1,2,0
+Student_1054,REG20261054,Civil Engineering,9.58,78.92,81.25,91,52.0,Average,No,0,1,1,0
+Student_1055,REG20261055,Other,5.81,88.52,90.9,42,90.0,Average,No,1,0,0,0
+Student_1056,REG20261056,Information Technology,9.61,55.7,85.55,57,65.0,Average,No,1,2,4,0
+Student_1057,REG20261057,Civil Engineering,7.75,90.19,59.84,80,93.0,Average,No,1,0,0,0
+Student_1058,REG20261058,Electronics and Communication Engineering,6.79,56.73,86.64,53,36.0,Good,Yes,0,1,0,0
+Student_1059,REG20261059,Electronics and Communication Engineering,5.83,93.27,66.83,70,73.0,Average,No,0,0,0,0
+Student_1060,REG20261060,Electrical and Electronics Engineering,7.65,97.65,82.48,66,95.0,Good,No,1,2,0,1
+Student_1061,REG20261061,Artificial Intelligence and Data Science,8.92,67.64,69.66,56,97.0,Poor,No,0,1,1,0
+Student_1062,REG20261062,Other,8.54,64.04,97.9,94,52.0,Good,No,1,1,0,1
+Student_1063,REG20261063,Civil Engineering,5.72,87.91,66.33,85,51.0,Average,No,0,1,0,0
+Student_1064,REG20261064,Electronics and Communication Engineering,5.81,65.88,67.0,68,73.0,Good,Yes,0,2,1,0
+Student_1065,REG20261065,Electronics and Communication Engineering,7.23,92.22,95.02,75,88.0,Good,No,4,0,0,1
+Student_1066,REG20261066,Mechanical Engineering,6.77,59.42,56.06,76,69.0,Average,No,1,0,1,0
+Student_1067,REG20261067,Computer Science and Engineering,6.5,60.42,84.96,65,45.0,Excellent,Yes,4,1,1,0
+Student_1068,REG20261068,Computer Science and Engineering,6.71,97.1,86.19,92,95.0,Good,No,0,4,0,1
+Student_1069,REG20261069,Information Technology,8.95,83.98,90.96,56,78.0,Average,Yes,1,1,2,0
+Student_1070,REG20261070,Information Technology,9.5,91.42,96.9,61,59.0,Average,No,0,2,0,1
+Student_1071,REG20261071,Information Technology,7.24,68.95,96.95,100,82.0,Excellent,No,2,1,0,1
+Student_1072,REG20261072,Computer Science and Engineering,9.4,84.09,57.81,64,66.0,Good,Yes,2,1,0,1
+Student_1073,REG20261073,Computer Science and Engineering,6.88,80.55,90.34,41,38.0,Average,,0,0,0,0
+Student_1074,REG20261074,Computer Science and Engineering,7.55,80.94,82.79,94,72.0,Average,No,3,0,3,0
+Student_1075,REG20261075,Other,6.47,84.35,82.84,61,97.0,Good,No,0,1,0,0
+Student_1076,REG20261076,Electronics and Communication Engineering,,79.74,60.52,44,81.0,Good,Yes,1,1,0,0
+Student_1077,REG20261077,Information Technology,9.71,73.45,82.96,43,35.0,Good,Yes,4,0,2,0
+Student_1078,REG20261078,Mechanical Engineering,8.1,66.86,97.25,75,37.0,Average,No,2,2,0,0
+Student_1079,REG20261079,Computer Science and Engineering,7.04,88.05,94.21,45,96.0,Good,Yes,3,5,0,1
+Student_1080,REG20261080,Artificial Intelligence and Data Science,8.29,64.73,73.88,91,98.0,Average,No,0,1,0,1
+Student_1081,REG20261081,Civil Engineering,6.03,84.77,56.72,60,51.0,Average,No,0,2,1,0
+Student_1082,REG20261082,Computer Science and Engineering,9.32,65.03,70.58,52,96.0,Good,No,0,4,0,1
+Student_1083,REG20261083,Electronics and Communication Engineering,7.66,81.89,90.53,93,69.0,Excellent,No,1,3,0,1
+Student_1084,REG20261084,Artificial Intelligence and Data Science,7.43,87.12,85.16,76,47.0,Average,No,2,1,0,0
+Student_1085,REG20261085,Artificial Intelligence and Data Science,8.02,64.4,74.75,94,69.0,Good,No,0,2,0,0
+Student_1086,REG20261086,Electronics and Communication Engineering,8.19,57.58,57.37,64,77.0,Good,,1,0,1,0
+Student_1087,REG20261087,Electrical and Electronics Engineering,5.81,60.63,73.36,65,36.0,Good,No,0,1,0,0
+Student_1088,REG20261088,Computer Science and Engineering,8.44,81.06,75.17,94,90.0,Good,No,0,1,0,1
+Student_1089,REG20261089,Other,6.54,91.53,94.93,78,85.0,Good,Yes,1,0,0,1
+Student_1090,REG20261090,Computer Science and Engineering,8.57,56.93,82.57,59,88.0,Poor,Yes,1,1,1,0
+Student_1091,REG20261091,Artificial Intelligence and Data Science,9.04,86.57,68.4,72,50.0,Excellent,No,2,0,1,0
+Student_1092,REG20261092,Electrical and Electronics Engineering,8.96,69.68,77.59,53,52.0,Good,No,0,2,0,0
+Student_1093,REG20261093,Electrical and Electronics Engineering,7.88,75.58,57.84,95,,Excellent,No,2,1,0,0
+Student_1094,REG20261094,Electronics and Communication Engineering,7.74,94.94,96.82,75,79.0,Good,No,0,1,0,1
+Student_1095,REG20261095,Computer Science and Engineering,6.11,69.27,70.48,56,70.0,Excellent,Yes,0,0,0,0
+Student_1096,REG20261096,Computer Science and Engineering,8.83,75.01,75.55,60,75.0,Average,No,1,0,0,1
+Student_1097,REG20261097,Computer Science and Engineering,6.67,55.59,70.28,85,76.0,Average,No,2,2,0,0
+Student_1098,REG20261098,Computer Science and Engineering,7.64,58.51,84.35,55,41.0,Excellent,No,0,4,0,0
+Student_1099,REG20261099,Civil Engineering,6.72,66.12,83.48,85,49.0,Average,No,0,0,2,0
+Student_1100,REG20261100,Information Technology,6.08,56.2,85.76,55,94.0,Poor,Yes,1,1,0,0
+Student_1101,REG20261101,Computer Science and Engineering,8.21,82.15,66.53,95,74.0,Good,No,0,3,1,1
+Student_1102,REG20261102,Other,5.73,73.34,68.57,59,71.0,Good,No,2,0,0,0
+Student_1103,REG20261103,Artificial Intelligence and Data Science,8.72,78.57,60.39,68,100.0,Average,Yes,2,3,2,0
+Student_1104,REG20261104,Artificial Intelligence and Data Science,6.87,62.51,83.19,67,89.0,Excellent,No,0,1,0,0
+Student_1105,REG20261105,Other,5.5,67.73,56.71,47,90.0,Good,No,1,1,0,0
+Student_1106,REG20261106,Computer Science and Engineering,7.7,83.54,80.7,63,,Good,No,2,1,2,0
+Student_1107,REG20261107,Information Technology,5.7,96.51,92.4,42,91.0,Good,No,0,1,0,0
+Student_1108,REG20261108,Civil Engineering,6.69,57.17,93.31,64,40.0,Average,Yes,1,1,0,0
+Student_1109,REG20261109,Mechanical Engineering,8.54,93.29,74.31,58,66.0,Average,No,0,3,0,1
+Student_1110,REG20261110,Computer Science and Engineering,5.77,79.81,74.75,72,52.0,Average,Yes,1,2,1,0
+Student_1111,REG20261111,Civil Engineering,9.11,79.25,58.31,41,,Good,No,0,2,0,0
+Student_1112,REG20261112,Computer Science and Engineering,5.52,76.51,83.84,54,42.0,Good,Yes,2,2,1,0
+Student_1113,REG20261113,Computer Science and Engineering,6.56,57.98,90.31,61,98.0,Good,No,0,1,0,1
+Student_1114,REG20261114,Electronics and Communication Engineering,8.69,58.86,65.52,99,41.0,Good,No,0,2,0,1
+Student_1115,REG20261115,Electrical and Electronics Engineering,6.86,80.84,73.12,49,75.0,Good,No,2,1,0,0
+Student_1116,REG20261116,Electrical and Electronics Engineering,5.94,69.66,91.07,57,74.0,Good,Yes,0,2,0,0
+Student_1117,REG20261117,Computer Science and Engineering,7.05,94.44,92.72,61,37.0,Average,No,0,1,0,0
+Student_1118,REG20261118,Artificial Intelligence and Data Science,6.66,72.48,65.46,85,51.0,Poor,No,0,2,0,0
+Student_1119,REG20261119,Information Technology,9.12,61.16,78.67,88,100.0,Excellent,Yes,0,3,0,1
+Student_1120,REG20261120,Computer Science and Engineering,6.85,85.73,63.28,66,,Poor,No,3,1,0,0
+Student_1121,REG20261121,Artificial Intelligence and Data Science,8.89,67.61,59.38,52,56.0,Average,No,2,0,0,0
+Student_1122,REG20261122,Other,9.34,77.6,94.18,72,38.0,Good,No,0,1,1,0
+Student_1123,REG20261123,Artificial Intelligence and Data Science,7.37,85.01,90.28,44,40.0,Average,No,1,1,1,0
+Student_1124,REG20261124,Civil Engineering,9.41,93.71,87.68,65,72.0,Excellent,Yes,1,2,1,1
+Student_1125,REG20261125,Mechanical Engineering,7.12,89.06,57.1,52,60.0,Average,No,3,4,0,0
+Student_1126,REG20261126,Electrical and Electronics Engineering,9.65,84.08,91.28,66,45.0,Poor,No,0,1,2,0
+Student_1127,REG20261127,Computer Science and Engineering,5.88,84.22,73.84,96,51.0,Average,Yes,1,1,0,0
+Student_1128,REG20261128,Electronics and Communication Engineering,8.45,95.67,69.72,53,65.0,Good,No,1,2,0,1
+Student_1129,REG20261129,Information Technology,7.62,67.72,78.5,63,69.0,Average,No,1,0,1,0
+Student_1130,REG20261130,Information Technology,7.17,55.05,58.93,42,50.0,Good,No,1,1,2,0
+Student_1131,REG20261131,Mechanical Engineering,8.22,66.69,87.54,86,52.0,Excellent,No,0,3,0,0
+Student_1132,REG20261132,Electronics and Communication Engineering,8.53,64.37,80.04,90,96.0,Excellent,Yes,2,2,0,1
+Student_1133,REG20261133,Computer Science and Engineering,5.52,83.46,63.02,88,61.0,Average,Yes,1,0,0,0
+Student_1134,REG20261134,Computer Science and Engineering,6.22,82.25,63.09,69,69.0,Good,No,3,1,0,0
+Student_1135,REG20261135,Mechanical Engineering,8.57,80.52,62.92,74,79.0,Good,Yes,0,2,2,0
+Student_1136,REG20261136,Computer Science and Engineering,8.37,55.7,57.45,87,69.0,Excellent,No,1,2,0,1
+Student_1137,REG20261137,Artificial Intelligence and Data Science,9.65,86.34,80.28,53,62.0,Excellent,Yes,3,3,1,0
+Student_1138,REG20261138,Electronics and Communication Engineering,8.77,68.91,91.13,51,43.0,Average,No,1,1,0,0
+Student_1139,REG20261139,Electronics and Communication Engineering,9.59,83.6,55.75,67,49.0,Good,No,2,3,1,0
+Student_1140,REG20261140,Electrical and Electronics Engineering,8.52,78.93,57.11,83,55.0,Average,No,2,2,2,0
+Student_1141,REG20261141,Civil Engineering,6.78,69.74,79.63,68,86.0,Poor,Yes,0,2,0,0
+Student_1142,REG20261142,Information Technology,,60.79,90.24,82,69.0,Poor,Yes,1,2,0,0
+Student_1143,REG20261143,Mechanical Engineering,8.86,59.06,69.05,56,85.0,Good,Yes,0,0,1,0
+Student_1144,REG20261144,Electrical and Electronics Engineering,8.27,90.76,70.03,79,89.0,Good,Yes,1,4,0,1
+Student_1145,REG20261145,Information Technology,5.71,94.49,80.64,88,78.0,Poor,No,0,0,0,0
+Student_1146,REG20261146,Artificial Intelligence and Data Science,7.05,82.94,66.79,60,99.0,Good,No,1,1,0,1
+Student_1147,REG20261147,Civil Engineering,9.61,59.45,56.14,96,59.0,,No,1,2,0,1
+Student_1148,REG20261148,Mechanical Engineering,7.65,72.29,86.61,62,81.0,Good,No,1,2,1,0
+Student_1149,REG20261149,Artificial Intelligence and Data Science,7.36,86.34,81.9,59,90.0,Average,No,0,3,0,1
+Student_1150,REG20261150,Artificial Intelligence and Data Science,7.47,88.53,79.97,50,72.0,Average,No,5,1,2,0
+Student_1151,REG20261151,Mechanical Engineering,6.4,60.08,86.89,96,45.0,Average,No,0,1,0,0
+Student_1152,REG20261152,Artificial Intelligence and Data Science,7.09,55.0,84.03,96,49.0,Average,No,0,3,1,0
+Student_1153,REG20261153,Mechanical Engineering,,85.62,63.85,73,35.0,Good,No,0,0,0,0
+Student_1154,REG20261154,Mechanical Engineering,5.73,70.33,70.16,49,41.0,Average,No,4,3,0,0
+Student_1155,REG20261155,Electrical and Electronics Engineering,8.8,65.94,60.42,49,35.0,Good,Yes,4,1,0,0
+Student_1156,REG20261156,Civil Engineering,7.29,55.55,60.58,82,83.0,Average,Yes,1,3,1,0
+Student_1157,REG20261157,Computer Science and Engineering,9.04,78.23,84.08,99,63.0,Good,No,2,0,0,1
+Student_1158,REG20261158,Artificial Intelligence and Data Science,9.16,91.6,91.92,45,,Good,Yes,0,2,2,0
+Student_1159,REG20261159,Artificial Intelligence and Data Science,6.41,96.18,96.4,75,79.0,Average,No,4,3,0,0
+Student_1160,REG20261160,Computer Science and Engineering,8.33,79.33,82.02,63,46.0,Good,No,0,1,0,0
+Student_1161,REG20261161,Civil Engineering,7.53,77.12,62.92,51,66.0,Poor,Yes,0,2,1,0
+Student_1162,REG20261162,Computer Science and Engineering,9.28,58.66,59.54,82,54.0,Good,Yes,0,2,0,1
+Student_1163,REG20261163,Information Technology,6.43,78.6,89.95,94,85.0,Average,No,1,2,0,0
+Student_1164,REG20261164,Mechanical Engineering,8.41,71.34,79.89,62,70.0,Good,No,2,3,0,1
+Student_1165,REG20261165,Computer Science and Engineering,8.11,81.11,81.59,66,35.0,Good,Yes,0,1,0,1
+Student_1166,REG20261166,Civil Engineering,6.77,71.72,88.6,97,61.0,Excellent,No,4,0,0,0
+Student_1167,REG20261167,Artificial Intelligence and Data Science,6.09,65.33,85.24,96,74.0,Good,No,1,0,0,0
+Student_1168,REG20261168,Electronics and Communication Engineering,,59.08,90.88,84,48.0,Good,No,0,1,0,0
+Student_1169,REG20261169,Computer Science and Engineering,8.68,68.54,57.42,76,40.0,Average,Yes,1,0,1,0
+Student_1170,REG20261170,Information Technology,,59.16,87.14,45,67.0,Excellent,No,1,2,2,0
+Student_1171,REG20261171,Electrical and Electronics Engineering,8.27,62.61,91.59,40,89.0,Good,,2,0,0,1
+Student_1172,REG20261172,Other,7.2,97.46,67.3,45,53.0,Average,No,1,0,0,0
+Student_1173,REG20261173,Electrical and Electronics Engineering,8.57,74.1,82.54,89,63.0,Good,No,1,0,0,1
+Student_1174,REG20261174,Information Technology,6.36,77.87,68.51,61,95.0,Average,No,0,3,1,0
+Student_1175,REG20261175,Electrical and Electronics Engineering,9.33,92.57,96.19,80,58.0,Good,No,1,2,0,1
+Student_1176,REG20261176,Electronics and Communication Engineering,6.74,97.81,56.44,63,57.0,Good,No,4,1,0,0
+Student_1177,REG20261177,Civil Engineering,7.08,80.06,79.93,64,44.0,,No,0,3,3,0
+Student_1178,REG20261178,Computer Science and Engineering,5.75,89.94,62.16,100,88.0,Good,Yes,2,0,0,1
+Student_1179,REG20261179,Civil Engineering,5.98,69.06,85.63,54,75.0,Average,No,1,4,1,0
+Student_1180,REG20261180,Electronics and Communication Engineering,7.72,68.15,62.56,65,83.0,Average,,0,2,0,0
+Student_1181,REG20261181,Other,6.65,72.32,65.12,47,51.0,Average,Yes,3,0,0,0
+Student_1182,REG20261182,Information Technology,9.09,83.92,76.26,90,,Good,No,1,2,1,1
+Student_1183,REG20261183,Electrical and Electronics Engineering,5.56,84.33,94.34,63,79.0,Average,Yes,0,2,0,0
+Student_1184,REG20261184,Artificial Intelligence and Data Science,7.13,68.56,64.1,87,64.0,Poor,Yes,0,1,1,0
+Student_1185,REG20261185,Computer Science and Engineering,6.95,60.73,61.2,77,78.0,Good,Yes,0,3,0,1
+Student_1186,REG20261186,Artificial Intelligence and Data Science,5.58,82.19,87.64,100,89.0,Average,No,2,0,1,0
+Student_1187,REG20261187,Mechanical Engineering,6.03,60.52,76.53,45,53.0,Average,No,1,1,0,0
+Student_1188,REG20261188,Computer Science and Engineering,7.28,79.88,94.21,93,63.0,Average,No,3,0,0,1
+Student_1189,REG20261189,Information Technology,7.62,84.82,61.3,74,36.0,Average,No,0,1,0,0
+Student_1190,REG20261190,Mechanical Engineering,7.24,85.13,82.77,81,70.0,Good,No,0,1,0,1
+Student_1191,REG20261191,Computer Science and Engineering,7.78,87.4,65.01,40,53.0,Poor,No,0,3,0,0
+Student_1192,REG20261192,Electrical and Electronics Engineering,8.06,92.53,61.74,99,41.0,Excellent,Yes,1,0,0,0
+Student_1193,REG20261193,Information Technology,5.54,76.5,84.39,85,60.0,Good,No,5,1,0,0
+Student_1194,REG20261194,Electrical and Electronics Engineering,7.5,86.4,80.53,75,72.0,Average,Yes,1,1,0,1
+Student_1195,REG20261195,Computer Science and Engineering,9.64,81.62,87.46,97,37.0,Average,No,0,3,0,1
+Student_1196,REG20261196,Artificial Intelligence and Data Science,,63.03,68.31,51,100.0,Average,Yes,2,5,0,1
+Student_1197,REG20261197,Other,8.41,56.1,74.26,77,77.0,Good,No,2,2,0,1
+Student_1198,REG20261198,Other,6.84,67.24,72.44,50,96.0,Average,Yes,0,4,3,0
+Student_1199,REG20261199,Mechanical Engineering,8.83,74.05,97.32,51,58.0,Average,Yes,2,2,0,1
+Student_1200,REG20261200,Computer Science and Engineering,8.82,81.54,67.57,81,73.0,Excellent,No,0,4,0,1
+Student_1201,REG20261201,Civil Engineering,7.74,91.55,67.68,89,78.0,Average,,0,2,0,0
+Student_1202,REG20261202,Computer Science and Engineering,9.7,63.44,70.25,78,39.0,Average,No,0,0,1,0
+Student_1203,REG20261203,Computer Science and Engineering,6.04,60.4,79.28,46,89.0,Excellent,No,1,1,0,0
+Student_1204,REG20261204,Information Technology,5.57,96.43,65.85,50,64.0,Good,No,1,2,0,0
+Student_1205,REG20261205,Electronics and Communication Engineering,8.81,59.65,94.36,75,63.0,Average,No,0,1,0,1
+Student_1206,REG20261206,Civil Engineering,8.97,75.58,66.42,91,60.0,Good,No,0,1,0,1
+Student_1207,REG20261207,Mechanical Engineering,6.02,80.18,93.52,70,60.0,Poor,No,2,2,1,0
+Student_1208,REG20261208,Electronics and Communication Engineering,6.64,78.28,59.45,72,71.0,Good,No,5,3,0,0
+Student_1209,REG20261209,Information Technology,5.58,58.7,83.23,52,87.0,Good,No,2,0,0,0
+Student_1210,REG20261210,Other,6.76,57.45,94.0,57,64.0,Good,No,0,2,1,0
+Student_1211,REG20261211,Electronics and Communication Engineering,8.82,59.54,62.26,80,37.0,Excellent,Yes,0,2,0,0
+Student_1212,REG20261212,Electronics and Communication Engineering,7.73,80.18,96.64,97,,Excellent,Yes,0,4,2,0
+Student_1213,REG20261213,Computer Science and Engineering,7.0,78.41,74.47,95,41.0,Excellent,No,0,3,0,0
+Student_1214,REG20261214,Civil Engineering,7.1,65.05,95.67,63,83.0,Good,No,1,2,1,0
+Student_1215,REG20261215,Mechanical Engineering,5.51,82.42,84.1,48,75.0,Average,Yes,1,1,1,0
+Student_1216,REG20261216,Computer Science and Engineering,6.79,90.26,67.97,70,88.0,Good,No,1,1,0,0
+Student_1217,REG20261217,Computer Science and Engineering,8.28,56.79,63.1,94,61.0,Good,No,1,1,1,0
+Student_1218,REG20261218,Mechanical Engineering,9.69,76.42,68.06,100,42.0,Excellent,Yes,0,2,0,1
+Student_1219,REG20261219,Mechanical Engineering,9.14,84.64,59.0,80,66.0,Average,No,0,3,0,1
+Student_1220,REG20261220,Information Technology,5.6,65.85,61.19,49,98.0,Excellent,No,1,2,0,0
+Student_1221,REG20261221,Other,9.36,68.23,59.5,99,44.0,Good,No,0,0,0,1
+Student_1222,REG20261222,Computer Science and Engineering,8.87,81.39,73.19,41,47.0,Excellent,No,0,2,1,0
+Student_1223,REG20261223,Electronics and Communication Engineering,8.86,93.61,89.21,77,97.0,Excellent,No,0,1,0,1
+Student_1224,REG20261224,Artificial Intelligence and Data Science,7.47,89.83,61.08,54,69.0,Average,No,0,0,3,0
+Student_1225,REG20261225,Electronics and Communication Engineering,7.21,80.07,60.6,42,95.0,Average,No,0,1,0,0
+Student_1226,REG20261226,Electrical and Electronics Engineering,6.8,86.4,82.67,82,88.0,Average,No,2,0,0,1
+Student_1227,REG20261227,Information Technology,5.78,70.69,63.48,70,42.0,Average,No,2,3,0,0
+Student_1228,REG20261228,Information Technology,6.48,82.56,59.2,45,,Good,No,0,1,0,0
+Student_1229,REG20261229,Other,6.56,75.05,62.17,42,75.0,Good,No,0,1,1,0
+Student_1230,REG20261230,Electronics and Communication Engineering,7.58,63.17,94.72,95,64.0,Excellent,Yes,1,4,1,1
+Student_1231,REG20261231,Artificial Intelligence and Data Science,8.71,85.17,90.32,50,55.0,Good,Yes,0,1,1,0
+Student_1232,REG20261232,Computer Science and Engineering,7.54,78.93,70.22,54,45.0,Poor,Yes,0,0,1,0
+Student_1233,REG20261233,Computer Science and Engineering,5.75,70.42,83.2,84,36.0,Average,Yes,0,1,0,0
+Student_1234,REG20261234,Computer Science and Engineering,9.62,94.19,78.1,91,84.0,Poor,No,0,0,0,1
+Student_1235,REG20261235,Mechanical Engineering,9.55,55.9,84.12,67,75.0,Average,No,2,0,0,1
+Student_1236,REG20261236,Information Technology,8.88,68.58,84.35,49,100.0,Good,No,2,0,0,1
+Student_1237,REG20261237,Artificial Intelligence and Data Science,9.76,57.45,82.04,77,37.0,Poor,No,0,2,0,0
+Student_1238,REG20261238,Electronics and Communication Engineering,7.84,87.96,66.44,86,85.0,Average,No,0,0,0,0
+Student_1239,REG20261239,Other,9.64,85.19,56.68,96,59.0,Average,No,0,1,0,1
+Student_1240,REG20261240,Computer Science and Engineering,5.83,69.25,74.59,89,64.0,Good,No,0,3,0,0
+Student_1241,REG20261241,Artificial Intelligence and Data Science,7.07,84.05,93.31,89,45.0,Good,No,5,1,1,0
+Student_1242,REG20261242,Civil Engineering,6.47,72.03,79.49,46,51.0,Good,No,1,3,0,0
+Student_1243,REG20261243,Civil Engineering,6.34,87.52,90.79,54,60.0,Average,No,1,1,0,0
+Student_1244,REG20261244,Artificial Intelligence and Data Science,6.11,74.53,97.64,57,57.0,Excellent,Yes,2,1,0,1
+Student_1245,REG20261245,Civil Engineering,8.18,72.73,62.04,57,90.0,Average,No,2,2,1,0
+Student_1246,REG20261246,Electrical and Electronics Engineering,8.86,95.19,84.75,91,86.0,Good,No,2,0,3,0
+Student_1247,REG20261247,Computer Science and Engineering,7.99,65.79,83.99,80,82.0,Good,Yes,0,0,0,1
+Student_1248,REG20261248,Computer Science and Engineering,6.13,60.18,97.14,63,54.0,Good,No,0,2,0,0
+Student_1249,REG20261249,Artificial Intelligence and Data Science,8.99,80.14,97.38,41,36.0,Excellent,,1,1,2,0
+Student_1250,REG20261250,Electrical and Electronics Engineering,8.23,96.68,84.53,79,65.0,Average,Yes,0,2,0,1
+Student_1251,REG20261251,Civil Engineering,,71.25,65.48,59,61.0,Good,No,4,3,1,0
+Student_1252,REG20261252,Electronics and Communication Engineering,8.4,57.67,89.34,73,36.0,Poor,No,1,1,1,0
+Student_1253,REG20261253,Computer Science and Engineering,6.62,69.59,59.6,82,38.0,Good,No,3,2,0,0
+Student_1254,REG20261254,Computer Science and Engineering,6.98,76.76,88.57,65,47.0,Average,No,0,1,0,0
+Student_1255,REG20261255,Mechanical Engineering,9.45,61.96,94.14,46,69.0,Average,No,2,4,0,1
+Student_1256,REG20261256,Electronics and Communication Engineering,6.75,83.3,71.46,77,100.0,,No,0,3,0,0
+Student_1257,REG20261257,Computer Science and Engineering,7.52,97.9,82.12,69,40.0,Good,No,4,3,1,0
+Student_1258,REG20261258,Electronics and Communication Engineering,9.33,74.42,73.5,81,65.0,Poor,No,0,1,2,0
+Student_1259,REG20261259,Computer Science and Engineering,8.54,70.25,73.82,44,44.0,Good,Yes,1,2,1,0
+Student_1260,REG20261260,Electrical and Electronics Engineering,5.77,72.23,68.35,50,55.0,Good,No,2,1,0,0
+Student_1261,REG20261261,Information Technology,6.13,59.95,87.77,40,57.0,Average,No,1,1,0,0
+Student_1262,REG20261262,Civil Engineering,5.53,92.98,95.26,73,37.0,Good,No,1,3,0,0
+Student_1263,REG20261263,Information Technology,8.21,72.84,95.45,95,66.0,Good,No,4,0,0,1
+Student_1264,REG20261264,Electronics and Communication Engineering,7.42,71.65,62.52,40,54.0,Good,No,1,4,0,0
+Student_1265,REG20261265,Computer Science and Engineering,6.08,83.37,92.61,58,63.0,Average,No,1,0,0,0
+Student_1266,REG20261266,Computer Science and Engineering,9.62,74.01,86.71,41,86.0,Average,No,0,2,0,1
+Student_1267,REG20261267,Information Technology,7.78,82.87,65.87,60,80.0,Good,Yes,2,1,3,0
+Student_1268,REG20261268,Electronics and Communication Engineering,6.54,57.64,57.89,59,68.0,,No,1,1,0,0
+Student_1269,REG20261269,Electrical and Electronics Engineering,7.65,89.99,66.52,100,95.0,Good,No,1,1,1,0
+Student_1270,REG20261270,Information Technology,8.42,95.44,94.22,62,45.0,Poor,No,0,2,0,0
+Student_1271,REG20261271,Mechanical Engineering,5.83,82.9,82.23,60,97.0,Good,No,1,1,0,0
+Student_1272,REG20261272,Artificial Intelligence and Data Science,6.68,96.05,86.01,63,55.0,Excellent,Yes,0,2,1,0
+Student_1273,REG20261273,Civil Engineering,8.97,61.51,66.06,43,37.0,Poor,No,0,0,1,0
+Student_1274,REG20261274,Computer Science and Engineering,7.48,75.53,85.93,51,44.0,Excellent,No,1,0,0,0
+Student_1275,REG20261275,Electronics and Communication Engineering,7.85,80.88,56.21,61,61.0,Excellent,Yes,0,0,0,0
+Student_1276,REG20261276,Computer Science and Engineering,7.36,80.01,71.14,59,46.0,Poor,Yes,0,1,0,0
+Student_1277,REG20261277,Computer Science and Engineering,5.69,72.26,81.95,57,41.0,Excellent,Yes,1,2,0,0
+Student_1278,REG20261278,Other,6.21,69.54,61.28,40,51.0,Average,No,0,3,2,0
+Student_1279,REG20261279,Computer Science and Engineering,7.42,60.45,90.39,69,99.0,Good,No,0,1,0,1
+Student_1280,REG20261280,Electronics and Communication Engineering,6.4,71.84,65.11,72,98.0,Average,No,0,2,0,1
+Student_1281,REG20261281,Electrical and Electronics Engineering,5.71,61.99,83.05,63,60.0,Average,No,1,2,2,0
+Student_1282,REG20261282,Mechanical Engineering,9.13,86.58,72.42,53,49.0,Good,No,1,1,0,0
+Student_1283,REG20261283,Electrical and Electronics Engineering,9.72,63.98,80.63,75,67.0,Good,Yes,1,1,0,1
+Student_1284,REG20261284,Computer Science and Engineering,8.91,57.52,59.62,44,96.0,Poor,No,0,1,0,0
+Student_1285,REG20261285,Information Technology,9.17,78.75,55.73,50,81.0,Good,No,0,0,0,0
+Student_1286,REG20261286,Electronics and Communication Engineering,6.54,80.59,94.11,63,69.0,Average,No,0,0,0,0
+Student_1287,REG20261287,Computer Science and Engineering,9.63,92.49,66.59,99,99.0,Average,No,1,0,0,1
+Student_1288,REG20261288,Information Technology,6.35,79.81,90.25,70,59.0,Average,No,3,2,0,0
+Student_1289,REG20261289,Computer Science and Engineering,9.59,69.86,97.97,94,91.0,Good,No,0,0,1,1
+Student_1290,REG20261290,Computer Science and Engineering,9.78,89.53,64.09,52,66.0,Average,No,0,0,1,0
+Student_1291,REG20261291,Information Technology,8.56,78.23,66.4,55,97.0,Average,No,0,1,0,1
+Student_1292,REG20261292,Computer Science and Engineering,9.72,58.41,83.5,63,46.0,Average,Yes,1,0,0,1
+Student_1293,REG20261293,Electrical and Electronics Engineering,7.95,79.33,96.51,52,97.0,Poor,No,1,0,0,1
+Student_1294,REG20261294,Mechanical Engineering,6.62,94.04,94.38,63,35.0,Good,No,1,3,0,0
+Student_1295,REG20261295,Civil Engineering,7.38,72.04,76.62,93,85.0,Excellent,Yes,2,0,1,0
+Student_1296,REG20261296,Computer Science and Engineering,8.05,67.74,89.19,65,42.0,Average,Yes,1,2,0,1
+Student_1297,REG20261297,Computer Science and Engineering,5.81,61.17,60.84,41,39.0,Excellent,Yes,0,1,0,0
+Student_1298,REG20261298,Computer Science and Engineering,8.18,61.51,97.03,55,73.0,Good,No,0,2,0,0
+Student_1299,REG20261299,Electrical and Electronics Engineering,9.72,73.61,96.47,77,57.0,Good,No,1,2,0,1
+Student_1300,REG20261300,Mechanical Engineering,6.32,80.61,62.04,85,86.0,Good,No,1,1,0,1
+Student_1301,REG20261301,Computer Science and Engineering,8.91,58.47,67.88,40,38.0,Good,No,1,3,1,0
+Student_1302,REG20261302,Artificial Intelligence and Data Science,9.4,95.4,59.31,88,81.0,Average,No,1,1,2,0
+Student_1303,REG20261303,Computer Science and Engineering,9.56,87.47,66.68,50,55.0,Good,No,1,2,2,0
+Student_1304,REG20261304,Electronics and Communication Engineering,9.63,80.22,90.09,90,90.0,Good,Yes,2,1,2,0
+Student_1305,REG20261305,Mechanical Engineering,7.74,90.62,71.27,74,100.0,Good,No,1,4,2,0
+Student_1306,REG20261306,Artificial Intelligence and Data Science,9.7,58.45,58.8,82,93.0,Good,No,2,2,0,1
+Student_1307,REG20261307,Mechanical Engineering,8.76,75.5,69.72,68,41.0,Poor,Yes,0,4,0,1
+Student_1308,REG20261308,Civil Engineering,6.2,82.09,97.2,76,83.0,Good,No,1,1,1,0
+Student_1309,REG20261309,Information Technology,7.55,90.63,82.08,56,50.0,Good,No,3,1,0,0
+Student_1310,REG20261310,Civil Engineering,8.59,88.69,72.89,97,51.0,Average,Yes,0,2,0,1
+Student_1311,REG20261311,Computer Science and Engineering,6.56,66.91,62.16,93,68.0,Average,Yes,2,3,0,1
+Student_1312,REG20261312,Artificial Intelligence and Data Science,8.25,95.46,97.41,78,67.0,Good,Yes,1,4,0,1
+Student_1313,REG20261313,Electronics and Communication Engineering,8.37,60.35,90.3,81,60.0,Excellent,No,0,1,0,0
+Student_1314,REG20261314,Civil Engineering,6.2,92.63,67.1,67,100.0,,No,1,2,0,1
+Student_1315,REG20261315,Electronics and Communication Engineering,7.93,96.75,58.01,68,97.0,Good,No,0,1,0,0
+Student_1316,REG20261316,Electrical and Electronics Engineering,8.82,62.62,57.43,82,75.0,Average,Yes,4,1,1,1
+Student_1317,REG20261317,Electronics and Communication Engineering,7.65,86.05,60.18,42,92.0,Average,No,2,0,0,0
+Student_1318,REG20261318,Mechanical Engineering,5.55,56.73,79.97,91,44.0,Poor,No,0,1,1,0
+Student_1319,REG20261319,Computer Science and Engineering,,72.43,94.94,49,49.0,Poor,Yes,0,3,0,0
+Student_1320,REG20261320,Computer Science and Engineering,7.04,77.2,76.36,98,76.0,Average,No,1,0,0,0
+Student_1321,REG20261321,Computer Science and Engineering,9.48,79.97,91.25,81,91.0,Average,No,0,2,0,1
+Student_1322,REG20261322,Computer Science and Engineering,6.48,95.25,74.17,53,51.0,Good,No,0,2,0,0
+Student_1323,REG20261323,Artificial Intelligence and Data Science,8.23,83.91,85.47,51,94.0,Good,Yes,1,0,0,1
+Student_1324,REG20261324,Computer Science and Engineering,6.45,75.69,86.47,86,43.0,Poor,Yes,0,1,1,0
+Student_1325,REG20261325,Other,6.88,89.82,62.48,81,70.0,Average,No,0,2,1,0
+Student_1326,REG20261326,Information Technology,9.15,95.87,70.53,69,70.0,Average,No,2,0,2,0
+Student_1327,REG20261327,Computer Science and Engineering,8.63,55.95,82.4,71,82.0,Good,No,3,2,0,1
+Student_1328,REG20261328,Civil Engineering,5.91,97.25,58.04,71,85.0,Average,No,2,4,0,0
+Student_1329,REG20261329,Mechanical Engineering,7.34,58.7,70.55,81,,Average,No,2,1,0,0
+Student_1330,REG20261330,Electronics and Communication Engineering,5.63,90.02,78.0,71,40.0,Excellent,No,0,0,0,0
+Student_1331,REG20261331,Electrical and Electronics Engineering,7.57,67.05,97.84,65,60.0,Good,No,0,1,0,0
+Student_1332,REG20261332,Mechanical Engineering,8.35,60.68,75.4,90,37.0,Average,No,0,2,0,0
+Student_1333,REG20261333,Computer Science and Engineering,6.01,73.91,90.09,40,86.0,Average,No,2,1,0,0
+Student_1334,REG20261334,Other,6.74,82.69,73.58,95,94.0,,No,3,0,0,1
+Student_1335,REG20261335,Other,7.21,71.38,89.24,100,97.0,Good,No,1,1,0,1
+Student_1336,REG20261336,Mechanical Engineering,9.45,57.35,80.6,97,99.0,Good,No,2,4,0,1
+Student_1337,REG20261337,Computer Science and Engineering,9.77,80.78,93.12,81,86.0,Average,No,1,1,0,1
+Student_1338,REG20261338,Mechanical Engineering,5.69,93.8,72.67,41,48.0,Good,Yes,0,1,1,0
+Student_1339,REG20261339,Computer Science and Engineering,8.77,71.48,80.99,56,,Average,,1,4,0,1
+Student_1340,REG20261340,Computer Science and Engineering,7.1,64.3,82.09,69,44.0,Average,No,0,2,0,0
+Student_1341,REG20261341,Information Technology,7.19,74.03,72.95,95,91.0,Average,No,0,2,0,1
+Student_1342,REG20261342,Electronics and Communication Engineering,,57.08,61.21,78,100.0,Good,No,1,2,0,1
+Student_1343,REG20261343,Artificial Intelligence and Data Science,9.45,90.28,59.02,46,84.0,,No,1,4,1,0
+Student_1344,REG20261344,Mechanical Engineering,9.59,90.53,55.72,91,48.0,Average,No,1,2,1,0
+Student_1345,REG20261345,Mechanical Engineering,7.98,80.28,92.56,66,50.0,Average,No,1,3,0,0
+Student_1346,REG20261346,Electronics and Communication Engineering,7.04,70.18,65.17,48,88.0,Poor,Yes,0,2,0,0
+Student_1347,REG20261347,Information Technology,8.89,89.39,64.09,61,77.0,Good,No,1,2,3,0
+Student_1348,REG20261348,Information Technology,6.58,78.85,86.65,73,76.0,Average,No,1,1,0,0
+Student_1349,REG20261349,Other,7.93,90.52,68.76,85,56.0,Poor,No,0,1,1,0
+Student_1350,REG20261350,Computer Science and Engineering,7.04,82.15,76.76,88,53.0,Good,No,2,2,0,0
+Student_1351,REG20261351,Artificial Intelligence and Data Science,8.32,88.73,61.99,40,100.0,Good,Yes,1,1,0,1
+Student_1352,REG20261352,Electrical and Electronics Engineering,6.53,80.74,96.27,48,73.0,Good,No,1,2,1,0
+Student_1353,REG20261353,Electronics and Communication Engineering,6.32,72.81,91.62,59,53.0,Good,No,2,1,0,0
+Student_1354,REG20261354,Mechanical Engineering,9.45,96.19,92.14,92,50.0,Average,Yes,2,2,0,1
+Student_1355,REG20261355,Electronics and Communication Engineering,5.94,78.27,72.49,58,88.0,Good,No,2,0,0,0
+Student_1356,REG20261356,Artificial Intelligence and Data Science,7.68,81.02,87.78,75,59.0,Good,No,0,2,0,0
+Student_1357,REG20261357,Artificial Intelligence and Data Science,6.45,64.48,61.19,99,52.0,Average,Yes,0,2,1,0
+Student_1358,REG20261358,Electronics and Communication Engineering,5.67,81.9,55.37,79,57.0,Excellent,Yes,0,0,0,0
+Student_1359,REG20261359,Information Technology,5.65,79.58,55.86,84,45.0,Average,No,0,1,0,0
+Student_1360,REG20261360,Electrical and Electronics Engineering,6.25,62.95,80.22,43,73.0,Excellent,No,3,1,1,0
+Student_1361,REG20261361,Artificial Intelligence and Data Science,9.23,57.56,74.58,48,59.0,Excellent,No,1,1,0,0
+Student_1362,REG20261362,Computer Science and Engineering,6.71,80.99,77.27,80,97.0,Good,No,0,1,0,1
+Student_1363,REG20261363,Electrical and Electronics Engineering,9.59,87.84,55.32,61,64.0,Excellent,No,0,0,1,0
+Student_1364,REG20261364,Electrical and Electronics Engineering,8.0,77.51,73.18,57,79.0,Good,No,0,4,4,0
+Student_1365,REG20261365,Mechanical Engineering,7.38,64.75,85.88,51,95.0,Average,No,1,0,0,0
+Student_1366,REG20261366,Computer Science and Engineering,7.99,83.66,74.04,81,85.0,Average,No,1,2,0,0
+Student_1367,REG20261367,Mechanical Engineering,7.72,58.44,86.49,82,43.0,Poor,Yes,2,1,1,0
+Student_1368,REG20261368,Artificial Intelligence and Data Science,8.76,74.0,65.02,78,36.0,Average,No,3,2,1,0
+Student_1369,REG20261369,Computer Science and Engineering,6.71,62.02,89.97,48,39.0,Good,No,0,1,1,0
+Student_1370,REG20261370,Computer Science and Engineering,7.02,62.93,80.3,45,96.0,Average,Yes,0,2,0,1
+Student_1371,REG20261371,Other,9.34,63.7,64.06,58,86.0,Average,No,0,2,0,1
+Student_1372,REG20261372,Computer Science and Engineering,9.57,71.63,65.18,87,39.0,Good,No,0,2,0,1
+Student_1373,REG20261373,Artificial Intelligence and Data Science,9.34,57.2,82.01,86,93.0,Excellent,No,3,0,1,1
+Student_1374,REG20261374,Electronics and Communication Engineering,7.3,72.11,90.69,46,43.0,Poor,No,1,2,2,0
+Student_1375,REG20261375,Computer Science and Engineering,8.86,77.0,72.87,55,56.0,Average,No,1,1,0,0
+Student_1376,REG20261376,Artificial Intelligence and Data Science,7.55,75.78,66.11,44,61.0,Average,No,1,0,0,0
+Student_1377,REG20261377,Electronics and Communication Engineering,7.64,71.46,92.28,55,44.0,Good,Yes,0,1,0,0
+Student_1378,REG20261378,Electronics and Communication Engineering,6.38,91.08,83.78,40,95.0,Average,No,0,1,3,0
+Student_1379,REG20261379,Information Technology,8.04,61.25,74.27,90,85.0,Good,No,1,1,0,1
+Student_1380,REG20261380,Electrical and Electronics Engineering,6.3,76.74,75.98,76,44.0,Average,No,1,2,0,0
+Student_1381,REG20261381,Computer Science and Engineering,6.93,57.67,63.78,78,40.0,Average,Yes,0,1,0,0
+Student_1382,REG20261382,Information Technology,9.18,58.06,81.95,58,96.0,Excellent,No,1,1,0,1
+Student_1383,REG20261383,Other,6.39,79.68,70.43,93,39.0,Poor,No,2,0,0,0
+Student_1384,REG20261384,Information Technology,5.81,79.34,97.81,76,97.0,Average,No,1,2,1,0
+Student_1385,REG20261385,Mechanical Engineering,5.8,92.76,75.65,100,90.0,Poor,No,1,2,1,0
+Student_1386,REG20261386,Information Technology,9.55,78.99,75.89,56,93.0,Good,No,1,1,0,1
+Student_1387,REG20261387,Civil Engineering,7.68,96.27,79.33,65,97.0,Good,No,1,2,0,1
+Student_1388,REG20261388,Computer Science and Engineering,7.26,57.09,94.42,61,93.0,Average,Yes,2,1,2,0
+Student_1389,REG20261389,Other,8.99,59.21,89.44,47,85.0,Average,No,5,1,0,1
+Student_1390,REG20261390,Electronics and Communication Engineering,9.09,56.89,74.4,100,84.0,Average,Yes,0,1,0,1
+Student_1391,REG20261391,Computer Science and Engineering,6.93,62.97,85.9,100,38.0,Good,No,1,2,2,0
+Student_1392,REG20261392,Computer Science and Engineering,8.48,78.27,80.21,72,82.0,Good,No,0,2,1,0
+Student_1393,REG20261393,Computer Science and Engineering,8.82,82.76,76.17,41,66.0,Good,No,0,1,1,0
+Student_1394,REG20261394,Electronics and Communication Engineering,8.31,56.96,63.27,69,85.0,Good,No,1,0,0,0
+Student_1395,REG20261395,Information Technology,6.15,95.68,74.95,86,86.0,Average,No,3,0,0,1
+Student_1396,REG20261396,Civil Engineering,9.27,91.21,65.57,59,68.0,Average,Yes,0,2,0,1
+Student_1397,REG20261397,Electronics and Communication Engineering,7.82,67.75,94.34,99,70.0,Average,No,0,3,0,1
+Student_1398,REG20261398,Computer Science and Engineering,6.71,58.32,69.42,57,77.0,Average,No,0,1,1,0
+Student_1399,REG20261399,Electrical and Electronics Engineering,,62.31,95.95,82,50.0,Average,No,1,0,0,1
+Student_1400,REG20261400,Mechanical Engineering,5.66,60.46,77.92,96,93.0,Good,No,0,2,1,0
+Student_1401,REG20261401,Computer Science and Engineering,6.05,60.3,82.16,49,87.0,Good,No,0,3,0,0
+Student_1402,REG20261402,Computer Science and Engineering,8.79,77.3,78.35,63,53.0,Excellent,No,1,3,0,1
+Student_1403,REG20261403,Computer Science and Engineering,5.5,65.57,60.56,95,75.0,Average,Yes,0,2,3,0
+Student_1404,REG20261404,Mechanical Engineering,7.29,70.4,71.16,43,81.0,Good,No,1,3,0,0
+Student_1405,REG20261405,Mechanical Engineering,7.75,97.55,59.26,76,88.0,Good,No,2,0,0,1
+Student_1406,REG20261406,Electronics and Communication Engineering,5.73,84.43,81.79,43,89.0,Good,Yes,0,0,0,0
+Student_1407,REG20261407,Artificial Intelligence and Data Science,9.68,95.81,74.22,52,53.0,Average,No,1,0,0,1
+Student_1408,REG20261408,Civil Engineering,6.47,61.13,88.45,64,96.0,Average,No,1,2,0,0
+Student_1409,REG20261409,Electrical and Electronics Engineering,6.81,71.43,64.48,52,93.0,Poor,No,1,0,0,0
+Student_1410,REG20261410,Artificial Intelligence and Data Science,6.81,78.85,62.08,57,99.0,Average,No,1,1,0,0
+Student_1411,REG20261411,Computer Science and Engineering,6.49,58.3,72.47,100,62.0,Good,No,0,1,1,0
+Student_1412,REG20261412,Computer Science and Engineering,5.51,55.18,94.84,98,52.0,Poor,Yes,2,1,0,0
+Student_1413,REG20261413,Information Technology,,83.83,85.55,63,60.0,Average,Yes,2,3,0,1
+Student_1414,REG20261414,Computer Science and Engineering,9.66,82.6,73.01,41,53.0,Good,No,0,0,0,1
+Student_1415,REG20261415,Electronics and Communication Engineering,,72.66,77.24,87,89.0,Good,Yes,0,1,0,1
+Student_1416,REG20261416,Artificial Intelligence and Data Science,8.35,76.05,58.62,72,91.0,Good,No,0,2,0,1
+Student_1417,REG20261417,Computer Science and Engineering,8.69,72.86,97.34,97,40.0,Good,No,0,0,0,1
+Student_1418,REG20261418,Computer Science and Engineering,9.15,56.03,83.66,58,35.0,Average,No,1,2,0,0
+Student_1419,REG20261419,Electronics and Communication Engineering,7.32,69.42,67.27,48,42.0,Average,No,0,2,1,0
+Student_1420,REG20261420,Artificial Intelligence and Data Science,6.8,62.61,80.19,67,85.0,Average,No,0,3,2,0
+Student_1421,REG20261421,Information Technology,6.9,59.23,59.71,74,59.0,Good,No,2,3,1,0
+Student_1422,REG20261422,Electronics and Communication Engineering,8.56,96.14,96.53,96,81.0,Excellent,No,0,1,0,1
+Student_1423,REG20261423,Computer Science and Engineering,9.01,80.77,62.52,78,89.0,Poor,No,2,2,0,1
+Student_1424,REG20261424,Computer Science and Engineering,6.28,86.33,82.87,100,98.0,Good,No,1,0,2,0
+Student_1425,REG20261425,Other,7.1,68.56,65.55,49,44.0,Average,Yes,0,1,0,0
+Student_1426,REG20261426,Other,9.38,71.91,85.86,40,90.0,Good,No,1,0,1,0
+Student_1427,REG20261427,Computer Science and Engineering,8.97,65.19,88.4,81,46.0,Poor,No,1,1,0,0
+Student_1428,REG20261428,Other,9.73,59.17,83.96,60,67.0,Average,No,0,3,0,0
+Student_1429,REG20261429,Electrical and Electronics Engineering,8.74,62.7,81.42,48,51.0,Good,No,0,1,1,0
+Student_1430,REG20261430,Artificial Intelligence and Data Science,7.19,89.29,93.38,99,95.0,Good,No,1,2,1,0
+Student_1431,REG20261431,Electronics and Communication Engineering,8.04,84.13,58.38,86,44.0,Good,No,3,1,1,0
+Student_1432,REG20261432,Electronics and Communication Engineering,8.34,78.52,69.23,54,65.0,Average,Yes,1,1,2,0
+Student_1433,REG20261433,Electronics and Communication Engineering,5.84,75.43,65.68,74,94.0,Average,No,0,4,0,0
+Student_1434,REG20261434,Mechanical Engineering,7.84,94.66,97.48,96,51.0,Average,Yes,1,1,0,1
+Student_1435,REG20261435,Computer Science and Engineering,8.55,58.13,71.74,44,84.0,Good,No,1,2,2,0
+Student_1436,REG20261436,Computer Science and Engineering,6.22,67.07,86.5,80,71.0,Excellent,,1,1,0,0
+Student_1437,REG20261437,Information Technology,8.86,70.05,84.44,97,96.0,Average,Yes,1,0,0,1
+Student_1438,REG20261438,Mechanical Engineering,8.01,88.64,64.12,61,63.0,Average,Yes,1,1,0,1
+Student_1439,REG20261439,Computer Science and Engineering,9.59,97.68,65.28,80,66.0,Good,No,2,2,0,1
+Student_1440,REG20261440,Mechanical Engineering,5.68,65.35,67.1,62,45.0,Average,Yes,1,0,0,0
+Student_1441,REG20261441,Other,6.64,92.6,72.68,46,40.0,Good,Yes,1,0,0,0
+Student_1442,REG20261442,Computer Science and Engineering,8.09,90.72,65.08,95,69.0,Average,No,0,0,1,0
+Student_1443,REG20261443,Mechanical Engineering,6.78,64.66,55.85,62,,Good,No,2,2,1,0
+Student_1444,REG20261444,Electronics and Communication Engineering,8.57,72.17,92.81,83,52.0,Good,No,3,2,0,0
+Student_1445,REG20261445,Artificial Intelligence and Data Science,8.76,72.62,96.52,64,71.0,Good,No,0,2,0,1
+Student_1446,REG20261446,Computer Science and Engineering,,97.06,69.69,66,47.0,Good,Yes,1,1,0,0
+Student_1447,REG20261447,Mechanical Engineering,7.71,62.78,69.56,80,98.0,Average,,0,3,0,1
+Student_1448,REG20261448,Artificial Intelligence and Data Science,7.69,89.36,55.3,45,35.0,Good,No,2,2,0,0
+Student_1449,REG20261449,Artificial Intelligence and Data Science,7.09,69.37,84.25,94,,Good,No,1,2,0,1
+Student_1450,REG20261450,Mechanical Engineering,9.51,86.43,90.49,73,68.0,Average,No,0,2,0,1
+Student_1451,REG20261451,Electronics and Communication Engineering,9.06,73.06,61.3,48,44.0,Average,No,2,2,0,0
+Student_1452,REG20261452,Electrical and Electronics Engineering,8.5,79.87,61.87,99,41.0,Poor,No,0,1,0,0
+Student_1453,REG20261453,Artificial Intelligence and Data Science,8.57,90.8,88.97,100,90.0,Good,Yes,2,3,0,1
+Student_1454,REG20261454,Electrical and Electronics Engineering,7.49,89.58,81.5,88,71.0,Average,Yes,1,3,0,1
+Student_1455,REG20261455,Computer Science and Engineering,9.46,92.26,56.93,72,63.0,Good,No,0,0,0,0
+Student_1456,REG20261456,Artificial Intelligence and Data Science,8.49,57.56,81.77,90,46.0,Average,Yes,0,0,0,1
+Student_1457,REG20261457,Mechanical Engineering,8.63,84.76,68.28,99,51.0,Excellent,No,0,4,2,0
+Student_1458,REG20261458,Mechanical Engineering,9.21,61.02,70.86,45,82.0,Average,No,1,1,0,1
+Student_1459,REG20261459,Computer Science and Engineering,6.68,72.88,88.1,76,60.0,Average,Yes,1,3,1,0
+Student_1460,REG20261460,Mechanical Engineering,8.97,78.59,89.87,70,46.0,Good,No,0,1,0,0
+Student_1461,REG20261461,Information Technology,6.34,72.32,72.22,73,55.0,Good,Yes,0,0,2,0
+Student_1462,REG20261462,Mechanical Engineering,6.98,77.34,95.73,80,76.0,Average,No,0,0,0,0
+Student_1463,REG20261463,Computer Science and Engineering,6.94,97.85,72.48,68,95.0,Average,No,1,0,1,0
+Student_1464,REG20261464,Mechanical Engineering,9.71,60.81,88.19,97,92.0,Average,No,1,1,0,1
+Student_1465,REG20261465,Other,9.18,84.04,75.81,53,88.0,Good,No,0,1,1,0
+Student_1466,REG20261466,Computer Science and Engineering,8.52,72.03,93.59,75,68.0,Good,Yes,1,2,0,1
+Student_1467,REG20261467,Other,8.63,60.72,94.03,75,41.0,Good,No,0,4,0,0
+Student_1468,REG20261468,Electronics and Communication Engineering,7.92,61.83,58.76,92,,Good,No,3,1,1,0
+Student_1469,REG20261469,Artificial Intelligence and Data Science,9.57,95.82,95.27,54,49.0,Good,No,3,1,0,0
+Student_1470,REG20261470,Civil Engineering,7.63,92.82,90.5,47,99.0,,No,1,1,2,0
+Student_1471,REG20261471,Electrical and Electronics Engineering,7.14,94.0,89.03,65,59.0,Excellent,No,3,1,0,0
+Student_1472,REG20261472,Mechanical Engineering,6.2,97.64,63.64,75,93.0,Good,No,2,1,0,0
+Student_1473,REG20261473,Artificial Intelligence and Data Science,8.88,63.96,89.62,87,40.0,Average,No,2,0,1,0
+Student_1474,REG20261474,Electronics and Communication Engineering,8.66,70.28,91.56,60,86.0,Average,Yes,1,0,0,1
+Student_1475,REG20261475,Information Technology,7.15,83.78,67.43,67,55.0,Average,No,0,0,0,0
+Student_1476,REG20261476,Mechanical Engineering,5.61,75.8,95.95,43,66.0,Average,No,0,0,1,0
+Student_1477,REG20261477,Civil Engineering,9.11,72.99,57.14,55,87.0,Good,No,0,2,1,0
+Student_1478,REG20261478,Civil Engineering,5.55,70.39,61.45,61,93.0,Good,Yes,1,1,2,0
+Student_1479,REG20261479,Civil Engineering,8.53,80.53,78.12,51,96.0,Good,No,0,3,0,1
+Student_1480,REG20261480,Electronics and Communication Engineering,9.67,79.75,79.76,55,38.0,Good,Yes,0,3,0,0
+Student_1481,REG20261481,Civil Engineering,7.38,61.94,82.74,90,52.0,Good,No,1,4,0,0
+Student_1482,REG20261482,Computer Science and Engineering,6.51,75.28,55.73,79,90.0,Good,No,0,3,0,0
+Student_1483,REG20261483,Electronics and Communication Engineering,8.53,78.8,96.3,77,58.0,Poor,No,1,1,1,0
+Student_1484,REG20261484,Computer Science and Engineering,9.01,79.52,56.92,81,100.0,Average,No,3,1,0,1
+Student_1485,REG20261485,Information Technology,7.85,64.03,61.15,76,47.0,Good,Yes,1,0,0,0
+Student_1486,REG20261486,Information Technology,9.66,86.92,55.6,68,96.0,Poor,Yes,1,2,0,1
+Student_1487,REG20261487,Information Technology,5.72,56.08,79.37,57,88.0,Poor,No,1,3,1,0
+Student_1488,REG20261488,Mechanical Engineering,7.67,70.26,95.09,49,49.0,Excellent,Yes,1,3,2,0
+Student_1489,REG20261489,Information Technology,8.59,88.55,83.64,81,37.0,Good,No,0,1,0,1
+Student_1490,REG20261490,Electronics and Communication Engineering,9.21,79.25,90.37,78,71.0,Average,Yes,2,2,0,1
+Student_1491,REG20261491,Computer Science and Engineering,6.27,66.23,55.57,57,71.0,Good,No,0,0,1,0
+Student_1492,REG20261492,Information Technology,8.94,84.88,78.31,40,37.0,Good,No,0,0,0,0
+Student_1493,REG20261493,Computer Science and Engineering,7.88,79.4,74.76,78,97.0,Average,No,2,2,0,0
+Student_1494,REG20261494,Computer Science and Engineering,7.21,89.24,76.46,60,69.0,,No,0,1,0,0
+Student_1495,REG20261495,Electrical and Electronics Engineering,6.07,86.61,58.11,40,86.0,Excellent,No,0,5,0,0
+Student_1496,REG20261496,Mechanical Engineering,9.22,81.23,84.43,54,62.0,Average,No,0,0,0,1
+Student_1497,REG20261497,Electrical and Electronics Engineering,6.18,75.99,76.64,43,52.0,Average,No,0,3,1,0
+Student_1498,REG20261498,Electronics and Communication Engineering,6.83,60.73,87.9,99,70.0,Good,No,0,1,0,0
+Student_1499,REG20261499,Information Technology,6.75,66.24,75.87,100,67.0,Good,No,0,2,0,0
+Student_1500,REG20261500,Artificial Intelligence and Data Science,9.25,73.02,61.42,59,98.0,Average,No,1,2,2,0

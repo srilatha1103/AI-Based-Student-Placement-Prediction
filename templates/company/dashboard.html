@@ -1,0 +1,349 @@
+{% extends 'company/company_base.html' %}
+
+{% block title %}Dashboard - Company Recruitment Portal{% endblock %}
+{% block page_header %}Recruitment Dashboard{% endblock %}
+
+{% block content %}
+<!-- Welcome & Quick Action Header -->
+<div class="row align-items-center mb-4">
+    <div class="col-md-8">
+        <h3 class="fw-bold text-dark mb-1">Welcome back, {{ company.company_name }}! 👋</h3>
+        <p class="text-muted mb-0">Manage campus drives, match candidates with AI, schedule interviews, and track selections.</p>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="{{ url_for('company.job_create') }}" class="btn btn-primary shadow-sm rounded-pill px-4">
+            <i class="fas fa-plus-circle me-2"></i> Create Job Posting
+        </a>
+    </div>
+</div>
+
+<!-- Key Stat Cards Grid -->
+<div class="row g-3 mb-4">
+    <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper icon-blue">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="stat-value">{{ stats.total_jobs }}</div>
+            <div class="stat-label">Total Job Posts</div>
+        </div>
+    </div>
+
+    <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper icon-purple">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-value">{{ stats.total_applicants }}</div>
+            <div class="stat-label">Total Applicants</div>
+        </div>
+    </div>
+
+    <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper icon-amber">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="stat-value">{{ stats.shortlisted }}</div>
+            <div class="stat-label">Shortlisted</div>
+        </div>
+    </div>
+
+    <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper icon-blue">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-value">{{ stats.interviews }}</div>
+            <div class="stat-label">Interviews Scheduled</div>
+        </div>
+    </div>
+
+    <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper icon-green">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="stat-value">{{ stats.selected }}</div>
+            <div class="stat-label">Selected Candidates</div>
+        </div>
+    </div>
+
+    <div class="col-xl-2 col-md-4 col-sm-6">
+        <div class="stat-card">
+            <div class="stat-icon-wrapper icon-red">
+                <i class="fas fa-user-times"></i>
+            </div>
+            <div class="stat-value">{{ stats.rejected }}</div>
+            <div class="stat-label">Rejected</div>
+        </div>
+    </div>
+</div>
+
+<!-- Active Jobs & AI Candidate Matching Quick Launch -->
+<div class="row g-4 mb-4">
+    <div class="col-lg-7">
+        <div class="custom-table-card">
+            <div class="table-header-title">
+                <h5><i class="fas fa-briefcase text-primary me-2"></i> Active Job Postings</h5>
+                <a href="{{ url_for('company.jobs_list') }}" class="btn btn-sm btn-outline-primary rounded-pill">View All Jobs</a>
+            </div>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Min CGPA</th>
+                            <th>Salary</th>
+                            <th>Applicants</th>
+                            <th>AI Matching</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if jobs %}
+                            {% for job in jobs[:5] %}
+                            <tr>
+                                <td>
+                                    <div class="fw-bold text-dark">{{ job.title }}</div>
+                                    <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i> {{ job.location }}</small>
+                                </td>
+                                <td><span class="badge bg-light text-dark border">{{ job.min_cgpa }} CGPA</span></td>
+                                <td><strong class="text-success">{{ job.salary_package }}</strong></td>
+                                <td>
+                                    <span class="badge bg-primary rounded-pill">{{ job.applicant_count }} candidates</span>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('company.job_candidate_match', job_id=job.id) }}" class="btn btn-sm btn-info text-white rounded-pill">
+                                        <i class="fas fa-brain me-1"></i> Match AI
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('company.job_edit', job_id=job.id) }}" class="btn btn-sm btn-light border"><i class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="6" class="text-center py-4 text-muted">
+                                    <i class="fas fa-info-circle me-1"></i> No job postings created yet.
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Interviews Widget -->
+    <div class="col-lg-5">
+        <div class="custom-table-card h-100">
+            <div class="table-header-title">
+                <h5><i class="fas fa-calendar-check text-success me-2"></i> Upcoming Interviews</h5>
+                <a href="{{ url_for('company.interviews_list') }}" class="btn btn-sm btn-outline-success rounded-pill">Schedule</a>
+            </div>
+            <div class="p-3">
+                {% if upcoming_interviews %}
+                    <ul class="list-group list-group-flush">
+                        {% for iv in upcoming_interviews %}
+                        <li class="list-group-item px-0 py-3 border-bottom d-flex align-items-center justify-content-between">
+                            <div>
+                                <div class="fw-bold text-dark">{{ iv.student_name }}</div>
+                                <small class="text-muted d-block"><i class="fas fa-briefcase me-1"></i> {{ iv.job_title }}</small>
+                                <small class="text-primary fw-semibold">
+                                    <i class="fas fa-clock me-1"></i> {{ iv.interview_date }} at {{ iv.interview_time }} ({{ iv.interview_type }})
+                                </small>
+                            </div>
+                            <div>
+                                <span class="badge bg-success rounded-pill px-2.5 py-1.5">Scheduled</span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="text-center py-5 text-muted">
+                        <i class="fas fa-calendar-times fa-2x mb-2 d-block text-secondary"></i>
+                        No scheduled interviews pending.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Applicants Table -->
+<div class="row">
+    <div class="col-12">
+        <div class="custom-table-card">
+            <div class="table-header-title">
+                <h5><i class="fas fa-user-graduate text-purple me-2"></i> Recent Student Applications</h5>
+                <a href="{{ url_for('company.candidate_list') }}" class="btn btn-sm btn-outline-dark rounded-pill">View All Applicants</a>
+            </div>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Candidate</th>
+                            <th>Applied Job</th>
+                            <th>Department</th>
+                            <th>CGPA</th>
+                            <th>AI Match Score</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if recent_applicants %}
+                            {% for app in recent_applicants %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="avatar-circle bg-primary text-white fw-bold rounded-circle d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                                            {{ app.student_name[0] }}
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold text-dark">{{ app.student_name }}</div>
+                                            <small class="text-muted">{{ app.student_reg }}</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ app.job_title }}</td>
+                                <td><small class="text-muted">{{ app.department }}</small></td>
+                                <td><span class="badge bg-light text-dark border">{{ app.cgpa }}</span></td>
+                                <td>
+                                    {% if app.match_score >= 85 %}
+                                        <span class="match-score-badge match-high"><i class="fas fa-fire"></i> {{ app.match_score }}%</span>
+                                    {% elif app.match_score >= 70 %}
+                                        <span class="match-score-badge match-good"><i class="fas fa-thumbs-up"></i> {{ app.match_score }}%</span>
+                                    {% elif app.match_score >= 55 %}
+                                        <span class="match-score-badge match-medium"><i class="fas fa-minus"></i> {{ app.match_score }}%</span>
+                                    {% else %}
+                                        <span class="match-score-badge match-low"><i class="fas fa-exclamation-circle"></i> {{ app.match_score }}%</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if app.status == 'Applied' %}
+                                        <span class="badge bg-secondary">Applied</span>
+                                    {% elif app.status == 'Shortlisted' %}
+                                        <span class="badge bg-warning text-dark">Shortlisted</span>
+                                    {% elif app.status == 'Interview Scheduled' %}
+                                        <span class="badge bg-info text-white">Interview Scheduled</span>
+                                    {% elif app.status == 'Selected' %}
+                                        <span class="badge bg-success">Selected</span>
+                                    {% elif app.status == 'Rejected' %}
+                                        <span class="badge bg-danger">Rejected</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill view-report-btn" data-app-id="{{ app.id }}" data-bs-toggle="modal" data-bs-target="#candidateModal">
+                                        <i class="fas fa-eye me-1"></i> AI Report
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="text-center py-4 text-muted">
+                                    No student applications submitted yet.
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Candidate AI Report Modal -->
+<div class="modal fade" id="candidateModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+            <div class="modal-header bg-primary text-white border-0" style="border-radius: 16px 16px 0 0;">
+                <h5 class="modal-title fw-bold" id="candidateModalLabel"><i class="fas fa-robot me-2"></i> AI Placement & Candidate Profile</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4" id="modalBodyContent">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 text-muted">Loading candidate AI analysis report...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const viewButtons = document.querySelectorAll('.view-report-btn');
+    const modalBody = document.getElementById('modalBodyContent');
+
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const appId = this.getAttribute('data-app-id');
+            modalBody.innerHTML = `
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 text-muted">Analyzing student profile and computing AI metrics...</p>
+                </div>
+            `;
+
+            fetch(`/company/candidate/${appId}/report`)
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.success) {
+                        modalBody.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+                        return;
+                    }
+                    const c = data.candidate;
+                    const a = data.application;
+
+                    modalBody.innerHTML = `
+                        <div class="row g-3">
+                            <div class="col-md-6 border-end">
+                                <h6 class="fw-bold text-primary mb-3"><i class="fas fa-user-graduate me-2"></i> Student Details</h6>
+                                <p class="mb-1"><strong>Name:</strong> ${c.student_name}</p>
+                                <p class="mb-1"><strong>Reg No:</strong> ${c.register_number}</p>
+                                <p class="mb-1"><strong>Department:</strong> ${c.department}</p>
+                                <p class="mb-1"><strong>Academic CGPA:</strong> <span class="badge bg-light text-dark border">${c.cgpa}</span></p>
+                                <p class="mb-1"><strong>Email:</strong> ${c.email}</p>
+                                <hr>
+                                <p class="mb-1"><strong>Technical Skills:</strong> ${c.skills_list}</p>
+                                <p class="mb-1"><strong>Coding Assessment Score:</strong> ${c.coding_score} / 100</p>
+                                <p class="mb-1"><strong>Aptitude Score:</strong> ${c.aptitude_score} / 100</p>
+                                <p class="mb-1"><strong>Internship:</strong> ${c.internship} (${c.internship_details || 'N/A'})</p>
+                                <p class="mb-1"><strong>Certifications:</strong> ${c.certifications_count} (${c.certifications_details || 'N/A'})</p>
+                                <p class="mb-1"><strong>Projects:</strong> ${c.projects_count} (${c.project_details || 'N/A'})</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-success mb-3"><i class="fas fa-brain me-2"></i> AI Job Fitment Score</h6>
+                                <div class="p-3 bg-light rounded-3 text-center border mb-3">
+                                    <div class="display-5 fw-bold text-primary">${a.match_score}%</div>
+                                    <div class="badge bg-success rounded-pill px-3 py-1.5 mt-1">${a.ai_recommendation}</div>
+                                </div>
+                                <p class="mb-2"><strong>Job Applied:</strong> ${a.job_title}</p>
+                                <p class="mb-2"><strong>Current Application Status:</strong> <span class="badge bg-primary">${a.status}</span></p>
+                                <hr>
+                                <div class="mb-2">
+                                    <strong class="text-success"><i class="fas fa-check-circle me-1"></i> Matching Skills:</strong>
+                                    <div class="mt-1">${a.matching_skills.split(', ').map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
+                                </div>
+                                <div class="mb-2">
+                                    <strong class="text-danger"><i class="fas fa-times-circle me-1"></i> Missing / Skill Gaps:</strong>
+                                    <div class="mt-1">${a.missing_skills.split(', ').map(s => `<span class="skill-tag skill-tag-missing">${s}</span>`).join('')}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                })
+                .catch(err => {
+                    modalBody.innerHTML = `<div class="alert alert-danger">Error loading candidate details: ${err}</div>`;
+                });
+        });
+    });
+});
+</script>
+{% endblock %}

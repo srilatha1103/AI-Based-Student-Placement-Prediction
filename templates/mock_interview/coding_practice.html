@@ -1,0 +1,82 @@
+{% extends "student/student_base.html" if is_student_portal else "base.html" %}
+
+{% block title %}Coding Practice Challenges - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+
+    <!-- Top Header Banner -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <span class="badge bg-indigo-subtle text-primary px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2" style="color: #6366f1;">
+                <i class="fas fa-code me-1"></i> Technical Assessment Prep
+            </span>
+            <h2 class="fw-bold text-dark mb-1">DSA & Coding Practice Library</h2>
+            <p class="text-muted mb-0">Master high-frequency coding assessment problems asked in Tier-1 product and service campus placement drives.</p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <a href="{{ url_for('student.mock_interview_hub') }}" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                <i class="fas fa-arrow-left me-1"></i> Back to Hub
+            </a>
+        </div>
+    </div>
+
+    <!-- Problems List -->
+    <div class="row g-4 mb-4">
+        {% if problems %}
+            {% for p in problems %}
+                <div class="col-lg-12">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="fw-bold text-dark mb-0">{{ loop.index }}. {{ p.title }}</h4>
+                            {% if p.difficulty == 'Easy' %}
+                                <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fs-6">Easy</span>
+                            {% elif p.difficulty == 'Medium' %}
+                                <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill fs-6">Medium</span>
+                            {% else %}
+                                <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill fs-6">Hard</span>
+                            {% endif %}
+                        </div>
+
+                        <p class="text-secondary lead fs-6 mb-4">{{ p.problem_statement }}</p>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="fw-bold text-secondary d-block mb-1">Sample Input:</small>
+                                    <code class="text-dark fw-bold">{{ p.sample_input }}</code>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="fw-bold text-secondary d-block mb-1">Sample Output:</small>
+                                    <code class="text-success fw-bold">{{ p.sample_output }}</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-info-subtle text-dark rounded-3 mb-3">
+                            <small class="fw-bold d-block mb-1"><i class="fas fa-info-circle me-1"></i> Explanation & Approach:</small>
+                            <small>{{ p.explanation }}</small>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution_{{ loop.index }}" aria-expanded="false">
+                                <i class="fas fa-code me-1"></i> View Optimal Python Solution
+                            </button>
+                            
+                            <div class="collapse mt-3" id="solution_{{ loop.index }}">
+                                <div class="p-3 bg-dark text-white rounded-3">
+                                    <small class="text-muted d-block mb-2 font-monospace">Python 3 Solution (Optimal Complexity):</small>
+                                    <pre class="text-success mb-0 font-monospace"><code>{{ p.solution_code }}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

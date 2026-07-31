@@ -1,0 +1,121 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}Prediction History - PlacementIQ Admin{% endblock %}
+{% block page_title %}Prediction Logs & History{% endblock %}
+
+{% block content %}
+<!-- Search, Filter & Export Controls Header -->
+<div class="dashboard-card mb-4">
+    <div class="row g-3 align-items-center">
+        <div class="col-lg-4">
+            <form action="{{ url_for('admin.predictions') }}" method="GET" class="d-flex gap-2">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark border-secondary text-muted"><i class="fas fa-search"></i></span>
+                    <input type="text" name="search" class="form-control form-control-dark" placeholder="Search student or reg no..." value="{{ search }}">
+                </div>
+                {% if selected_dept %}<input type="hidden" name="department" value="{{ selected_dept }}">{% endif %}
+                {% if selected_pred %}<input type="hidden" name="prediction" value="{{ selected_pred }}">{% endif %}
+                {% if selected_sort %}<input type="hidden" name="sort_by" value="{{ selected_sort }}">{% endif %}
+                <button type="submit" class="btn btn-primary border-0 px-3" style="background: var(--admin-primary-gradient);">Search</button>
+            </form>
+        </div>
+
+        <div class="col-lg-6">
+            <form action="{{ url_for('admin.predictions') }}" method="GET" class="d-flex gap-2">
+                {% if search %}<input type="hidden" name="search" value="{{ search }}">{% endif %}
+
+                <select name="department" class="form-select form-select-dark" onchange="this.form.submit()">
+                    <option value="">-- Department --</option>
+                    {% for d in departments %}
+                        <option value="{{ d }}" {% if selected_dept == d %}selected{% endif %}>{{ d }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="prediction" class="form-select form-select-dark" onchange="this.form.submit()">
+                    <option value="">-- Result --</option>
+                    <option value="1" {% if selected_pred == '1' %}selected{% endif %}>Placed</option>
+                    <option value="0" {% if selected_pred == '0' %}selected{% endif %}>Unplaced</option>
+                </select>
+
+                <select name="sort_by" class="form-select form-select-dark" onchange="this.form.submit()">
+                    <option value="id_desc" {% if selected_sort == 'id_desc' %}selected{% endif %}>Newest First</option>
+                    <option value="prob_desc" {% if selected_sort == 'prob_desc' %}selected{% endif %}>Highest Probability</option>
+                    <option value="prob_asc" {% if selected_sort == 'prob_asc' %}selected{% endif %}>Lowest Probability</option>
+                    <option value="name_asc" {% if selected_sort == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                </select>
+            </form>
+        </div>
+
+        <div class="col-lg-2 text-lg-end">
+            <a href="{{ url_for('admin.export_predictions') }}" class="btn btn-success border-0 w-100 fw-semibold" style="background: var(--admin-success-gradient); border-radius: 10px;">
+                <i class="fas fa-file-export me-1"></i> Export to CSV
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Prediction History Table -->
+<div class="dashboard-card">
+    <div class="card-header-flex">
+        <h3 class="card-title-text"><i class="fas fa-history text-info"></i> Prediction Logs ({{ predictions|length }})</h3>
+    </div>
+
+    <div class="table-responsive-custom">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Student Name</th>
+                    <th>Reg Number</th>
+                    <th>Department</th>
+                    <th>CGPA</th>
+                    <th>Prediction</th>
+                    <th>Probability</th>
+                    <th>Risk Status</th>
+                    <th>Date & Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if predictions %}
+                    {% for p in predictions %}
+                        <tr>
+                            <td class="text-muted">{{ p.id }}</td>
+                            <td class="fw-semibold text-white">{{ p.student_name }}</td>
+                            <td><code>{{ p.register_number }}</code></td>
+                            <td class="small text-muted">{{ p.department }}</td>
+                            <td class="fw-bold">{{ p.cgpa }}</td>
+                            <td>
+                                {% if p.prediction == 1 %}
+                                    <span class="badge-custom badge-placed"><i class="fas fa-check-circle"></i> Placed</span>
+                                {% else %}
+                                    <span class="badge-custom badge-unplaced"><i class="fas fa-times-circle"></i> Unplaced</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold {% if p.probability >= 75 %}text-success{% elif p.probability >= 50 %}text-warning{% else %}text-danger{% endif %}">
+                                        {{ p.probability }}%
+                                    </span>
+                                    <div class="progress bg-dark flex-grow-1" style="height: 6px; width: 60px;">
+                                        <div class="progress-bar {% if p.probability >= 75 %}bg-success{% elif p.probability >= 50 %}bg-warning{% else %}bg-danger{% endif %}" style="width: {{ p.probability }}%;"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge bg-dark border border-secondary text-light small">{{ p.status }}</span>
+                            </td>
+                            <td class="text-muted small">{{ p.created_at }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="9" class="text-center py-4 text-muted">
+                            <i class="fas fa-inbox fa-2x mb-2 d-block"></i> No prediction logs found matching your filters.
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

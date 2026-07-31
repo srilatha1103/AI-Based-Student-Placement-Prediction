@@ -1,0 +1,108 @@
+{% extends 'company/company_base.html' %}
+
+{% block title %}Create New Job Posting - PlacementIQ AI{% endblock %}
+{% block page_header %}Create New Job Posting{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="form-card">
+            <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+                <h4 class="fw-bold text-dark mb-0"><i class="fas fa-plus-circle text-primary me-2"></i> Post Campus Job Opening</h4>
+                <a href="{{ url_for('company.jobs_list') }}" class="btn btn-sm btn-outline-secondary rounded-pill">
+                    <i class="fas fa-arrow-left me-1"></i> Back to Jobs
+                </a>
+            </div>
+
+            <form action="{{ url_for('company.job_create') }}" method="POST">
+                <div class="row g-3">
+                    <!-- Title -->
+                    <div class="col-md-8">
+                        <label class="form-label"><i class="fas fa-briefcase text-primary me-1"></i> Job Title *</label>
+                        <input type="text" class="form-control" name="title" value="{{ data.title if data else '' }}" placeholder="e.g. Software Engineer (Full Stack)" required>
+                    </div>
+
+                    <!-- Salary -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-coins text-primary me-1"></i> Salary Package (LPA) *</label>
+                        <input type="text" class="form-control" name="salary_package" value="{{ data.salary_package if data else '' }}" placeholder="e.g. 8.5 LPA" required>
+                    </div>
+
+                    <!-- Required Skills -->
+                    <div class="col-12">
+                        <label class="form-label"><i class="fas fa-code text-primary me-1"></i> Required Technical Skills (Comma-Separated) *</label>
+                        <input type="text" class="form-control" name="required_skills" value="{{ data.required_skills if data else '' }}" placeholder="Python, SQL, React, Data Structures, Machine Learning" required>
+                        <small class="text-muted">The AI Candidate Match engine matches these skills against student profiles.</small>
+                    </div>
+
+                    <!-- Min CGPA -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-graduation-cap text-primary me-1"></i> Minimum CGPA Cutoff</label>
+                        <input type="number" step="0.1" min="0" max="10" class="form-control" name="min_cgpa" value="{{ data.min_cgpa if data else '6.5' }}">
+                    </div>
+
+                    <!-- Experience Level -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-layer-group text-primary me-1"></i> Experience Level</label>
+                        <select class="form-select" name="experience_level">
+                            <option value="Freshers" selected>Freshers (2026 Batch)</option>
+                            <option value="0-1 Years">0-1 Years</option>
+                            <option value="1-2 Years">1-2 Years</option>
+                            <option value="2+ Years">2+ Years</option>
+                        </select>
+                    </div>
+
+                    <!-- Internship Requirement -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-user-clock text-primary me-1"></i> Internship Requirement</label>
+                        <select class="form-select" name="internship_required">
+                            <option value="No">No Requirement</option>
+                            <option value="Preferred" selected>Preferred</option>
+                            <option value="Yes">Mandatory (Prior Internship Required)</option>
+                        </select>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-certificate text-primary me-1"></i> Min Certifications Required</label>
+                        <input type="number" min="0" class="form-control" name="required_certifications" value="{{ data.required_certifications if data else '0' }}">
+                    </div>
+
+                    <!-- Job Location -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-map-marker-alt text-primary me-1"></i> Job Location *</label>
+                        <input type="text" class="form-control" name="location" value="{{ data.location if data else '' }}" placeholder="Bengaluru, KA / Hybrid" required>
+                    </div>
+
+                    <!-- Application Deadline -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-calendar-alt text-primary me-1"></i> Application Deadline *</label>
+                        <input type="date" class="form-control" name="deadline" value="{{ data.deadline if data else '' }}" required>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="col-12">
+                        <label class="form-label"><i class="fas fa-align-left text-primary me-1"></i> Detailed Job Description & Expectations *</label>
+                        <textarea class="form-control" name="description" rows="5" placeholder="Detailed responsibilities, role specifications, selection process, and interview rounds..." required>{{ data.description if data else '' }}</textarea>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="col-md-4">
+                        <label class="form-label"><i class="fas fa-toggle-on text-primary me-1"></i> Initial Status</label>
+                        <select class="form-select" name="status">
+                            <option value="Active" selected>Active (Open for Applications)</option>
+                            <option value="Closed">Closed / Draft</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-top text-end">
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm">
+                        <i class="fas fa-paper-plane me-2"></i> Publish Job Posting & Notify Students
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

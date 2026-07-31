@@ -1,0 +1,190 @@
+{% extends 'company/company_base.html' %}
+
+{% block title %}Recruitment Analytics - PlacementIQ AI{% endblock %}
+{% block page_header %}Recruitment Analytics & Insights{% endblock %}
+
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col-md-8">
+        <h4 class="fw-bold text-dark mb-1"><i class="fas fa-chart-pie text-primary me-2"></i> Recruitment Analytics & Metrics</h4>
+        <p class="text-muted mb-0">Interactive visual breakdown of job applicants, department distribution, AI match ratios, and hiring funnels.</p>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <button class="btn btn-outline-secondary btn-sm rounded-pill" onclick="location.reload()">
+            <i class="fas fa-sync-alt me-1"></i> Refresh Data
+        </button>
+    </div>
+</div>
+
+<!-- Summary Metrics Row -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card text-center">
+            <div class="stat-icon-wrapper icon-purple mx-auto mb-2">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-value">{{ stats.total_applicants }}</div>
+            <div class="stat-label">Total Applications Received</div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card text-center">
+            <div class="stat-icon-wrapper icon-amber mx-auto mb-2">
+                <i class="fas fa-user-check"></i>
+            </div>
+            <div class="stat-value">{{ stats.shortlisted }}</div>
+            <div class="stat-label">Shortlisted Candidates</div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card text-center">
+            <div class="stat-icon-wrapper icon-green mx-auto mb-2">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="stat-value">{{ stats.selected }}</div>
+            <div class="stat-label">Hired / Selected</div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card text-center">
+            <div class="stat-icon-wrapper icon-red mx-auto mb-2">
+                <i class="fas fa-user-times"></i>
+            </div>
+            <div class="stat-value">{{ stats.rejected }}</div>
+            <div class="stat-label">Rejected Applications</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Grid -->
+<div class="row g-4">
+    <!-- Chart 1: Job-wise Applications (Bar Chart) -->
+    <div class="col-lg-6">
+        <div class="custom-table-card p-4">
+            <h5 class="fw-bold text-dark mb-3"><i class="fas fa-chart-bar text-primary me-2"></i> Job-wise Application Breakdown</h5>
+            <div style="height: 300px;">
+                <canvas id="jobWiseChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 2: Application Funnel Status (Doughnut Chart) -->
+    <div class="col-lg-6">
+        <div class="custom-table-card p-4">
+            <h5 class="fw-bold text-dark mb-3"><i class="fas fa-chart-pie text-success me-2"></i> Application Status Ratio</h5>
+            <div style="height: 300px;">
+                <canvas id="statusChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 3: Department-wise Applicants (Pie Chart) -->
+    <div class="col-lg-6">
+        <div class="custom-table-card p-4">
+            <h5 class="fw-bold text-dark mb-3"><i class="fas fa-graduation-cap text-purple me-2"></i> Department-wise Applicants</h5>
+            <div style="height: 300px;">
+                <canvas id="deptChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 4: AI Match Score Distribution (Bar Chart) -->
+    <div class="col-lg-6">
+        <div class="custom-table-card p-4">
+            <h5 class="fw-bold text-dark mb-3"><i class="fas fa-brain text-info me-2"></i> AI Fitment Score Distribution</h5>
+            <div style="height: 300px;">
+                <canvas id="matchChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/company/api/analytics-data')
+        .then(res => res.json())
+        .then(data => {
+            // 1. Job-wise Bar Chart
+            new Chart(document.getElementById('jobWiseChart'), {
+                type: 'bar',
+                data: {
+                    labels: data.job_applications.labels,
+                    datasets: [{
+                        label: 'Applications',
+                        data: data.job_applications.counts,
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+                }
+            });
+
+            // 2. Application Status Doughnut Chart
+            const sb = data.status_breakdown;
+            new Chart(document.getElementById('statusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Applied', 'Shortlisted', 'Interview Scheduled', 'Selected', 'Rejected'],
+                    datasets: [{
+                        data: [sb.Applied, sb.Shortlisted, sb['Interview Scheduled'], sb.Selected, sb.Rejected],
+                        backgroundColor: ['#94a3b8', '#f59e0b', '#0284c7', '#16a34a', '#dc2626']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // 3. Department Breakdown Pie Chart
+            new Chart(document.getElementById('deptChart'), {
+                type: 'pie',
+                data: {
+                    labels: data.department_breakdown.labels,
+                    datasets: [{
+                        data: data.department_breakdown.counts,
+                        backgroundColor: ['#2563eb', '#7c3aed', '#db2777', '#ea580c', '#059669', '#0891b2']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // 4. AI Match Score Distribution Bar Chart
+            new Chart(document.getElementById('matchChart'), {
+                type: 'bar',
+                data: {
+                    labels: data.match_distribution.labels,
+                    datasets: [{
+                        label: 'Candidates',
+                        data: data.match_distribution.counts,
+                        backgroundColor: ['#16a34a', '#0284c7', '#d97706', '#dc2626'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+                }
+            });
+        })
+        .catch(err => console.error('Error rendering analytics charts:', err));
+});
+</script>
+{% endblock %}

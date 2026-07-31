@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin Dashboard - PlacementIQ AI{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Admin CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="admin-body">
+
+    <div class="admin-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <a href="{{ url_for('admin.dashboard') }}" class="sidebar-brand">
+                    <div class="sidebar-brand-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span>Placement<span style="color: #6366f1;">IQ</span> Admin</span>
+                </a>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="sidebar-section-label">Core Management</li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.dashboard') }}" class="sidebar-link {% if request.endpoint == 'admin.dashboard' %}active{% endif %}">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.students') }}" class="sidebar-link {% if request.endpoint == 'admin.students' %}active{% endif %}">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Students</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.companies') }}" class="sidebar-link {% if request.endpoint == 'admin.companies' %}active{% endif %}">
+                        <i class="fas fa-building"></i>
+                        <span>Recruiter Companies</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.dataset') }}" class="sidebar-link {% if request.endpoint == 'admin.dataset' %}active{% endif %}">
+                        <i class="fas fa-database"></i>
+                        <span>Dataset</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.model_management') }}" class="sidebar-link {% if request.endpoint == 'admin.model_management' %}active{% endif %}">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Model</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-section-label">Insights & Logs</li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.predictions') }}" class="sidebar-link {% if request.endpoint == 'admin.predictions' %}active{% endif %}">
+                        <i class="fas fa-history"></i>
+                        <span>Predictions</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.analytics') }}" class="sidebar-link {% if request.endpoint == 'admin.analytics' %}active{% endif %}">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-section-label">System</li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.settings') }}" class="sidebar-link {% if request.endpoint == 'admin.settings' %}active{% endif %}">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ url_for('admin.logout') }}" class="sidebar-link" style="color: #ef4444;">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="admin-user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="user-details">
+                        <p class="user-name">{{ session.get('admin_name', 'Administrator') }}</p>
+                        <p class="user-role">System Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="admin-main">
+            <!-- Top Navbar Header -->
+            <header class="admin-navbar">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="sidebar-toggle-btn" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title-heading">{% block page_title %}Admin Control Panel{% endblock %}</h1>
+                </div>
+
+                <div class="admin-nav-actions">
+                    <a href="{{ url_for('public.home') }}" target="_blank" class="view-site-btn">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>View Public Portal</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="admin-content">
+                <!-- Flash Notification Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show border-0 shadow-sm mb-4" role="alert" style="border-radius: 12px;">
+                                <i class="fas {% if category == 'success' %}fa-check-circle{% elif category == 'danger' %}fa-exclamation-circle{% elif category == 'warning' %}fa-exclamation-triangle{% else %}fa-info-circle{% endif %} me-2"></i>
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Admin JavaScript -->
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+    "algorithm": "Random Forest",
+    "accuracy": 0.8567,
+    "precision": 0.8857,
+    "recall": 0.6392,
+    "f1_score": 0.7425,
+    "confusion_matrix": [
+        [
+            195,
+            8
+        ],
+        [
+            35,
+            62
+        ]
+    ],
+    "feature_importances": {
+        "cgpa": 0.2537,
+        "tenth_percentage": 0.0677,
+        "twelfth_percentage": 0.0771,
+        "aptitude_score": 0.1019,
+        "coding_score": 0.1814,
+        "certifications": 0.0226,
+        "projects_completed": 0.029,
+        "backlogs": 0.1417,
+        "communication_skill_encoded": 0.0244,
+        "internship_encoded": 0.0478,
+        "dept_Computer_Science_and_Engineering": 0.0075,
+        "dept_Information_Technology": 0.007,
+        "dept_Electronics_and_Communication_Engineering": 0.0073,
+        "dept_Electrical_and_Electronics_Engineering": 0.0055,
+        "dept_Mechanical_Engineering": 0.0059,
+        "dept_Civil_Engineering": 0.0056,
+        "dept_Artificial_Intelligence_and_Data_Science": 0.0089,
+        "dept_Other": 0.0049
+    },
+    "placed_averages": {
+        "cgpa": 8.37,
+        "aptitude_score": 75.2,
+        "coding_score": 76.9,
+        "projects": 1.5,
+        "soft_skills_score": 3.55,
+        "internships": 0.4
+    },
+    "unplaced_averages": {
+        "cgpa": 7.32,
+        "aptitude_score": 67.2,
+        "coding_score": 63.9,
+        "projects": 1.5,
+        "soft_skills_score": 3.41,
+        "internships": 0.22
+    },
+    "total_samples": 1500,
+    "placed_count": 483,
+    "unplaced_count": 1017,
+    "trained_at": "2026-07-31 15:02:33"
+}

@@ -1,0 +1,113 @@
+{% extends 'student/student_base.html' %}
+
+{% block title %}Campus Job Opportunities - Student Portal{% endblock %}
+{% block page_header %}Campus Placement Opportunities{% endblock %}
+
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col-md-8">
+        <h4 class="fw-bold text-dark mb-1"><i class="fas fa-briefcase text-primary me-2"></i> Campus Recruitment Drive Jobs</h4>
+        <p class="text-muted mb-0">Explore active openings posted by recruiters with your personalized AI Match Score.</p>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="{{ url_for('student.my_applications') }}" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+            <i class="fas fa-list-check me-1"></i> Track My Applications
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+    {% if jobs %}
+        {% for item in jobs %}
+        {% set job = item.job %}
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-3 h-100 p-4" style="border-left: 5px solid #2563eb !important;">
+                <div class="d-flex align-items-start justify-content-between mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{{ url_for('static', filename='uploads/company_logos/' + (job.logo or 'default_company.png')) }}" alt="Company Logo" class="rounded-circle border p-1" style="width: 50px; height: 50px; object-fit: cover;" onerror="this.src='{{ url_for('static', filename='uploads/company_logos/default_company.png') }}'">
+                        <div>
+                            <h5 class="fw-bold text-dark mb-0">{{ job.title }}</h5>
+                            <span class="text-primary fw-semibold small">{{ job.company_name }}</span>
+                            <small class="text-muted d-block"><i class="fas fa-map-marker-alt text-danger me-1"></i> {{ job.location }}</small>
+                        </div>
+                    </div>
+                    <div>
+                        {% if item.match_score >= 85 %}
+                            <span class="match-score-badge match-high" title="AI Recommendation: {{ item.ai_recommendation }}"><i class="fas fa-fire me-1"></i> {{ item.match_score }}% Match</span>
+                        {% elif item.match_score >= 70 %}
+                            <span class="match-score-badge match-good" title="AI Recommendation: {{ item.ai_recommendation }}"><i class="fas fa-thumbs-up me-1"></i> {{ item.match_score }}% Match</span>
+                        {% elif item.match_score >= 55 %}
+                            <span class="match-score-badge match-medium" title="AI Recommendation: {{ item.ai_recommendation }}"><i class="fas fa-minus me-1"></i> {{ item.match_score }}% Match</span>
+                        {% else %}
+                            <span class="match-score-badge match-low" title="AI Recommendation: {{ item.ai_recommendation }}"><i class="fas fa-exclamation-circle me-1"></i> {{ item.match_score }}% Match</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="p-3 bg-light rounded-3 mb-3 border">
+                    <div class="row text-center g-1">
+                        <div class="col-4 border-end">
+                            <small class="text-muted d-block">Package</small>
+                            <strong class="text-success">{{ job.salary_package }}</strong>
+                        </div>
+                        <div class="col-4 border-end">
+                            <small class="text-muted d-block">Min CGPA</small>
+                            <strong class="text-dark">{{ job.min_cgpa }}</strong>
+                        </div>
+                        <div class="col-4">
+                            <small class="text-muted d-block">Deadline</small>
+                            <strong class="text-danger small">{{ job.deadline }}</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Breakdown -->
+                <div class="mb-3">
+                    <small class="fw-bold text-dark d-block mb-1"><i class="fas fa-code text-primary me-1"></i> Required Skills:</small>
+                    <div>
+                        {% for s in job.required_skills.split(',') %}
+                            <span class="skill-tag">{{ s.strip() }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <small class="fw-bold text-success d-block mb-1"><i class="fas fa-check-circle me-1"></i> Matching Skills in Your Profile:</small>
+                    <small class="text-muted">{{ item.matching_skills }}</small>
+                </div>
+
+                {% if item.missing_skills != 'None' %}
+                <div class="mb-3">
+                    <small class="fw-bold text-danger d-block mb-1"><i class="fas fa-exclamation-triangle me-1"></i> Missing / Skill Gap:</small>
+                    <small class="text-muted">{{ item.missing_skills }}</small>
+                </div>
+                {% endif %}
+
+                <div class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between">
+                    <small class="text-muted"><i class="fas fa-info-circle me-1 text-primary"></i> {{ item.ai_recommendation }}</small>
+                    <div>
+                        {% if item.is_applied %}
+                            <button class="btn btn-secondary btn-sm rounded-pill px-4" disabled>
+                                <i class="fas fa-check me-1"></i> Applied ({{ item.application_status }})
+                            </button>
+                        {% else %}
+                            <form action="{{ url_for('student.apply_job', job_id=job.id) }}" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-primary btn-sm rounded-pill px-4 fw-bold shadow-sm">
+                                    <i class="fas fa-paper-plane me-1"></i> Apply Now
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12 text-center py-5">
+            <i class="fas fa-briefcase fa-3x mb-3 text-secondary"></i>
+            <h5 class="text-muted">No active campus job postings available right now.</h5>
+            <p class="text-muted">Check back soon for new drives from recruiters!</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

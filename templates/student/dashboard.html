@@ -1,0 +1,201 @@
+{% extends "student/student_base.html" %}
+
+{% block title %}Dashboard - Student Portal{% endblock %}
+{% block page_title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<!-- Welcome Banner with Profile Completion Gauge -->
+<div class="welcome-banner">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="profile-avatar-wrapper">
+                    {% if student.profile_photo and student.profile_photo != 'default_avatar.png' %}
+                        <img src="{{ url_for('static', filename='uploads/profile_photos/' + student.profile_photo) }}" alt="Profile Photo" class="profile-avatar-img">
+                    {% else %}
+                        <div class="w-100 h-100 bg-white text-primary d-flex align-items-center justify-content-center fw-bold fs-3">
+                            {{ student.student_name[0] }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <h2 class="fw-bold font-heading mb-1" style="color: #ffffff;">Welcome back, {{ student.student_name }}! 👋</h2>
+                    <p class="mb-0 text-white-50 small">{{ student.department }} | Reg No: <code>{{ student.register_number }}</code></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <div class="bg-white bg-opacity-20 p-3 rounded-4 backdrop-blur">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="small font-heading fw-semibold text-white">Profile Completion</span>
+                    <span class="fw-bold text-white fs-6">{{ completion_pct }}%</span>
+                </div>
+                <div class="progress bg-white bg-opacity-30" style="height: 10px; border-radius: 20px;">
+                    <div class="progress-bar bg-warning" style="width: {{ completion_pct }}%;"></div>
+                </div>
+                {% if completion_pct < 100 %}
+                    <a href="{{ url_for('student.profile') }}" class="small text-white text-decoration-underline d-block mt-2">Complete Profile Details →</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <!-- Latest Prediction Summary Card -->
+    <div class="col-lg-7">
+        <div class="student-card h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="font-heading fw-bold fs-5 m-0 text-dark">
+                    <i class="fas fa-brain text-primary me-2"></i> Latest Placement Prediction
+                </h3>
+                <a href="{{ url_for('student.predict') }}" class="btn btn-primary btn-sm rounded-pill px-3" style="background: var(--student-primary-gradient); border: none;">
+                    <i class="fas fa-redo me-1"></i> Run New Test
+                </a>
+            </div>
+
+            {% if latest_pred %}
+                <div class="p-4 rounded-4 bg-light border border-secondary border-opacity-10 mb-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-7">
+                            <span class="text-muted small d-block mb-1">AI Prediction Status</span>
+                            <h4 class="fw-bold mb-2 {% if latest_pred.prediction == 1 %}text-success{% else %}text-danger{% endif %}">
+                                {% if latest_pred.prediction == 1 %}
+                                    <i class="fas fa-check-circle me-1"></i> Likely to be Placed
+                                {% else %}
+                                    <i class="fas fa-exclamation-circle me-1"></i> Unlikely Placed (Action Needed)
+                                {% endif %}
+                            </h4>
+                            <span class="badge bg-primary bg-opacity-10 text-primary fw-semibold">{{ latest_pred.status }}</span>
+                        </div>
+
+                        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                            <span class="text-muted small d-block mb-1">Placement Probability</span>
+                            <div class="display-5 fw-bold {% if latest_pred.probability >= 75 %}text-success{% elif latest_pred.probability >= 50 %}text-warning{% else %}text-danger{% endif %}">
+                                {{ latest_pred.probability }}%
+                            </div>
+                            <span class="text-muted small d-block mt-1">Evaluated on: {{ latest_pred.created_at }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <a href="{{ url_for('student.skill_gap') }}" class="btn btn-outline-primary btn-sm flex-grow-1 py-2 rounded-3">
+                        <i class="fas fa-chart-bar me-1"></i> View Skill Gap Analysis
+                    </a>
+                    <a href="{{ url_for('student.roadmap') }}" class="btn btn-outline-info btn-sm flex-grow-1 py-2 rounded-3">
+                        <i class="fas fa-route me-1"></i> View Career Roadmap
+                    </a>
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-calculator fa-3x text-muted mb-3"></i>
+                    <h5 class="fw-bold text-dark">No Prediction Run Yet</h5>
+                    <p class="text-muted small mb-3">Test your academic and skill profile against our Random Forest AI model.</p>
+                    <a href="{{ url_for('student.predict') }}" class="btn btn-primary px-4 py-2 rounded-3" style="background: var(--student-primary-gradient); border: none;">
+                        <i class="fas fa-bolt me-2"></i> Predict Placement Chance
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Student Profile Summary & Quick Stats -->
+    <div class="col-lg-5">
+        <div class="student-card h-100">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="font-heading fw-bold fs-5 m-0 text-dark">
+                    <i class="fas fa-id-card text-info me-2"></i> Profile Snapshot
+                </h3>
+                <a href="{{ url_for('student.profile') }}" class="text-primary small text-decoration-none fw-semibold">Edit <i class="fas fa-pencil-alt ms-1"></i></a>
+            </div>
+
+            <div class="list-group list-group-flush mb-3">
+                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 border-0">
+                    <span class="text-muted small"><i class="fas fa-graduation-cap text-primary me-2"></i> Aggregate CGPA</span>
+                    <span class="fw-bold text-dark fs-6">{{ student.cgpa }} / 10.0</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 border-0">
+                    <span class="text-muted small"><i class="fas fa-code text-info me-2"></i> Coding Test Score</span>
+                    <span class="fw-bold text-dark fs-6">{{ student.coding_score }} / 100</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 border-0">
+                    <span class="text-muted small"><i class="fas fa-brain text-warning me-2"></i> Aptitude Test Score</span>
+                    <span class="fw-bold text-dark fs-6">{{ student.aptitude_score }} / 100</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 border-0">
+                    <span class="text-muted small"><i class="fas fa-briefcase text-success me-2"></i> Internship Experience</span>
+                    <span class="fw-bold text-dark fs-6">{{ student.internship }}</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2 border-0">
+                    <span class="text-muted small"><i class="fas fa-project-diagram text-purple me-2"></i> Projects Completed</span>
+                    <span class="fw-bold text-dark fs-6">{{ student.projects_count }} Projects</span>
+                </div>
+            </div>
+
+            <div class="p-3 bg-light rounded-3">
+                <div class="d-flex justify-content-between text-muted small mb-1">
+                    <span>AI Model Accuracy</span>
+                    <span class="fw-bold text-success">{{ (metrics.get('accuracy', 0.8567) * 100)|round(2) }}%</span>
+                </div>
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>Algorithm</span>
+                    <span class="fw-semibold text-dark">Random Forest Classifier</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Action Feature Cards -->
+<div class="row g-4">
+    <div class="col-md-3">
+        <a href="{{ url_for('student.predict') }}" class="text-decoration-none">
+            <div class="student-card text-center p-4 h-100">
+                <div class="rounded-circle bg-primary bg-opacity-10 text-primary mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                    <i class="fas fa-calculator fa-xl"></i>
+                </div>
+                <h5 class="fw-bold text-dark font-heading mb-1">Predict Chance</h5>
+                <p class="text-muted small m-0">Run AI model analysis on profile metrics</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="{{ url_for('student.skill_gap') }}" class="text-decoration-none">
+            <div class="student-card text-center p-4 h-100">
+                <div class="rounded-circle bg-info bg-opacity-10 text-info mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                    <i class="fas fa-chart-bar fa-xl"></i>
+                </div>
+                <h5 class="fw-bold text-dark font-heading mb-1">Skill Gap Analysis</h5>
+                <p class="text-muted small m-0">Personalized feedback & missing skills</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="{{ url_for('student.roadmap') }}" class="text-decoration-none">
+            <div class="student-card text-center p-4 h-100">
+                <div class="rounded-circle bg-success bg-opacity-10 text-success mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                    <i class="fas fa-route fa-xl"></i>
+                </div>
+                <h5 class="fw-bold text-dark font-heading mb-1">Career Roadmap</h5>
+                <p class="text-muted small m-0">Structured 4-week preparation plan</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="{{ url_for('student.history') }}" class="text-decoration-none">
+            <div class="student-card text-center p-4 h-100">
+                <div class="rounded-circle bg-warning bg-opacity-10 text-warning mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 56px; height: 56px;">
+                    <i class="fas fa-file-pdf fa-xl"></i>
+                </div>
+                <h5 class="fw-bold text-dark font-heading mb-1">Prediction History</h5>
+                <p class="text-muted small m-0">View past logs & download PDF reports</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

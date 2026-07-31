@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PlacementIQ - AI Placement Prediction{% endblock %}</title>
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Modern UI Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <span>Placement<span class="gradient-text">IQ</span></span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/predict" class="nav-link {% if request.path == '/predict' %}active{% endif %}"><i class="fas fa-calculator"></i> Predict Chance</a></li>
+                <li><a href="/resume-analyzer" class="nav-link {% if '/resume' in request.path %}active{% endif %}"><i class="fas fa-file-invoice"></i> AI Resume Analyzer</a></li>
+                <li><a href="/student/mock-interview" class="nav-link {% if '/mock-interview' in request.path %}active{% endif %}"><i class="fas fa-headset"></i> AI Mock Interviews</a></li>
+                <li><a href="/company/dashboard" class="nav-link {% if '/company' in request.path %}active{% endif %}"><i class="fas fa-building"></i> Company Portal</a></li>
+                <li><a href="/analytics" class="nav-link {% if request.path == '/analytics' %}active{% endif %}"><i class="fas fa-chart-line"></i> Model Insights</a></li>
+                <li><a href="/admin/dashboard" class="nav-link {% if '/admin' in request.path %}active{% endif %}"><i class="fas fa-user-shield"></i> Admin Portal</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center gap-3">
+                <a href="/notifications/hub" class="nav-link position-relative text-white me-2" title="Notification Center">
+                    <i class="fas fa-bell fs-5"></i>
+                    {% if unread_notif_count > 0 %}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
+                            {{ unread_notif_count }}
+                        </span>
+                    {% endif %}
+                </a>
+                <a href="/predict" class="cta-btn">
+                    <i class="fas fa-bolt"></i> Test Profile
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-wrapper">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 PlacementIQ AI. Built with Flask & Random Forest Machine Learning. | <a href="/admin/login" style="color: #6366f1; text-decoration: none;"><i class="fas fa-lock"></i> Admin Login</a></p>
+    </footer>
+
+    <!-- Custom Main JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

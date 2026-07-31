@@ -1,0 +1,428 @@
+{% extends "student/student_base.html" if is_student_portal else "base.html" %}
+
+{% block title %}Resume Analysis Dashboard - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-4">
+
+    <!-- Top Action Banner -->
+    <div class="row align-items-center mb-4">
+        <div class="col-md-8">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2">
+                <i class="fas fa-check-circle me-1"></i> Analysis Complete
+            </span>
+            <h2 class="fw-bold text-dark mb-1">Resume Intelligence Dashboard</h2>
+            <p class="text-muted mb-0">Candidate: <strong>{{ analysis.name }}</strong> | File: <code>{{ analysis.original_filename }}</code></p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            {% if is_student_portal %}
+                <a href="{{ url_for('student.download_resume_pdf', analysis_id=analysis.id) }}" class="btn btn-danger rounded-pill fw-bold shadow-sm px-4 py-2 me-2">
+                    <i class="fas fa-file-pdf me-2"></i> Download PDF Report
+                </a>
+                <a href="{{ url_for('student.resume_analyzer') }}" class="btn btn-outline-secondary rounded-pill px-3 py-2">
+                    <i class="fas fa-upload me-1"></i> Upload Another
+                </a>
+            {% else %}
+                <a href="{{ url_for('public.download_resume_pdf', analysis_id=analysis.id) }}" class="btn btn-danger rounded-pill fw-bold shadow-sm px-4 py-2 me-2">
+                    <i class="fas fa-file-pdf me-2"></i> Download PDF Report
+                </a>
+                <a href="{{ url_for('public.resume_analyzer_route') }}" class="btn btn-outline-secondary rounded-pill px-3 py-2">
+                    <i class="fas fa-upload me-1"></i> Upload Another
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Summary Metrics Cards -->
+    <div class="row g-3 mb-4">
+        <!-- 1. AI Resume Score Card -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100 position-relative overflow-hidden">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">AI RESUME SCORE</span>
+                        <h2 class="display-6 fw-bold text-primary mb-0">{{ analysis.resume_score }}<span class="fs-5 text-muted">/100</span></h2>
+                        <small class="text-success fw-semibold">
+                            {% if analysis.resume_score >= 80 %}
+                                <i class="fas fa-arrow-up me-1"></i> Excellent Profile
+                            {% elif analysis.resume_score >= 60 %}
+                                <i class="fas fa-check me-1"></i> Good Competency
+                            {% else %}
+                                <i class="fas fa-exclamation-triangle me-1"></i> Optimization Required
+                            {% endif %}
+                        </small>
+                    </div>
+                    <div class="avatar-lg bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                        <i class="fas fa-award fa-2x"></i>
+                    </div>
+                </div>
+                <div class="progress mt-3" style="height: 8px;">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{ analysis.resume_score }}%;" aria-valuenow="{{ analysis.resume_score }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Placement Probability Card -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">PLACEMENT CHANCE</span>
+                        <h2 class="display-6 fw-bold text-success mb-0">{{ "%.1f"|format(analysis.placement_probability) }}%</h2>
+                        <small class="text-muted"><i class="fas fa-brain text-primary me-1"></i> Random Forest Model</small>
+                    </div>
+                    <div class="avatar-lg bg-success-subtle text-success rounded-circle d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                    </div>
+                </div>
+                <div class="progress mt-3" style="height: 8px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ analysis.placement_probability }}%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Skills Extracted Card -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">TECHNICAL SKILLS</span>
+                        <h2 class="display-6 fw-bold text-info mb-0">{{ analysis.skills_extracted|length }}</h2>
+                        <small class="text-muted"><i class="fas fa-code me-1"></i> Extracted via NLP</small>
+                    </div>
+                    <div class="avatar-lg bg-info-subtle text-info rounded-circle d-flex align-items-center justify-content-center" style="width: 65px; height: 65px;">
+                        <i class="fas fa-laptop-code fa-2x"></i>
+                    </div>
+                </div>
+                <div class="progress mt-3" style="height: 8px;">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: {{ (analysis.skills_extracted|length / 15 * 100)|int }}%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Job Role Matches Card -->
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="text-muted small fw-semibold">JOB ROLE MATCHES</span>
+                        <h2 class="display-6 fw-bold text-indigo mb-0" style="color: #6366f1;">{{ analysis.job_recommendations|length }}</h2>
+                        <small class="text-muted"><i class="fas fa-briefcase me-1"></i> Industry Roles Evaluated</small>
+                    </div>
+                    <div class="avatar-lg bg-indigo-subtle rounded-circle d-flex align-items-center justify-content-center" style="width: 65px; height: 65px; color: #6366f1; background-color: #e0e7ff;">
+                        <i class="fas fa-user-check fa-2x"></i>
+                    </div>
+                </div>
+                <div class="progress mt-3" style="height: 8px;">
+                    <div class="progress-bar" role="progressbar" style="width: 85%; background-color: #6366f1;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Tabbed Navigation -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="card-header bg-white border-bottom-0 pt-3 px-4">
+            <ul class="nav nav-pills card-header-pills fw-semibold" id="resumeTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-pill px-4" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">
+                        <i class="fas fa-user-circle me-2"></i> Parsed Resume Data
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill px-4" id="score-tab" data-bs-toggle="tab" data-bs-target="#score" type="button" role="tab">
+                        <i class="fas fa-star me-2"></i> AI Score & Feedback
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill px-4" id="skillgap-tab" data-bs-toggle="tab" data-bs-target="#skillgap" type="button" role="tab">
+                        <i class="fas fa-chart-pie me-2"></i> Skill Gap Analysis
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill px-4" id="jobs-tab" data-bs-toggle="tab" data-bs-target="#jobs" type="button" role="tab">
+                        <i class="fas fa-briefcase me-2"></i> Recommended Jobs
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-pill px-4" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap" type="button" role="tab">
+                        <i class="fas fa-route me-2"></i> 16-Week Roadmap
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-body p-4">
+            <div class="tab-content" id="resumeTabsContent">
+
+                <!-- TAB 1: PARSED RESUME DATA -->
+                <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Contact Info Card -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-address-card text-primary me-2"></i> Candidate Contact & Profile Details</h6>
+                                <p class="mb-2"><strong>Name:</strong> {{ analysis.name }}</p>
+                                <p class="mb-2"><strong>Email:</strong> <span class="badge bg-white text-dark border">{{ analysis.email }}</span></p>
+                                <p class="mb-2"><strong>Phone:</strong> <span class="badge bg-white text-dark border">{{ analysis.phone }}</span></p>
+                                <p class="mb-0"><strong>Document Type:</strong> <span class="badge bg-primary">{{ analysis.file_type }}</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Extracted Skills Badges -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-code text-success me-2"></i> Parsed Technical Skills</h6>
+                                {% if analysis.skills_extracted %}
+                                    <div class="d-flex flex-wrap gap-2">
+                                        {% for s in analysis.skills_extracted %}
+                                            <span class="badge bg-white text-primary border shadow-sm px-3 py-2 rounded-pill fs-6">
+                                                <i class="fas fa-check text-success me-1"></i> {{ s }}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <p class="text-muted mb-0">No technical skills parsed. Consider adding a clear <strong>Skills</strong> section in your resume.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Projects Parsed -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-project-diagram text-info me-2"></i> Technical Projects Parsed</h6>
+                                {% if analysis.projects_extracted %}
+                                    <ul class="list-group list-group-flush rounded-3">
+                                        {% for p in analysis.projects_extracted %}
+                                            <li class="list-group-item bg-white mb-2 rounded-3 border-0 shadow-sm">
+                                                <i class="fas fa-code-branch text-info me-2"></i> {{ p }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p class="text-muted mb-0">No explicit project details parsed.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Certifications & Internships Parsed -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-certificate text-warning me-2"></i> Certifications & Experience Parsed</h6>
+                                {% if analysis.certifications_extracted %}
+                                    <p class="fw-semibold text-secondary small mb-1">Certifications:</p>
+                                    <ul class="mb-3 ps-3">
+                                        {% for c in analysis.certifications_extracted %}
+                                            <li class="text-dark small mb-1">{{ c }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+
+                                {% if analysis.experience_extracted %}
+                                    <p class="fw-semibold text-secondary small mb-1">Internship / Work Experience:</p>
+                                    <ul class="mb-0 ps-3">
+                                        {% for e in analysis.experience_extracted %}
+                                            <li class="text-dark small mb-1">{{ e }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+
+                                {% if not analysis.certifications_extracted and not analysis.experience_extracted %}
+                                    <p class="text-muted mb-0">No certifications or internships parsed from text.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: AI SCORE & FEEDBACK -->
+                <div class="tab-pane fade" id="score" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Score Component Breakdown Bar Chart -->
+                        <div class="col-lg-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-tasks text-primary me-2"></i> Score Components Breakdown</h6>
+                                {% if analysis.score_breakdown %}
+                                    {% for key, val in analysis.score_breakdown.items() %}
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <span class="fw-semibold text-dark small">{{ key }}</span>
+                                                <span class="fw-bold text-primary small">{{ val }} pts</span>
+                                            </div>
+                                            <div class="progress" style="height: 10px;">
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ (val / 25 * 100)|int }}%;"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Strengths & Weaknesses Cards -->
+                        <div class="col-lg-6">
+                            <!-- Strengths -->
+                            <div class="p-3 bg-success-subtle text-success rounded-4 mb-3">
+                                <h6 class="fw-bold mb-2"><i class="fas fa-thumbs-up me-2"></i> Profile Strengths</h6>
+                                {% if analysis.strengths %}
+                                    <ul class="mb-0 ps-3">
+                                        {% for s in analysis.strengths %}
+                                            <li class="small mb-1">{{ s }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p class="small mb-0">Build out core projects and skills to unlock profile strengths.</p>
+                                {% endif %}
+                            </div>
+
+                            <!-- Weaknesses & Fixes -->
+                            <div class="p-3 bg-warning-subtle text-dark rounded-4">
+                                <h6 class="fw-bold text-warning-emphasis mb-2"><i class="fas fa-tools me-2"></i> Areas for Improvement & Action Points</h6>
+                                {% if analysis.improvements %}
+                                    <ul class="mb-0 ps-3">
+                                        {% for imp in analysis.improvements %}
+                                            <li class="small mb-1">{{ imp }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p class="small mb-0">Your profile meets standard requirements.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: SKILL GAP ANALYSIS -->
+                <div class="tab-pane fade" id="skillgap" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Missing Skills & Tech -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-exclamation-circle text-danger me-2"></i> Identified Missing Skills & Technologies</h6>
+                                {% if analysis.skill_gap_data.missing_skills %}
+                                    <div class="d-flex flex-wrap gap-2 mb-4">
+                                        {% for m in analysis.skill_gap_data.missing_skills %}
+                                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-3 py-2 rounded-pill fs-6">
+                                                <i class="fas fa-plus-circle me-1"></i> {{ m }}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <h6 class="fw-bold text-dark mb-2"><i class="fas fa-lightbulb text-warning me-2"></i> Recommended Technology Stack to Learn:</h6>
+                                {% if analysis.skill_gap_data.recommended_technologies %}
+                                    <ul class="list-group list-group-flush rounded-3">
+                                        {% for tech in analysis.skill_gap_data.recommended_technologies %}
+                                            <li class="list-group-item bg-white border-0 mb-2 rounded-3 shadow-sm">
+                                                <i class="fas fa-angle-right text-primary me-2"></i> {{ tech }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Learning Resources & Certifications -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-4 h-100">
+                                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-graduation-cap text-primary me-2"></i> Suggested Certifications</h6>
+                                {% if analysis.skill_gap_data.suggested_certifications %}
+                                    <div class="mb-4">
+                                        {% for cert in analysis.skill_gap_data.suggested_certifications %}
+                                            <div class="p-2 bg-white rounded-3 shadow-sm mb-2 border-start border-4 border-primary">
+                                                <small class="fw-bold text-dark">{{ cert }}</small>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <h6 class="fw-bold text-dark mb-2"><i class="fas fa-book-reader text-success me-2"></i> Recommended Learning Resources:</h6>
+                                {% if analysis.skill_gap_data.learning_resources %}
+                                    {% for res in analysis.skill_gap_data.learning_resources %}
+                                        <div class="p-3 bg-white rounded-3 shadow-sm mb-2">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <strong class="text-dark small">{{ res.title }}</strong>
+                                                <span class="badge bg-success-subtle text-success small">{{ res.type }}</span>
+                                            </div>
+                                            <small class="text-muted"><i class="fas fa-building me-1"></i> {{ res.provider }}</small>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: RECOMMENDED JOBS -->
+                <div class="tab-pane fade" id="jobs" role="tabpanel">
+                    <div class="row g-4">
+                        {% if analysis.job_recommendations %}
+                            {% for j in analysis.job_recommendations %}
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card border-0 shadow-sm rounded-4 h-100 p-3 bg-white">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <div>
+                                                <h5 class="fw-bold text-dark mb-1">{{ j.title }}</h5>
+                                                <span class="badge bg-{{ j.badge_class }}-subtle text-{{ j.badge_class }} rounded-pill px-3 py-1">
+                                                    {{ j.badge }}
+                                                </span>
+                                            </div>
+                                            <div class="text-center">
+                                                <span class="display-6 fw-bold text-primary">{{ j.match_score }}%</span>
+                                                <small class="d-block text-muted" style="font-size: 11px;">Match</small>
+                                            </div>
+                                        </div>
+                                        <p class="small text-muted mb-3">{{ j.description }}</p>
+                                        
+                                        <div class="mt-auto">
+                                            <small class="d-block fw-semibold text-secondary mb-1">Matched Skills:</small>
+                                            <div class="d-flex flex-wrap gap-1 mb-2">
+                                                {% for ms in j.matched_skills %}
+                                                    <span class="badge bg-success-subtle text-success small">{{ ms }}</span>
+                                                {% endfor %}
+                                            </div>
+
+                                            <small class="d-block fw-semibold text-secondary mb-1">Skill Gaps to Acquire:</small>
+                                            <div class="d-flex flex-wrap gap-1">
+                                                {% for missing in j.missing_skills %}
+                                                    <span class="badge bg-secondary-subtle text-dark small">{{ missing }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- TAB 5: 16-WEEK ROADMAP -->
+                <div class="tab-pane fade" id="roadmap" role="tabpanel">
+                    <div class="p-3 bg-light rounded-4">
+                        <h5 class="fw-bold text-dark mb-3"><i class="fas fa-map-signs text-primary me-2"></i> Personalized 16-Week Career & Skill Improvement Roadmap</h5>
+                        
+                        <div class="row g-3">
+                            {% if analysis.roadmap_data %}
+                                {% for phase_key, p in analysis.roadmap_data.items() %}
+                                    <div class="col-md-6">
+                                        <div class="p-4 bg-white rounded-4 shadow-sm border-start border-5 border-primary h-100">
+                                            <span class="badge bg-primary text-white rounded-pill px-3 py-1 mb-2">{{ p.period }}</span>
+                                            <h6 class="fw-bold text-dark mb-2">{{ p.title }}</h6>
+                                            <p class="small text-muted mb-2"><strong>Focus:</strong> {{ p.focus }}</p>
+                                            <p class="small text-dark mb-2"><strong>Key Skills:</strong> {{ p.skills|join(', ') }}</p>
+                                            <div class="p-2 bg-light rounded-3">
+                                                <small class="fw-semibold text-success"><i class="fas fa-flag-checkered me-1"></i> Deliverable: {{ p.deliverables }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

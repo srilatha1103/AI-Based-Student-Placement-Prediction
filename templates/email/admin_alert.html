@@ -1,0 +1,15 @@
+{% extends 'email/base_email.html' %}
+
+{% block email_content %}
+<h2 style="color: #dc2626; margin-top: 0;">System Alert: {{ title }}</h2>
+<p>System Administrator,</p>
+
+<div style="background-color: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #dc2626; padding: 15px; border-radius: 4px; margin: 20px 0;">
+    <strong style="color: #991b1b;">Notification Type: {{ type|upper }}</strong>
+    <p style="margin: 8px 0 0; color: #7f1d1d;">{{ message }}</p>
+</div>
+
+<div style="text-align: center; margin: 25px 0;">
+    <a href="http://127.0.0.1:5000/admin/dashboard" class="btn-cta" style="background-color: #dc2626;">Open Admin Control Panel</a>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Company - PlacementIQ AI Recruitment</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Company CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/company.css') }}">
+</head>
+<body class="auth-page-wrapper">
+
+    <div class="auth-card auth-card-wide my-4">
+        <div class="auth-header">
+            <div class="company-brand-icon mx-auto mb-2" style="width: 50px; height: 50px; font-size: 1.4rem;">
+                <i class="fas fa-building-circle-check"></i>
+            </div>
+            <h3>Company Registration</h3>
+            <p class="mb-0 text-white-50">Create your recruitment account to post campus jobs and access AI matching</p>
+        </div>
+
+        <div class="auth-body">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show border-0 shadow-sm" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('company.register') }}" method="POST" enctype="multipart/form-data">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-building text-primary me-1"></i> Company Name *</label>
+                        <input type="text" class="form-control" name="company_name" value="{{ data.company_name if data else '' }}" placeholder="TechCorp Innovations" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-envelope text-primary me-1"></i> Official Email Address *</label>
+                        <input type="email" class="form-control" name="email" value="{{ data.email if data else '' }}" placeholder="recruitment@company.com" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-lock text-primary me-1"></i> Password *</label>
+                        <input type="password" class="form-control" name="password" placeholder="At least 6 characters" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-user text-primary me-1"></i> HR / Contact Person Name</label>
+                        <input type="text" class="form-control" name="contact_person" value="{{ data.contact_person if data else '' }}" placeholder="Priya Sharma (HR Manager)">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-phone text-primary me-1"></i> Contact Phone Number</label>
+                        <input type="text" class="form-control" name="phone" value="{{ data.phone if data else '' }}" placeholder="+91 98765 43210">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-industry text-primary me-1"></i> Industry Sector</label>
+                        <select class="form-select" name="industry">
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Software & Cloud Engineering">Software & Cloud Engineering</option>
+                            <option value="Data Analytics & AI">Data Analytics & AI</option>
+                            <option value="Core Engineering & Electronics">Core Engineering & Electronics</option>
+                            <option value="Banking & Finance Tech">Banking & Finance Tech</option>
+                            <option value="Consulting & Business Services">Consulting & Business Services</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-map-marker-alt text-primary me-1"></i> Company Location</label>
+                        <input type="text" class="form-control" name="location" value="{{ data.location if data else '' }}" placeholder="Bengaluru, Karnataka">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-globe text-primary me-1"></i> Website URL</label>
+                        <input type="url" class="form-control" name="website" value="{{ data.website if data else '' }}" placeholder="https://company.example.com">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-users text-primary me-1"></i> Company Size</label>
+                        <select class="form-select" name="company_size">
+                            <option value="1-50 Employees">1-50 Employees</option>
+                            <option value="50-200 Employees">50-200 Employees</option>
+                            <option value="200-1000 Employees" selected>200-1000 Employees</option>
+                            <option value="1000+ Enterprise">1000+ Enterprise</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-image text-primary me-1"></i> Company Logo (Optional)</label>
+                        <input type="file" class="form-control" name="logo" accept="image/*">
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label"><i class="fas fa-align-left text-primary me-1"></i> Company Description</label>
+                        <textarea class="form-control" name="description" rows="3" placeholder="Brief overview of company business domain, technologies, and work culture...">{{ data.description if data else '' }}</textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2.5 fw-bold shadow-sm mt-4">
+                    <i class="fas fa-check-circle me-2"></i> Register Company Account
+                </button>
+            </form>
+
+            <div class="text-center mt-4">
+                <p class="text-muted mb-0 small">Already registered? 
+                    <a href="{{ url_for('company.login') }}" class="text-primary fw-bold text-decoration-none">Log In Here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

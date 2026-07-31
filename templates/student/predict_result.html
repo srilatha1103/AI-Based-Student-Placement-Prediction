@@ -1,0 +1,76 @@
+{% extends "student/student_base.html" %}
+
+{% block title %}Prediction Result - Student Portal{% endblock %}
+{% block page_title %}AI Prediction Result{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="student-card text-center p-5 mb-4" style="border-top: 6px solid {{ color }};">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-circle p-4 mb-3" style="background-color: {{ color }}15; color: {{ color }}; width: 80px; height: 80px;">
+                <i class="fas {% if prediction == 1 %}fa-check-circle{% else %}fa-exclamation-triangle{% endif %} fa-3x"></i>
+            </div>
+
+            <span class="badge px-3 py-2 rounded-pill fw-semibold mb-2" style="background-color: {{ color }}20; color: {{ color }}; border: 1px solid {{ color }}40;">
+                {{ status }}
+            </span>
+
+            <h2 class="fw-bold font-heading mb-2 text-dark">
+                {% if prediction == 1 %}
+                    Likely to be Placed
+                {% else %}
+                    Unlikely to be Placed (Action Required)
+                {% endif %}
+            </h2>
+
+            <div class="display-3 fw-bold mb-3" style="color: {{ color }};">
+                {{ probability }}%
+            </div>
+
+            <p class="text-muted small mb-4">
+                <i class="fas fa-shield-alt text-primary me-1"></i> {{ confidence }} | Evaluated by Random Forest Machine Learning Model
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ url_for('student.skill_gap') }}" class="btn btn-primary px-4 py-2.5 rounded-3 fw-semibold shadow border-0" style="background: var(--student-primary-gradient);">
+                    <i class="fas fa-chart-bar me-2"></i> View Skill Gap Analysis
+                </a>
+                <a href="{{ url_for('student.roadmap') }}" class="btn btn-outline-info px-4 py-2.5 rounded-3 fw-semibold">
+                    <i class="fas fa-route me-2"></i> View Career Roadmap
+                </a>
+            </div>
+        </div>
+
+        <!-- Submitted Inputs Summary -->
+        <div class="student-card">
+            <h5 class="fw-bold font-heading text-dark mb-3"><i class="fas fa-list-ul text-primary me-2"></i> Input Parameters Evaluated</h5>
+            <div class="row g-3">
+                <div class="col-md-3 col-6">
+                    <div class="p-3 bg-light rounded-3 text-center">
+                        <span class="text-muted small d-block">CGPA</span>
+                        <span class="fw-bold text-dark fs-5">{{ inputs.cgpa }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="p-3 bg-light rounded-3 text-center">
+                        <span class="text-muted small d-block">Coding Score</span>
+                        <span class="fw-bold text-dark fs-5">{{ inputs.coding_score }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="p-3 bg-light rounded-3 text-center">
+                        <span class="text-muted small d-block">Aptitude Score</span>
+                        <span class="fw-bold text-dark fs-5">{{ inputs.aptitude_score }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="p-3 bg-light rounded-3 text-center">
+                        <span class="text-muted small d-block">Internship</span>
+                        <span class="fw-bold text-dark fs-5">{{ inputs.internship }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

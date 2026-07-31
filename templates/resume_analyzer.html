@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}AI Resume Analyzer & Job Match - PlacementIQ{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Header Section -->
+            <div class="text-center mb-4">
+                <span class="badge bg-indigo-subtle text-primary px-3 py-2 rounded-pill font-monospace text-uppercase fw-semibold mb-2">
+                    <i class="fas fa-sparkles me-1"></i> Powered by NLP & ML Intelligence
+                </span>
+                <h1 class="fw-bold display-6 text-dark mb-2">AI Resume Analyzer & Job Recommender</h1>
+                <p class="text-muted lead fs-6">
+                    Upload your resume in <strong>PDF</strong> or <strong>DOCX</strong> format to receive instant AI scoring, skill gap detection, job role suitability, and a 16-week learning roadmap.
+                </p>
+            </div>
+
+            <!-- Upload Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5">
+                <div class="card-body p-4 p-md-5">
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show rounded-3 mb-4" role="alert">
+                                    <i class="fas fa-info-circle me-2"></i> {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form action="{{ url_for('public.resume_analyzer_route') }}" method="POST" enctype="multipart/form-data" id="resumeForm">
+                        
+                        <!-- Drag & Drop Zone -->
+                        <div class="upload-dropzone p-5 text-center rounded-4 border-2 border-dashed position-relative mb-4 bg-light" id="dropzone">
+                            <input type="file" name="resume" id="resumeInput" accept=".pdf,.docx" class="position-absolute top-0 start-0 w-100 h-100 opacity-0 cursor-pointer" required onchange="handleFileSelect(this)">
+                            
+                            <div id="dropzoneContent">
+                                <div class="avatar-lg bg-primary-subtle text-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 75px; height: 75px;">
+                                    <i class="fas fa-cloud-arrow-up fa-2x"></i>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-1">Drag and drop your resume file here</h5>
+                                <p class="text-muted small mb-3">Supports PDF (.pdf) and Microsoft Word (.docx) up to 10MB</p>
+                                <span class="btn btn-outline-primary btn-sm rounded-pill px-4">
+                                    <i class="fas fa-folder-open me-2"></i> Browse Computer
+                                </span>
+                            </div>
+
+                            <!-- Selected File Indicator -->
+                            <div id="fileSelectedArea" class="d-none">
+                                <div class="avatar-lg bg-success-subtle text-success rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                    <i class="fas fa-file-contract fa-2x"></i>
+                                </div>
+                                <h6 class="fw-bold text-dark mb-1" id="fileNameDisplay">filename.pdf</h6>
+                                <p class="text-muted small mb-3" id="fileSizeDisplay">0 KB</p>
+                                <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="resetFileSelect()">
+                                    <i class="fas fa-times me-1"></i> Change File
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Processing Indicator Overlay -->
+                        <div id="processingOverlay" class="d-none text-center py-4">
+                            <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-1">Analyzing Resume with AI Engine...</h5>
+                            <p class="text-muted small mb-0">Extracting skills, parsing experience, scoring metrics, and generating job recommendations.</p>
+                        </div>
+
+                        <!-- Register Number (Optional for Guest) -->
+                        <div class="row g-3 align-items-center mb-4">
+                            <div class="col-md-6">
+                                <label for="register_number" class="form-label fw-semibold text-secondary small">Student Register / Roll Number (Optional)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fas fa-id-card text-muted"></i></span>
+                                    <input type="text" name="register_number" id="register_number" class="form-control border-start-0 ps-0" placeholder="e.g. REG20261001">
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p class="small text-muted mb-0 mt-3 mt-md-0">
+                                    <i class="fas fa-shield-alt text-success me-1"></i> Your resume is parsed securely and never shared.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold shadow-sm py-3" id="submitBtn">
+                                <i class="fas fa-bolt me-2"></i> Launch AI Resume Analysis
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Feature Cards Section -->
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                        <div class="text-primary mb-2"><i class="fas fa-chart-line fa-2x"></i></div>
+                        <h6 class="fw-bold">AI Resume Score</h6>
+                        <p class="small text-muted mb-0">Calculated out of 100 across 6 technical parameters.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                        <div class="text-success mb-2"><i class="fas fa-bullseye fa-2x"></i></div>
+                        <h6 class="fw-bold">Skill Gap Analysis</h6>
+                        <p class="small text-muted mb-0">Identifies missing frameworks and recommended resources.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                        <div class="text-indigo mb-2" style="color: #6366f1;"><i class="fas fa-briefcase fa-2x"></i></div>
+                        <h6 class="fw-bold">Job Role Matching</h6>
+                        <p class="small text-muted mb-0">Matches profile against 10 in-demand tech roles.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                        <div class="text-warning mb-2"><i class="fas fa-route fa-2x"></i></div>
+                        <h6 class="fw-bold">16-Week Roadmap</h6>
+                        <p class="small text-muted mb-0">Custom step-by-step career path & PDF report export.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+.border-dashed {
+    border-style: dashed !important;
+}
+.upload-dropzone {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    transition: all 0.25s ease-in-out;
+}
+.upload-dropzone:hover {
+    border-color: #6366f1;
+    background-color: #eef2ff;
+}
+</style>
+
+<script>
+function handleFileSelect(input) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        
+        if (file.size > 10 * 1024 * 1024) {
+            alert('File size exceeds maximum limit of 10MB.');
+            input.value = '';
+            return;
+        }
+        
+        document.getElementById('dropzoneContent').classList.add('d-none');
+        document.getElementById('fileSelectedArea').classList.remove('d-none');
+        document.getElementById('fileNameDisplay').textContent = file.name;
+        document.getElementById('fileSizeDisplay').textContent = fileSizeMB + ' MB';
+    }
+}
+
+function resetFileSelect() {
+    const input = document.getElementById('resumeInput');
+    input.value = '';
+    document.getElementById('dropzoneContent').classList.remove('d-none');
+    document.getElementById('fileSelectedArea').classList.add('d-none');
+}
+
+document.getElementById('resumeForm').addEventListener('submit', function() {
+    document.getElementById('dropzone').classList.add('d-none');
+    document.getElementById('submitBtn').classList.add('d-none');
+    document.getElementById('processingOverlay').classList.remove('d-none');
+});
+</script>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'student/student_base.html' %}
+
+{% block title %}My Applications & Interviews - Student Portal{% endblock %}
+{% block page_header %}My Applications & Interview Invitations{% endblock %}
+
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col-md-8">
+        <h4 class="fw-bold text-dark mb-1"><i class="fas fa-list-check text-primary me-2"></i> Application Status & Interview Track</h4>
+        <p class="text-muted mb-0">Track your recruitment progress, application status changes, and scheduled interview calls.</p>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="{{ url_for('student.jobs') }}" class="btn btn-primary btn-sm rounded-pill px-3 shadow-sm">
+            <i class="fas fa-search me-1"></i> Browse More Jobs
+        </a>
+    </div>
+</div>
+
+<!-- Scheduled Interviews Alert Cards -->
+{% if interviews %}
+<div class="card border-0 shadow-sm rounded-3 p-4 mb-4 bg-primary-subtle border-start border-primary border-4">
+    <h5 class="fw-bold text-primary mb-3"><i class="fas fa-calendar-check me-2"></i> Scheduled Interview Invitations ({{ interviews|length }})</h5>
+    <div class="row g-3">
+        {% for iv in interviews %}
+        <div class="col-md-6">
+            <div class="p-3 bg-white rounded-3 border shadow-xs">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h6 class="fw-bold text-dark mb-0">{{ iv.job_title }}</h6>
+                    <span class="badge bg-success rounded-pill">{{ iv.interview_type }}</span>
+                </div>
+                <p class="text-muted small mb-2"><i class="fas fa-building me-1 text-primary"></i> {{ iv.company_name }}</p>
+                <div class="p-2 bg-light rounded text-primary fw-semibold small mb-2">
+                    <i class="fas fa-clock me-1"></i> {{ iv.interview_date }} at {{ iv.interview_time }}
+                </div>
+                {% if iv.location_or_link %}
+                    <p class="mb-1 small"><strong>Venue / Link:</strong> <a href="{{ iv.location_or_link }}" target="_blank" class="text-decoration-none">{{ iv.location_or_link }}</a></p>
+                {% endif %}
+                {% if iv.notes %}
+                    <p class="mb-0 small text-muted"><strong>Notes:</strong> {{ iv.notes }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- My Job Applications Table -->
+<div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+    <div class="card-header bg-white p-3 border-bottom d-flex align-items-center justify-content-between">
+        <h5 class="fw-bold text-dark mb-0"><i class="fas fa-file-invoice text-primary me-2"></i> Submitted Job Applications</h5>
+        <span class="badge bg-primary rounded-pill">{{ applications|length }} Applications</span>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Job Title & Company</th>
+                    <th>Salary Package</th>
+                    <th>Location</th>
+                    <th>AI Match Score</th>
+                    <th>Status</th>
+                    <th>Applied Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if applications %}
+                    {% for app in applications %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="{{ url_for('static', filename='uploads/company_logos/' + (app.company_logo or 'default_company.png')) }}" alt="Company Logo" class="rounded-circle border" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.src='{{ url_for('static', filename='uploads/company_logos/default_company.png') }}'">
+                                <div>
+                                    <div class="fw-bold text-dark">{{ app.job_title }}</div>
+                                    <small class="text-muted">{{ app.company_name }}</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td><strong class="text-success">{{ app.salary_package }}</strong></td>
+                        <td><small class="text-muted">{{ app.job_location }}</small></td>
+                        <td>
+                            <span class="badge bg-light text-primary border">{{ app.match_score }}% Match</span>
+                        </td>
+                        <td>
+                            {% if app.status == 'Applied' %}
+                                <span class="badge bg-secondary rounded-pill">Applied</span>
+                            {% elif app.status == 'Shortlisted' %}
+                                <span class="badge bg-warning text-dark rounded-pill px-3"><i class="fas fa-star me-1"></i> Shortlisted</span>
+                            {% elif app.status == 'Interview Scheduled' %}
+                                <span class="badge bg-info text-white rounded-pill px-3"><i class="fas fa-calendar me-1"></i> Interview Scheduled</span>
+                            {% elif app.status == 'Selected' %}
+                                <span class="badge bg-success rounded-pill px-3"><i class="fas fa-trophy me-1"></i> Selected / Hired</span>
+                            {% elif app.status == 'Rejected' %}
+                                <span class="badge bg-danger rounded-pill px-3">Rejected</span>
+                            {% endif %}
+                        </td>
+                        <td><small class="text-muted">{{ app.applied_at[:10] }}</small></td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center py-5 text-muted">
+                            <i class="fas fa-inbox fa-2x mb-3 text-secondary d-block"></i>
+                            You have not submitted any job applications yet.
+                            <div class="mt-2">
+                                <a href="{{ url_for('student.jobs') }}" class="btn btn-sm btn-primary rounded-pill">Browse Campus Jobs</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

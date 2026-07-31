@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Company Recruitment Portal - PlacementIQ AI{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Company Portal CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/company.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="company-body">
+
+    <div class="company-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="company-sidebar" id="companySidebar">
+            <div class="company-sidebar-header">
+                <a href="{{ url_for('company.dashboard') }}" class="company-sidebar-brand">
+                    <div class="company-brand-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <span>Placement<span style="color: #60a5fa;">Recruit</span></span>
+                </a>
+            </div>
+
+            <ul class="company-sidebar-menu">
+                <li class="company-menu-label">Recruitment Hub</li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('company.dashboard') }}" class="company-menu-link {% if request.endpoint == 'company.dashboard' %}active{% endif %}">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('company.profile') }}" class="company-menu-link {% if request.endpoint == 'company.profile' %}active{% endif %}">
+                        <i class="fas fa-id-card"></i>
+                        <span>Company Profile</span>
+                    </a>
+                </li>
+
+                <li class="company-menu-label">Jobs & AI Candidate Matching</li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('company.jobs_list') }}" class="company-menu-link {% if 'jobs' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Job Postings</span>
+                    </a>
+                </li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('company.candidate_list') }}" class="company-menu-link {% if 'candidate' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-users"></i>
+                        <span>Applicants & Candidates</span>
+                    </a>
+                </li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('company.interviews_list') }}" class="company-menu-link {% if 'interview' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Interviews</span>
+                    </a>
+                </li>
+
+                <li class="company-menu-label">Analytics & Reports</li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('company.analytics') }}" class="company-menu-link {% if request.endpoint == 'company.analytics' %}active{% endif %}">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Recruitment Analytics</span>
+                    </a>
+                </li>
+
+                <li class="company-menu-label">Public Portals</li>
+                <li class="company-menu-item">
+                    <a href="{{ url_for('public.home') }}" class="company-menu-link" target="_blank">
+                        <i class="fas fa-globe"></i>
+                        <span>PlacementIQ Home</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="company-sidebar-footer">
+                <div class="company-user-card">
+                    <img src="{{ url_for('static', filename='uploads/company_logos/' + session.get('company_logo', 'default_company.png')) }}" alt="Company Logo" class="company-logo-avatar" onerror="this.src='{{ url_for('static', filename='uploads/company_logos/default_company.png') }}'">
+                    <div class="company-user-info">
+                        <div class="company-user-name">{{ session.get('company_name', 'Company Portal') }}</div>
+                        <div class="company-user-role"><i class="fas fa-circle text-success" style="font-size: 0.5rem;"></i> Active Recruiter</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <div class="company-content">
+            <!-- Header Navbar -->
+            <header class="company-header">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-light d-lg-none" id="sidebarToggleBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="header-title">{% block page_header %}Recruitment Portal{% endblock %}</h4>
+                </div>
+
+                <div class="header-actions">
+                    <a href="{{ url_for('notifications.hub') }}" class="btn btn-light btn-sm rounded-circle position-relative me-1" title="Notification Hub" style="width: 36px; height: 36px;">
+                        <i class="fas fa-bell text-secondary"></i>
+                        {% if unread_notif_count > 0 %}
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                                {{ unread_notif_count }}
+                            </span>
+                        {% endif %}
+                    </a>
+                    <a href="{{ url_for('company.job_create') }}" class="btn btn-primary btn-sm rounded-pill px-3">
+                        <i class="fas fa-plus me-1"></i> Post New Job
+                    </a>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle rounded-pill px-3" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item" href="{{ url_for('company.profile') }}"><i class="fas fa-id-card me-2"></i> Profile Settings</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('company.jobs_list') }}"><i class="fas fa-briefcase me-2"></i> Manage Jobs</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="{{ url_for('company.logout') }}"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Body -->
+            <main class="company-main-body">
+                <!-- Flash Notification Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show border-0 shadow-sm" role="alert">
+                                <i class="fas {% if category == 'success' %}fa-check-circle{% elif category == 'danger' %}fa-exclamation-triangle{% else %}fa-info-circle{% endif %} me-2"></i>
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                {% block content %}{% endblock %}
+            </main>
+
+            <!-- Footer -->
+            <footer class="company-footer">
+                <div>&copy; 2026 PlacementIQ AI Recruitment Portal. All rights reserved.</div>
+                <div><i class="fas fa-shield-alt text-primary me-1"></i> Session-based Secure Portal</div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('sidebarToggleBtn');
+            const sidebar = document.getElementById('companySidebar');
+            if (toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

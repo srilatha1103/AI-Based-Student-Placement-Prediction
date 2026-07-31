@@ -1,0 +1,93 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}Analytics Dashboard - PlacementIQ Admin{% endblock %}
+{% block page_title %}Analytics & Visual Insights{% endblock %}
+
+{% block content %}
+<div class="row g-4 mb-4">
+    <!-- Chart 1: Placed vs Not Placed Doughnut Chart -->
+    <div class="col-lg-4">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-chart-pie text-primary"></i> Placed vs Unplaced</h3>
+            </div>
+            <div style="height: 260px; position: relative;">
+                <canvas id="placedVsUnplacedChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 2: Department-wise Placement Rate Bar Chart -->
+    <div class="col-lg-8">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-building text-info"></i> Department Placement Rate (%)</h3>
+            </div>
+            <div style="height: 260px; position: relative;">
+                <canvas id="deptPlacementChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <!-- Chart 3: Average CGPA by Department Bar Chart -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-graduation-cap text-success"></i> Avg CGPA by Department</h3>
+            </div>
+            <div style="height: 260px; position: relative;">
+                <canvas id="deptCgpaChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 4: Internship vs Placement Grouped Bar Chart -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-briefcase text-warning"></i> Internship vs Placement</h3>
+            </div>
+            <div style="height: 260px; position: relative;">
+                <canvas id="internshipPlacementChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <!-- Chart 5: Certification Count vs Placement Line Chart -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-certificate text-purple" style="color: #8b5cf6;"></i> Certifications vs Placement Rate</h3>
+            </div>
+            <div style="height: 260px; position: relative;">
+                <canvas id="certPlacementChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart 6: Monthly Prediction Volume Trend Line Chart -->
+    <div class="col-lg-6">
+        <div class="dashboard-card h-100">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-chart-line text-primary"></i> Monthly Prediction Volume</h3>
+            </div>
+            <div style="height: 260px; position: relative;">
+                <canvas id="monthlyPredictionChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const analyticsData = {{ data|tojson|safe }};
+        initAnalyticsCharts(analyticsData);
+    });
+</script>
+{% endblock %}

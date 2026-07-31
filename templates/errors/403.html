@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}403 Access Forbidden - PlacementIQ AI{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="py-5">
+        <div class="display-1 fw-bold text-warning mb-2">403</div>
+        <h2 class="fw-bold text-dark mb-3">Access Forbidden</h2>
+        <p class="text-muted fs-5 max-w-md mx-auto mb-4">
+            You do not have permission or authorization to access this page. Please log in with appropriate role credentials.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="/" class="btn btn-primary rounded-pill px-4 py-2 fw-bold">
+                <i class="fas fa-home me-2"></i> Return to Home
+            </a>
+            <a href="/student/login" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold">
+                <i class="fas fa-sign-in-alt me-2"></i> Student Login
+            </a>
+            <a href="/company/login" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-bold">
+                <i class="fas fa-building me-2"></i> Recruiter Login
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

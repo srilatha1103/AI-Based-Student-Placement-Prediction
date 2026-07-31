@@ -1,0 +1,72 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}System Settings - PlacementIQ Admin{% endblock %}
+{% block page_title %}Admin & System Settings{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <!-- Admin Password Update Card -->
+    <div class="col-lg-6">
+        <div class="dashboard-card">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-lock text-primary"></i> Change Admin Password</h3>
+            </div>
+
+            <form action="{{ url_for('admin.settings') }}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label text-muted small fw-semibold">Current Password *</label>
+                    <input type="password" name="current_password" class="form-control form-control-dark" required placeholder="Enter current password">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-muted small fw-semibold">New Password *</label>
+                    <input type="password" name="new_password" class="form-control form-control-dark" minlength="6" required placeholder="Minimum 6 characters">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-muted small fw-semibold">Confirm New Password *</label>
+                    <input type="password" name="confirm_password" class="form-control form-control-dark" minlength="6" required placeholder="Re-enter new password">
+                </div>
+
+                <button type="submit" class="btn btn-primary border-0 w-100 py-2.5 fw-semibold" style="background: var(--admin-primary-gradient); border-radius: 10px;">
+                    <i class="fas fa-save me-2"></i> Update Password
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- System Preferences & Information Card -->
+    <div class="col-lg-6">
+        <div class="dashboard-card">
+            <div class="card-header-flex">
+                <h3 class="card-title-text"><i class="fas fa-info-circle text-info"></i> System Environment</h3>
+                <span class="badge badge-active">v2.0 Admin</span>
+            </div>
+
+            <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25 mb-4">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Backend Framework:</span>
+                    <span class="fw-semibold small text-white">Python Flask 3.0+</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Database Engine:</span>
+                    <span class="fw-semibold small text-white">SQLite3 (instance/placement.db)</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">ML Algorithm:</span>
+                    <span class="fw-semibold small text-success">Random Forest Classifier</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted small">Active Account:</span>
+                    <span class="fw-bold small text-primary">{{ session.get('admin_user', 'admin') }}</span>
+                </div>
+            </div>
+
+            <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
+                <h6 class="text-white small fw-bold mb-2"><i class="fas fa-shield-alt text-warning me-1"></i> Security & Authentication Notes:</h6>
+                <p class="text-muted small mb-0">Admin authentication uses Flask session cookies combined with Werkzeug PBKDF2 password hashing. Unauthorized access to all <code>/admin/*</code> routes is strictly blocked.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

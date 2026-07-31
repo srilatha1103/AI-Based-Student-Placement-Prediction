@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Placement Prediction Form - PlacementIQ{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 0 auto;">
+    
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="badge"><i class="fas fa-magic"></i> AI Predictor</span>
+        <h1 style="font-size: 2.5rem; font-weight: 800; margin-top: 0.5rem;">
+            Student Placement <span class="gradient-text">Probability Calculator</span>
+        </h1>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+            Adjust the sliders below to match your profile attributes and run the Random Forest model.
+        </p>
+    </div>
+
+    <!-- Input Form -->
+    <div class="glass-card">
+        <form id="placement-form" class="needs-validation" novalidate>
+            
+            <!-- Section 1: Personal & Department Details -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-id-card"></i> Personal & Department Info</h3>
+                <div class="form-grid">
+                    <!-- Student Name -->
+                    <div class="form-group">
+                        <label for="student_name" class="form-label">
+                            <span><i class="fas fa-user"></i> Student Name</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-user-edit input-icon"></i>
+                            <input type="text" id="student_name" name="student_name" class="form-control" required placeholder="e.g. John Doe" pattern="^[a-zA-Z\s]{3,50}$" autocomplete="off">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Name must only contain letters (3-50 chars).</span>
+                    </div>
+
+                    <!-- Register Number -->
+                    <div class="form-group">
+                        <label for="register_number" class="form-label">
+                            <span><i class="fas fa-fingerprint"></i> Register Number</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-hashtag input-icon"></i>
+                            <input type="text" id="register_number" name="register_number" class="form-control" required placeholder="e.g. 212221230101" pattern="^[a-zA-Z0-9-]{5,20}$" autocomplete="off">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Alphanumeric Register No (5-20 characters).</span>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-group full-width">
+                        <label for="department" class="form-label">
+                            <span><i class="fas fa-building-user"></i> Academic Department</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-graduation-cap input-icon"></i>
+                            <select id="department" name="department" class="form-control" required>
+                                <option value="" disabled selected>Select your department</option>
+                                <option value="Computer Science and Engineering">Computer Science & Engineering (CSE)</option>
+                                <option value="Information Technology">Information Technology (IT)</option>
+                                <option value="Electronics and Communication Engineering">Electronics & Communication (ECE)</option>
+                                <option value="Electrical and Electronics Engineering">Electrical & Electronics (EEE)</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering (ME)</option>
+                                <option value="Civil Engineering">Civil Engineering (CE)</option>
+                                <option value="Artificial Intelligence and Data Science">Artificial Intelligence & Data Science (AI-DS)</option>
+                                <option value="Other">Other Department</option>
+                            </select>
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Please select your department.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Academic Track Record -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-user-graduate"></i> Academic Track Record</h3>
+                <div class="form-grid">
+                    <!-- CGPA -->
+                    <div class="form-group">
+                        <label for="cgpa" class="form-label">
+                            <span><i class="fas fa-star-half-stroke"></i> Academic CGPA</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-award input-icon"></i>
+                            <input type="number" id="cgpa" name="cgpa" class="form-control" required min="0.0" max="10.0" step="0.01" placeholder="e.g. 8.45">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Required value between 0.00 and 10.00.</span>
+                    </div>
+
+                    <!-- 10th Percentage -->
+                    <div class="form-group">
+                        <label for="tenth_percentage" class="form-label">
+                            <span><i class="fas fa-percent"></i> 10th Percentage</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-percentage input-icon"></i>
+                            <input type="number" id="tenth_percentage" name="tenth_percentage" class="form-control" required min="0.0" max="100.0" step="0.01" placeholder="e.g. 92.50">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Percentage value between 0.00 and 100.00.</span>
+                    </div>
+
+                    <!-- 12th Percentage -->
+                    <div class="form-group">
+                        <label for="twelfth_percentage" class="form-label">
+                            <span><i class="fas fa-percent"></i> 12th Percentage</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-percentage input-icon"></i>
+                            <input type="number" id="twelfth_percentage" name="twelfth_percentage" class="form-control" required min="0.0" max="100.0" step="0.01" placeholder="e.g. 89.00">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Percentage value between 0.00 and 100.00.</span>
+                    </div>
+
+                    <!-- Active Backlogs -->
+                    <div class="form-group">
+                        <label for="backlogs" class="form-label">
+                            <span><i class="fas fa-exclamation-triangle"></i> Active Backlogs</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-book-open input-icon"></i>
+                            <input type="number" id="backlogs" name="backlogs" class="form-control" required min="0" max="20" step="1" placeholder="e.g. 0">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Must be 0 or a positive integer.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Skill Set & Assessments -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-sliders"></i> Skill Set & Assessments</h3>
+                <div class="form-grid">
+                    <!-- Aptitude Score -->
+                    <div class="form-group">
+                        <label for="aptitude_score" class="form-label">
+                            <span><i class="fas fa-brain"></i> Aptitude Test Score</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-lightbulb input-icon"></i>
+                            <input type="number" id="aptitude_score" name="aptitude_score" class="form-control" required min="0" max="100" step="1" placeholder="e.g. 78">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Score from 0 to 100.</span>
+                    </div>
+
+                    <!-- Coding Score -->
+                    <div class="form-group">
+                        <label for="coding_score" class="form-label">
+                            <span><i class="fas fa-terminal"></i> Coding Skill Score</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-code input-icon"></i>
+                            <input type="number" id="coding_score" name="coding_score" class="form-control" required min="0" max="100" step="1" placeholder="e.g. 85">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Score from 0 to 100.</span>
+                    </div>
+
+                    <!-- Number of Certifications -->
+                    <div class="form-group">
+                        <label for="certifications" class="form-label">
+                            <span><i class="fas fa-certificate"></i> Certifications</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-scroll input-icon"></i>
+                            <input type="number" id="certifications" name="certifications" class="form-control" required min="0" max="20" step="1" placeholder="e.g. 2">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Must be 0 or a positive integer.</span>
+                    </div>
+
+                    <!-- Projects Completed -->
+                    <div class="form-group">
+                        <label for="projects_completed" class="form-label">
+                            <span><i class="fas fa-cubes"></i> Completed Projects</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-briefcase input-icon"></i>
+                            <input type="number" id="projects_completed" name="projects_completed" class="form-control" required min="0" max="20" step="1" placeholder="e.g. 3">
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Must be 0 or a positive integer.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Communication & Career Background -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-briefcase-clock"></i> Communication & Internship</h3>
+                <div class="form-grid">
+                    <!-- Communication Skill -->
+                    <div class="form-group">
+                        <label for="communication_skill" class="form-label">
+                            <span><i class="fas fa-comments"></i> Communication Skill</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-comment-dots input-icon"></i>
+                            <select id="communication_skill" name="communication_skill" class="form-control" required>
+                                <option value="" disabled selected>Select level</option>
+                                <option value="Poor">Poor</option>
+                                <option value="Average">Average</option>
+                                <option value="Good">Good</option>
+                                <option value="Excellent">Excellent</option>
+                            </select>
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Select a communication skill level.</span>
+                    </div>
+
+                    <!-- Internship -->
+                    <div class="form-group">
+                        <label for="internship" class="form-label">
+                            <span><i class="fas fa-business-time"></i> Internship Experience</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-check-double input-icon"></i>
+                            <select id="internship" name="internship" class="form-control" required>
+                                <option value="" disabled selected>Select option</option>
+                                <option value="Yes">Yes, completed internship(s)</option>
+                                <option value="No">No internship experience</option>
+                            </select>
+                            <div class="validation-icon"><i class="fas"></i></div>
+                        </div>
+                        <span class="validation-msg">Specify if you have internship experience.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="margin-top: 2.5rem;">
+                <button type="submit" id="submit-btn" class="cta-btn" style="width: 100%; justify-content: center; padding: 0.95rem; font-size: 1.05rem;">
+                    <i class="fas fa-spinner fa-spin" id="btn-spinner" style="display: none; margin-right: 0.5rem;"></i>
+                    <i class="fas fa-bolt" id="btn-bolt" style="margin-right: 0.5rem;"></i>
+                    <span id="btn-text">Predict Placement Chance</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results Panel -->
+    <div id="result-panel" class="result-panel">
+        <div class="glass-card" style="margin-top: 2rem;">
+            
+            <!-- Placement Assessment Header -->
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.2rem; margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.75rem;">
+                <div class="brand-icon" style="width: 38px; height: 38px; font-size: 0.95rem; background: linear-gradient(135deg, var(--secondary), var(--accent));">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div>
+                    <h3 id="result-title" style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--text-primary);">Placement Report</h3>
+                    <span id="result-subtitle" style="font-size: 0.82rem; color: var(--text-secondary);">Register No: - | Department: -</span>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                
+                <!-- Probability Gauge Output -->
+                <div class="gauge-box">
+                    <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Estimated Likelihood
+                    </div>
+                    <div class="prob-number" id="result-prob">0%</div>
+                    <h3 id="result-status" style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">Processing...</h3>
+                    <div id="result-badge" class="status-tag">Status</div>
+                </div>
+
+                <!-- Radar Chart Visualization -->
+                <div style="height: 280px; position: relative;">
+                    <canvas id="radarChart"></canvas>
+                </div>
+
+            </div>
+
+            <!-- AI Recommendations Section -->
+            <div style="margin-top: 2.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">
+                    <i class="fas fa-robot" style="color: var(--primary);"></i> AI Placement Recommendations
+                </h3>
+                <div class="rec-list" id="recommendations-list">
+                    <!-- Dynamic Recommendation Cards Inserted via JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

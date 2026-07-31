@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title|default("PlacementIQ Notification") }}</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }
+        .email-container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .email-header { background: linear-gradient(135deg, #1e40af, #3b82f6); padding: 30px 20px; text-align: center; color: #ffffff; }
+        .email-header h1 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
+        .email-body { padding: 30px 25px; line-height: 1.6; font-size: 15px; }
+        .btn-cta { display: inline-block; background-color: #2563eb; color: #ffffff !important; padding: 12px 28px; border-radius: 25px; font-weight: bold; text-decoration: none; margin-top: 20px; text-align: center; }
+        .email-footer { background-color: #f1f5f9; padding: 20px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Placement<span style="color: #60a5fa;">IQ</span> AI</h1>
+            <p style="margin: 5px 0 0; opacity: 0.9; font-size: 14px;">Smart Student Placement & Recruitment Intelligence</p>
+        </div>
+        <div class="email-body">
+            {% block email_content %}
+                <h3 style="color: #1e40af; margin-top: 0;">Hi {{ name|default("User") }},</h3>
+                <p>{{ message }}</p>
+
+                {% if button_text and button_url %}
+                    <div style="text-align: center; margin: 25px 0;">
+                        <a href="{{ button_url }}" class="btn-cta">{{ button_text }}</a>
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+        <div class="email-footer">
+            <p style="margin: 0 0 5px;">&copy; 2026 PlacementIQ AI System. All rights reserved.</p>
+            <p style="margin: 0;">This is an automated notification from PlacementIQ. Please do not reply directly to this email.</p>
+        </div>
+    </div>
+</body>
+</html>

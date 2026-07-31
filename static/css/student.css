@@ -1,0 +1,266 @@
+/* ==========================================================================
+   PlacementIQ Student Portal Professional Blue-and-White Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --student-bg: #f8fafc;
+    --student-card-bg: #ffffff;
+    --student-sidebar-bg: #0f172a;
+    --student-border: #e2e8f0;
+    --student-primary: #1e40af;
+    --student-primary-light: #3b82f6;
+    --student-primary-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    --student-success: #10b981;
+    --student-success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --student-warning: #f59e0b;
+    --student-warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --student-danger: #ef4444;
+    --student-danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --student-info: #0284c7;
+    --student-info-gradient: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    --student-text-main: #1e293b;
+    --student-text-muted: #64748b;
+    --student-sidebar-width: 260px;
+    --student-header-height: 70px;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+body.student-body {
+    background-color: var(--student-bg);
+    color: var(--student-text-main);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* ---------------------------------------------------------
+   Student Portal Layout Structure
+   --------------------------------------------------------- */
+.student-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.student-sidebar {
+    width: var(--student-sidebar-width);
+    background-color: var(--student-sidebar-bg);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.student-sidebar-header {
+    height: var(--student-header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.student-sidebar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.student-brand-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--student-primary-gradient);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.student-sidebar-menu {
+    list-style: none;
+    padding: 1.25rem 0.75rem;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.student-menu-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    padding: 0.75rem 1rem 0.35rem;
+}
+
+.student-menu-item {
+    margin-bottom: 0.35rem;
+}
+
+.student-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.student-menu-link i {
+    font-size: 1.1rem;
+    width: 22px;
+    text-align: center;
+}
+
+.student-menu-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.student-menu-link.active {
+    color: #ffffff;
+    background: var(--student-primary-gradient);
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(30, 64, 175, 0.4);
+}
+
+.student-main {
+    margin-left: var(--student-sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: margin-left 0.3s ease;
+}
+
+.student-navbar {
+    height: var(--student-header-height);
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--student-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 990;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.student-content {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* ---------------------------------------------------------
+   Cards & Components
+   --------------------------------------------------------- */
+.student-card {
+    background: var(--student-card-bg);
+    border: 1px solid var(--student-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(30, 64, 175, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-card:hover {
+    box-shadow: 0 8px 30px rgba(30, 64, 175, 0.1);
+}
+
+.welcome-banner {
+    background: var(--student-primary-gradient);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 10px 25px rgba(30, 64, 175, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    background-color: #f1f5f9;
+}
+
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Form inputs styling */
+.form-control-student, .form-select-student {
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+    color: var(--student-text-main);
+    background-color: #ffffff;
+}
+
+.form-control-student:focus, .form-select-student:focus {
+    border-color: var(--student-primary-light);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Auth Pages Styling */
+.student-auth-body {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.student-auth-card {
+    background: #ffffff;
+    border: 1px solid var(--student-border);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 480px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(30, 64, 175, 0.12);
+}
+
+/* Print PDF styling */
+@media print {
+    .student-sidebar, .student-navbar, .no-print {
+        display: none !important;
+    }
+    .student-main {
+        margin-left: 0 !important;
+    }
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+}
