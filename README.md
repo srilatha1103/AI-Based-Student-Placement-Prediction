@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI-Based Student Placement Prediction System with Company Recruitment Portal & Email Notification Engine
 
 [![Python Version](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
@@ -205,3 +206,7 @@ Run the integration test suite to verify system health:
 python test_system.py
 ```
 **Expected Result:** `Ran 9 tests in ~0.9s - OK (100% Pass)`
+=======
+# AI-Based-Student-Placement-Prediction
+AI-Based Student Placement Prediction System using Python Flask and Machine Learning
+>>>>>>> d6689087c3456ee73abdf3919b90f2a9486ab71e
